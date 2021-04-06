@@ -1,0 +1,126 @@
+;****************************************************************************
+;* SYSCHECK.GBL: HEADER DECLARES ALL GLOBALS FOR THE SYSCHECK MODULE.       *
+;****************************************************************************
+
+;	===============================
+;	| DIAGNOSTICS: ENTRY POINTS   |
+;	===============================
+
+        .GLOBL ROMCHECK                 ; VERIFY ROMS
+        .GLOBL RAMCHECK                 ; VERIFY RAMS
+        .GLOBL DMACHECK                 ; VERIFY DMA CHIP
+        .GLOBL CNVCHECK                 ; MONITOR CONVERGENCE
+        .GLOBL CLRCHECK                 ; MONITOR COLORS
+        .GLOBL CTLCHECK                 ; SWITCH TESTS
+
+        .GLOBL VIEWCNTL                 ; CREATE PLAYER CONTROL DISPLAY
+        .GLOBL VIEWROMS                 ; CREATE ROM BOARD DISPLAY
+        .GLOBL VIEWRAMS                 ; CREATE RAM BOARD DISPLAY
+        .GLOBL RAMSTATE                 ; LIGHT RAM CHIPS
+
+        .GLOBL DIAG,POWERUP                 ; MAIN
+
+;	===============================
+;	| UTILITIES: ENTRY POINTS     |
+;	===============================
+
+        .GLOBL INITCOLR                 ; INITIALIZE PALETTES
+        .GLOBL ADV_BUTTON               ; TEST ADVANCE BUTTON
+	.GLOBAL ADVANCE_WAIT		; WAIT FOR ADVANCE BUTTON
+        .GLOBL ERROR_LED                ; DISPLAY ERROR CODE
+        .GLOBL RECTANGLE                ; DISPLAY RECTANGLE
+        .GLOBL STRING                   ; DISPLAY STRING
+        .GLOBL CIRCLE                   ; DISPLAY CIRCLE
+        .GLOBL HVLINE                   ; DISPLAY HORZ/VERT LINE
+        .GLOBL POINT                    ; DISPLAY POINT
+	.GLOBAL SCRCLR			; CLEAR A SCREEN
+	.GLOBAL	YAMSND
+;	===============================
+;	| DATA TABLES                 |
+;	===============================
+
+        .GLOBL CMOSCHIPS
+        .GLOBL ROMCHIPS
+        .GLOBL IMAGE_ROMS     ;***** LED CHANGE
+        .GLOBL RAMCHIPS
+        .GLOBL PALCHIPS
+
+        .GLOBL ROMBOARD_LABELS
+        .GLOBL ROMBOARD_RECTS
+        .GLOBL ROMBOARD_VECTS
+
+        .GLOBL CPUBOARD_LABELS
+        .GLOBL CPUBOARD_RECTS
+        .GLOBL CPUBOARD_VECTS
+        .GLOBL DMA_CHIP
+	.GLOBL CPU_CHIP
+
+        .GLOBL CONTROL_LABELS
+        .GLOBL CONTROL_CIRCS
+        .GLOBL CONTROL_RECTS
+
+        .GLOBL JOYSTICK1_RIGHT
+        .GLOBL JOYSTICK1_LEFT
+        .GLOBL JOYSTICK1_DOWN
+        .GLOBL JOYSTICK1_UP
+
+        .GLOBL CROUCH1_PRESS
+        .GLOBL JUMP1_PRESS
+        .GLOBL GUN1_PRESS
+        .GLOBL ROCKET1_PRESS
+        .GLOBL P1_START
+
+        .GLOBL JOYSTICK2_RIGHT
+        .GLOBL JOYSTICK2_LEFT
+        .GLOBL JOYSTICK2_DOWN
+        .GLOBL JOYSTICK2_UP
+
+        .GLOBL CROUCH2_PRESS
+        .GLOBL JUMP2_PRESS
+        .GLOBL GUN2_PRESS
+        .GLOBL ROCKET2_PRESS
+        .GLOBL P2_START
+
+        .GLOBL LS_COINS                   ; START OF CMOS TABLE
+
+        .GLOBL AUTOCYC                    ; GAME PRICING SUBFIELDS
+        .GLOBL COINVAULT
+	.GLOBAL	CUTFRENCH
+	.GLOBAL	CUTGERMAN
+        .GLOBL ADVANCE
+	.GLOBL	MEMPROT
+        .GLOBL SLAM_SW
+        .GLOBL LEFT_CS
+        .GLOBL CNTR_CS
+        .GLOBL RIHT_CS
+	.GLOBL	EXTRA_CS
+
+        .GLOBL CONVERGENCE_POINTS
+        .GLOBL CONVERGENCE_VECTS
+
+        .GLOBL PRIMARY_COLORS
+        .GLOBL COLOR_BARS
+
+        .GLOBL IOREG_TABLE_START
+        .GLOBL IOREG_TABLE_END
+
+        .GLOBL TRADEMARK_COLORS_START
+        .GLOBL TRADEMARK_COLORS_END
+
+        .GLOBL COLOR_TABLE_START
+        .GLOBL COLOR_TABLE_END
+
+        .GLOBL LED_TABLE_START
+        .GLOBL LED_TABLE_END
+
+        .GLOBL SRAM_STRING
+        .GLOBL SRAM_TIME
+        .GLOBL SYSFONT
+
+	.GLOBAL	ROMCOMPL
+	.GLOBAL	ROMERRL
+	.GLOBAL	RAMCOMPL
+	.GLOBAL	RAMERRL
+	.GLOBAL	BROMERRL
+	.GLOBAL	BRAMERRL
+

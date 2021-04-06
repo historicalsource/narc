@@ -1,0 +1,371 @@
+	.DATA
+HEAD0:
+	.word	124,173,69,-58
+	.long	>33CEFE0,headpal
+HEAD1:
+	.word	127,174,71,-57
+	.long	>33F8E40,headpal
+HEAD2:
+	.word	137,174,75,-57
+	.long	>3424640,headpal
+HEAD3r:
+	.word	144,154,53,-77
+	.long	>3453F80,headpal
+HEAD4:
+	.word	146,174,75,-56
+	.long	>347F480,headpal
+BASElh2e:
+	.word	81,79,80,-207
+	.long	>34B1940,basepal
+BASEskl:
+	.word	81,79,80,-43
+	.long	>34B1940,basepal
+HED3hat:
+	.word	130,69,67,-58
+	.long	>34BE8A0,headpal
+HED3mou1:
+	.word	98,104,78,-127
+	.long	>34D0540,headpal
+HED3mou2:
+	.word	98,104,78,-127
+	.long	>34E4A40,headpal
+HED3mou3:
+	.word	98,104,78,-127
+	.long	>34F8F40,headpal
+HED3neck:
+	.word	28,102,-20,-127
+	.long	>350D440,headpal
+BOOM5a:
+	.word	97,125,90,-68
+	.long	>3512D80,headxpal
+BOOM5b:
+	.word	79,95,5,-94
+	.long	>352B420,headxpal
+BOOM5c:
+	.word	118,73,55,-158
+	.long	>353A1A0,headxpal
+BOOM6:
+	.word	162,76,78,-155
+	.long	>354B360,headxpal
+stump:
+	.word	120,71,62,-172
+	.long	>35638E0,headxpal
+stumpskl:
+	.word	120,71,61,-8
+	.long	>35638E0,headxpal
+GLAS0:
+	.word	76,24,37,-124
+	.long	>3574320,headpal
+GLAS1:
+	.word	87,25,48,-125
+	.long	>3577C20,headpal
+GLAS2:
+	.word	89,27,58,-123
+	.long	>357C0E0,headpal
+GLAS3:
+	.word	87,23,63,-125
+	.long	>3580E80,headpal
+GLAS3r:
+	.word	87,22,36,-138
+	.long	>3584DC0,headpal
+GLAS4:
+	.word	72,24,65,-126
+	.long	>3588A40,headpal
+GLAS3r2:
+	.word	87,23,30,-128
+	.long	>3580E80,headpal
+TUNG0:
+	.word	24,9,54,-182
+	.long	>358C040,headpal
+TUNG1:
+	.word	31,17,61,-180
+	.long	>358C700,headpal
+TUNG2:
+	.word	32,25,63,-181
+	.long	>358D800,headpal
+TUNG3:
+	.word	31,36,62,-180
+	.long	>358F100,headpal
+TUNG4:
+	.word	31,33,65,-181
+	.long	>3591500,headpal
+TUNG5:
+	.word	31,28,66,-182
+	.long	>3593600,headpal
+TUNG6:
+	.word	32,19,64,-179
+	.long	>3595200,headpal
+TUNG7:
+	.word	37,18,67,-179
+	.long	>3596500,headpal
+TUNG8:
+	.word	35,16,65,-177
+	.long	>3597B80,headpal
+TUNG9:
+	.word	35,19,64,-174
+	.long	>3598D80,headpal
+TUNG0C:
+	.word	24,9,8,5
+	.long	>358C040,headpal
+TUNG1C:
+	.word	31,17,15,7
+	.long	>358C700,headpal
+TUNG2C:
+	.word	32,25,17,6
+	.long	>358D800,headpal
+TUNG3C:
+	.word	31,36,16,7
+	.long	>358F100,headpal
+TUNG4C:
+	.word	31,33,19,6
+	.long	>3591500,headpal
+TUNG5C:
+	.word	31,28,20,5
+	.long	>3593600,headpal
+TUNG6C:
+	.word	32,19,18,8
+	.long	>3595200,headpal
+TUNG7C:
+	.word	37,18,21,8
+	.long	>3596500,headpal
+TUNG8C:
+	.word	35,16,19,10
+	.long	>3597B80,headpal
+TUNG9C:
+	.word	35,19,18,13
+	.long	>3598D80,headpal
+TUNG0SF:
+	.word	24,9,-21,-13
+	.long	>359A2E0,headpal
+TUNG1SF:
+	.word	31,17,-21,-13
+	.long	>359A9A0,headpal
+TUNG2SF:
+	.word	32,25,-14,-12
+	.long	>359BAA0,headpal
+skull4H:
+	.word	100,95,50,-85
+	.long	>359D3A0,skelpal
+jaw4H:
+	.word	44,66,21,-147
+	.long	>35AFC80,skelpal
+tiltup:
+	.word	123,101,61,77
+	.long	>35B5740,skelpal
+tiltdn:
+	.word	99,125,30,69
+	.long	>35CDEA0,skelpal
+skull1:
+	.word	79,117,36,77
+	.long	>35E6540,skelpal
+skull2:
+	.word	83,116,35,78
+	.long	>35F89C0,skelpal
+skull3:
+	.word	91,117,40,79
+	.long	>360BA40,skelpal
+skull4:
+	.word	100,95,43,79
+	.long	>359D3A0,skelpal
+skull5:
+	.word	100,118,44,79
+	.long	>3620AA0,skelpal
+skull6:
+	.word	87,119,38,79
+	.long	>3637B60,skelpal
+skull7:
+	.word	80,119,38,78
+	.long	>364C2A0,skelpal
+jawup1:
+	.word	53,72,15,48
+	.long	>365EC20,skelpal
+jawup2:
+	.word	67,72,25,47
+	.long	>3666A20,skelpal
+jawup3:
+	.word	69,73,25,48
+	.long	>3670320,skelpal
+jawup4:
+	.word	70,73,26,47
+	.long	>367A760,skelpal
+jaw1:
+	.word	55,49,6,10
+	.long	>3684BA0,skelpal
+jaw2:
+	.word	55,61,14,17
+	.long	>368A160,skelpal
+jaw3:
+	.word	49,64,14,18
+	.long	>3690C20,skelpal
+jaw4:
+	.word	44,66,14,17
+	.long	>35AFC80,skelpal
+craneum:
+	.word	82,106,77,59
+	.long	>3697420,skelpal
+spine:
+	.word	27,18,14,11
+	.long	>36A8A60,skelpal
+skcarc:
+	.word	100,76,50,36
+	.long	>36A9A20,skelpal
+bonea0:
+	.word	29,30,13,12
+	.long	>36B87A0,skelpal
+bonea30:
+	.word	33,25,18,10
+	.long	>36BA5A0,skelpal
+bonea60:
+	.word	34,31,20,12
+	.long	>36BC1C0,skelpal
+bonea90:
+	.word	28,33,17,13
+	.long	>36BE4A0,skelpal
+boneb0:
+	.word	33,38,16,21
+	.long	>36C0180,skelpal
+boneb30:
+	.word	27,43,13,24
+	.long	>36C2C40,skelpal
+boneb60:
+	.word	31,44,15,21
+	.long	>36C51E0,skelpal
+boneb90:
+	.word	36,37,16,16
+	.long	>36C7DE0,skelpal
+bonec0:
+	.word	34,28,16,13
+	.long	>36CA780,skelpal
+bonec30:
+	.word	39,36,15,14
+	.long	>36CC700,skelpal
+bonec60:
+	.word	34,39,12,14
+	.long	>36CF400,skelpal
+bonec90:
+	.word	26,38,8,15
+	.long	>36D1FE0,skelpal
+boned0:
+	.word	35,29,19,13
+	.long	>36D4120,skelpal
+boned30:
+	.word	26,37,13,21
+	.long	>36D61C0,skelpal
+boned60:
+	.word	25,43,13,23
+	.long	>36D8220,skelpal
+boned90:
+	.word	25,39,11,20
+	.long	>36DA7C0,skelpal
+meat2a:
+	.word	21,23,10,11
+	.long	>36DC9E0,headxpal
+meat2b:
+	.word	18,26,7,13
+	.long	>36DDB20,headxpal
+meat2c:
+	.word	22,27,9,14
+	.long	>36DEB60,headxpal
+meat2d:
+	.word	23,22,10,12
+	.long	>36DFFA0,headxpal
+meat2e:
+	.word	27,20,13,12
+	.long	>36E1020,headxpal
+meat2f:
+	.word	20,28,10,14
+	.long	>36E21A0,headxpal
+meat2g:
+	.word	20,26,11,13
+	.long	>36E3320,headxpal
+meat2h:
+	.word	26,20,14,8
+	.long	>36E4360,headxpal
+meat2i:
+	.word	27,18,13,8
+	.long	>36E54E0,headxpal
+meat2j:
+	.word	52,27,25,12
+	.long	>36E64A0,headxpal
+meat8a:
+	.word	21,24,6,16
+	.long	>36E9080,headxpal
+meat8b:
+	.word	15,31,5,20
+	.long	>36EA280,headxpal
+meat8c:
+	.word	17,28,10,19
+	.long	>36EB200,headxpal
+meat8d:
+	.word	22,24,15,17
+	.long	>36EC380,headxpal
+meat8e:
+	.word	31,15,21,10
+	.long	>36ED580,headxpal
+meat8f:
+	.word	25,21,17,7
+	.long	>36EE480,headxpal
+meat8g:
+	.word	15,32,11,9
+	.long	>36EF6E0,headxpal
+meat8h:
+	.word	25,21,6,5
+	.long	>36F06E0,headxpal
+meat8i:
+	.word	30,16,8,9
+	.long	>36F1940,headxpal
+meat8j:
+	.word	49,23,24,3
+	.long	>36F2940,headxpal
+meat11a:
+	.word	34,54,24,20
+	.long	>36F4EA0,headxpal
+meat11b:
+	.word	48,43,30,11
+	.long	>36F8B60,headxpal
+meat11c:
+	.word	53,35,25,8
+	.long	>36FCBE0,headxpal
+meat11d:
+	.word	44,44,13,13
+	.long	>3700920,headxpal
+meat11e:
+	.word	30,51,9,24
+	.long	>37045A0,headxpal
+meat11f:
+	.word	48,38,19,29
+	.long	>37078A0,headxpal
+meat11g:
+	.word	39,51,27,30
+	.long	>370B1A0,headxpal
+meat11h:
+	.word	81,28,40,-7
+	.long	>370F160,headxpal
+meat12a:
+	.word	34,23,15,10
+	.long	>3713AE0,headxpal
+meat12b:
+	.word	36,29,15,12
+	.long	>37154C0,headxpal
+meat12c:
+	.word	22,33,10,17
+	.long	>3717560,headxpal
+meat12d:
+	.word	27,33,13,19
+	.long	>3718E20,headxpal
+meat12e:
+	.word	35,21,18,11
+	.long	>371AB00,headxpal
+meat12f:
+	.word	33,32,19,16
+	.long	>371C2A0,headxpal
+meat12g:
+	.word	22,34,13,16
+	.long	>371E6A0,headxpal
+meat12h:
+	.word	30,34,17,14
+	.long	>3720020,headxpal
+meat12i:
+	.word	54,30,27,7
+	.long	>3722220,headxpal
+	.TEXT

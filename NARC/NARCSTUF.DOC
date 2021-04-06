@@ -1,0 +1,114 @@
+Things to do on NARC
+--------------------
+
+x Make player jump hang time longer, this needs to be a playable feature.
+  Also fix bug, holding weapon select while moving, then left off the
+  joystick, player velocity is not zero'd.
+
+x Flame Thrower even extension, there's quite a jump from short to long.
+  If player switches direction, switch Flamer for him.
+
+x Have Loffredo enemies carry different weapons, when you kill him his
+  weapon falls to the ground. Certain enemies should carry drugs and or money
+  these guys will look as if they're going somewhere, the player must chase
+  them in order to get their stache. Surrendering?
+
+- Background area maps, a routine which returns a code pertaining to what
+  an object is standing in (i.e. 0=solid surface, 1 = opening).
+
+x Find a way not to use the interrupt pending flag, if possible.
+
+x Add player/enemy collision with background objects in the movement routines.
+
+x Do text string output routines.
+
+- Driver scoring: Driver hit by explosion(lowest score), driver hit by bullet
+  from the front(middle score), driver hit by bullet from behind(next),
+  finally, driver hit by rocket is the highest scoring.
+
+- Loffredo needs to shoot while laying down, the major velocity to his jump.
+
+x Add the whore snatcher.
+
+x Add Dumpster man.
+
+x Add the sewer dude.
+
+x Possibly use a different collision routine for player bullets, no Z detect.
+
+- Unlimited rockets for 20 secs ?
+
+x Car stuff
+
+x Bonus count, also enemy, dollars, drugs, etc. limiting
+
+x MAKE SURE ALL GETOBJ CALLS ARE CHECKED FOR A BLOCK FAIL
+
+x USE DELSOBJ FOR ANYTHING THAT MIGHT HAVE A SHADOW
+
+x BE CAREFUL WITH KILOBJ, SHADOWS SHOULD BE DELETED BY HAND
+
+x ADD A STRTPLAY FLAG TO INDICATE WHEN THE WAVE PLAY SHOULD BEGIN
+
+x REMOVE GAME START FROM P1 AND P2 ROCKET BOMB BUTTONS, ONCE T & E GET START BUTTONS
+
+x ADD GAMSTATE VARIABLE, 00 = GAMEOVER 01 = TEST 02 = STARTED 03 = INPLAY, ETC.
+
+x FIX HIT WHILE JUMPING FUCK UP
+
+x SINGLE SHOT JUMP BUTTON
+
+x ADD COLLISION VECTOR LIST
+
+x NO DELAY ON JUMP
+
+x CAN SUPER JUMP
+
+x CONTINUOUS ENERGY COUNT DOWN
+
+x BULLET COUNT, DISPLAY ICON AND #. PLAYER GETS ONE SHOT ON SCREEN WHEN OUT.
+
+x ROCKET DISPLAY #
+
+x TWO PART PLAYER SHADOWS
+
+- PLAYER INTERACTION WITH BACKGROUND
+
+x IF PLAYER IS IN BUYIN TIME AT END OF WAVE, PUT HIM BACK AT THE START OF
+  BUYIN TIME AT THE BEGINNING OF THE NEXT WAVE. IF THE PLAYER IS LYING ON
+  THE GROUND, THEN CAN HIM.
+
+x SCROLL BOTH X DIRECS.
+
+x RE-ADJUST PLAYER IF CAUGHT WHILE JUMPING AT END OF WAVE
+
+x DON'T FUCK WITH FLAGS ON PLREINIT
+
+x ADD 0FFFEH,PAL # TO ANIMATION SCRIPT
+
+- 2X BONUS FOR PLAYER WHO FINISHED FIRST, TIE BOTH GET IT
+
+x TAKE THE GAME OUT OF FREE PLAY WHEN WE GET THE COIN ROUTINES
+
+x RESTART AUTO ERASE SCHEME
+
+- RETURN NOBJ TO 200 !!!!!!!!
+
+- MAKE WAVE # SIGNIFICANT TO MORE THAN FOUR BITS IN WAVEINIT, GETWAV AND
+  TESTDISP.
+
+- Have one High Score table per difficulty level if we have big CMOS
+
+x Fix Cadillac bug, car explosion while trunk opening causes lock-up
+
+x MAKE THE BIG CAR EXPLOSION GET ADDED TO THE PLAYER BULLETS LIST
+
+x SOME BUG LETS BULLETS & ROCKETS GET AWAY, FIND IT!
+
+x SOME CADILLAC EXPLOSION LOCK UP
+
+x Make sure that a door cannot be entered within one "Buy-In" time length
+  from the last door entry. This could cause infinite existence!
+
+- Last, but not Least, equate the DEBUG constant in d:\video\sys.inc to 0
+

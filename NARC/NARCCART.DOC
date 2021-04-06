@@ -1,0 +1,104 @@
+
+
+Comments on the Nintendo NARC Cartridge		      George N. Petro  1/31/90
+------------------------------------------------------------------------------
+
+   Controls
+   --------
+	Joystick  - Moves the player up/down/left/right.
+
+	A	  - Holding down this button will make the player fire
+		    bullets continuously.
+		    A short click will make him fire a Rocket Bomb.
+
+	B	  - Holding down this button will make the player crouch.
+		    A short click will make him jump.
+
+        Start	  - Freezes game action.	
+
+	Select    - Nothing.
+
+
+	   The jumping and Rocket Bombing are very difficult.  The program
+	does not seem to handle these very well at times of heavy action.
+	Firing a single bullet also proves to be very difficult.
+
+	   I found that I could overcome the control problems for most of
+	the game. However, trying to kill Mr. Big in the wheelchair is
+	very hard because you must crouch and fire a rocket at the same
+	time.
+
+   Overall
+   -------
+	- Some of the background artwork is not up to par.
+
+	- Player that is behind (in two player mode) should catch up
+	  to the one that is ahead.
+
+	- Only one type of Das Lof Gang enemy appears. There are no
+	  red (fast), blue (carries rockets), or green (lays and fires).
+
+	- Crouched player should NOT be hit by standing Das Lof Gang enemies.
+
+	- Lofs that are about to be busted then get away should walk longer
+	  before they turn and fire.
+
+	- Busted enemies should drop loot (money, drugs, bullets ...).
+
+	- There should be an immeadiate score given for busting an enemy.
+
+	- Loot at edge of screen cannot be picked up.
+
+	- Dogs are relentless! They should give a break to a guy who has
+	  just died.
+
+
+									Page 2
+
+	- Chopper should drop drugs when it is shot down.
+
+	- 25,000 points should be awarded each player for destroying all
+	  of the glassware in the K.R.A.K. Stop.
+
+	- Picking up loot while driving the car should be easier.	
+
+	- Why aren't the dumpsters moveable?
+
+	- Not enough cars show up on the driving wave. It takes too long	
+	  to get another one after you have blown yours up.
+
+	- Dumpster man should explode if he walks over a mine.
+
+	- Dumpster man should always be aggresive. He is not if you enter
+	  his area on foot.
+
+	- Driving wave, overall, needs more enemies.
+
+	- Pimps should be bustable.
+
+	- Pimp artwork is very bad.
+
+	- In the Scrap Heap, where you pick-up the Silver Safe Card, you
+	  should not be able to walk to the end until you kill all of the
+	  Dumpster men.
+
+	- Sgt. Skyhigh is a boring enemy. Make him attack in Y also.
+	
+	- Cash Machine on the Big Bank should spit out $$$ if you are
+	  holding the Green Safe Card.
+
+	- H.Q. Posse enemies should move in formation. Currently they are	
+	  just like the smart Das Lof Gang enemy.
+
+	- H.Q. Posse artwork is worse than the pimp.
+
+	- H.Q. Posse, some members should fire rockets at the player, if
+	  they are carrying them.
+
+
+   I made it as far as the Mr. Big in the wheelchair.  I shot him out once
+   and that was the end.  I feel that this cartridge is a very excellent
+   interpretation of the arcade game.  It's fun to play and very challenging.
+   I sincerely hope that some of my suggestions are implemented so as to
+   improve the quality of the product.
+

@@ -1,0 +1,290 @@
+*****************************************************
+GSP COFF Linker      , Version 3.00   
+*****************************************************
+Wed Apr 05 16:07:20 1989
+
+OUTPUT FILE NAME:   <CHECK512.out>
+ENTRY POINT SYMBOL: "POWERUP"  address: ffe77000
+
+
+MEMORY CONFIGURATION
+
+           name      origin     length     attributes
+         --------   --------   ---------   ----------
+         VRAM       00000000   000200000      RW
+         SRAM       010d0000   000020000      RW
+         CRAM00     01800000   000001000      RW
+         CRAM01     01801000   000001000      RW
+         CRAM02     01802000   000001000      RW
+         CRAM03     01803000   000001000      RW
+         CRAM04     01804000   000001000      RW
+         CRAM05     01805000   000001000      RW
+         CRAM06     01806000   000001000      RW
+         CRAM07     01807000   000001000      RW
+         CRAM08     01808000   000001000      RW
+         CRAM09     01809000   000001000      RW
+         CRAM10     0180a000   000001000      RW
+         CRAM11     0180b000   000001000      RW
+         CRAM12     0180c000   000001000      RW
+         CRAM13     0180d000   000001000      RW
+         CRAM14     0180e000   000001000      RW
+         CRAM15     0180f000   000001000      RW
+         IROM       02000000   000800000      R
+         PROM       ffe77000   00001c000      RX
+         VROM       ffeffc00   000000400      RX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.data      0    00000000    00000000     
+
+.bss       0    010d0000    00000220     UNINITIALIZED
+                  010d0000    00000200     MISCDATA.OBJ (.bss)
+                  010d0200    00000020     CTLCHECK.OBJ (.bss)
+
+.BSS       0    010d0220    00000000     UNINITIALIZED
+
+.text      0    ffe77000    00009c70     
+                  ffe77000    00003610     SYSCHECK.OBJ (.text)
+                  ffe7a610    00000e20     ROMCHECK.OBJ (.text)
+                  ffe7b430    00000bc0     RAMCHECK.OBJ (.text)
+                  ffe7bff0    00000980     TVMCHECK.OBJ (.text)
+                  ffe7c970    00002a80     CTLCHECK.OBJ (.text)
+                  ffe7f3f0    00001880     UTILITIE.OBJ (.text)
+
+.TEXT      0    ffe80c70    00000000     UNINITIALIZED
+
+LABELS     0    ffe80c70    00006c60     
+                  ffe80c70    000026b0     ROMBOARD.OBJ (LABELS)
+                  ffe83320    00001c20     CPUBOARD.OBJ (LABELS)
+                  ffe84f40    00001bb0     CONTROLS.OBJ (LABELS)
+                  ffe86af0    00000de0     MISCDATA.OBJ (LABELS)
+
+RECTS      0    ffe878d0    00002c10     
+                  ffe878d0    000017d0     ROMBOARD.OBJ (RECTS)
+                  ffe890a0    000010a0     CPUBOARD.OBJ (RECTS)
+                  ffe8a140    00000390     TVMONITR.OBJ (RECTS)
+                  ffe8a4d0    00000010     CONTROLS.OBJ (RECTS)
+
+VECTS      0    ffe8a4e0    00001020     
+                  ffe8a4e0    00000150     ROMBOARD.OBJ (VECTS)
+                  ffe8a630    00000150     CPUBOARD.OBJ (VECTS)
+                  ffe8a780    00000d80     TVMONITR.OBJ (VECTS)
+
+POINTS     0    ffe8b500    00000be0     
+                  ffe8b500    00000be0     TVMONITR.OBJ (POINTS)
+
+CIRCLES    0    ffe8c0e0    00000d30     
+                  ffe8c0e0    00000d30     CONTROLS.OBJ (CIRCLES)
+
+CHIPS      0    ffe8ce10    000039a0     
+                  ffe8ce10    00002d10     ROMCHIPS.OBJ (CHIPS)
+                  ffe8fb20    00000c90     RAMCHIPS.OBJ (CHIPS)
+
+CMOSF      0    ffe907b0    00000000     UNINITIALIZED
+
+EDITS      0    ffe907b0    00000000     UNINITIALIZED
+
+MISC       0    ffe907b0    000003e0     
+                  ffe907b0    000003e0     MISCDATA.OBJ (MISC)
+
+FONT       0    ffe90b90    00001af0     
+                  ffe90b90    00001af0     SYSFONT.OBJ (FONT)
+
+
+GLOBAL SYMBOLS
+
+address  name                             address  name
+-------- ----                             -------- ----
+010d0000 .bss                             00000000 edata
+00000000 .data                            00000000 .data
+ffe77000 .text                            010d0000 SRAM_STRING
+ffe8cb80 ADVANCE                          010d0000 .bss
+ffe808f0 ADVANCE_WAIT                     010d0100 SRAM_TIME
+ffe80690 ADV_BUTTON                       010d0220 end
+ffe876e0 BRAMERRL                         ffe77000 POWERUP
+ffe874f0 BROMERRL                         ffe77000 .text
+ffe7fb60 CIRCLE                           ffe7a610 ROMCHECK
+ffe7c3f0 CLRCHECK                         ffe7afa0 VIEWROMS
+ffe907a0 CMOSCHIPS                        ffe7b430 RAMCHECK
+ffe8c900 CNTR_CS                          ffe7b880 VIEWRAMS
+ffe7bff0 CNVCHECK                         ffe7bd10 RAMSTATE
+ffe8cae0 COINVAULT                        ffe7bff0 CNVCHECK
+ffe8a240 COLOR_BARS                       ffe7c3f0 CLRCHECK
+ffe90af0 COLOR_TABLE_END                  ffe7c970 CTLCHECK
+ffe90a50 COLOR_TABLE_START                ffe7f070 VIEWCNTL
+ffe8c0e0 CONTROL_CIRCS                    ffe7f3f0 INITCOLR
+ffe84f40 CONTROL_LABELS                   ffe7f5b0 POINT
+ffe8a4d0 CONTROL_RECTS                    ffe7f640 RECTANGLE
+ffe8b500 CONVERGENCE_POINTS               ffe7f700 HVLINE
+ffe8a780 CONVERGENCE_VECTS                ffe7f890 STRING
+ffe83320 CPUBOARD_LABELS                  ffe7fb60 CIRCLE
+ffe890a0 CPUBOARD_RECTS                   ffe80160 ERROR_LED
+ffe8a630 CPUBOARD_VECTS                   ffe80690 ADV_BUTTON
+ffe892d0 CPU_CHIP                         ffe808f0 ADVANCE_WAIT
+ffe8c270 CROUCH1_PRESS                    ffe80ae0 SCRCLR
+ffe8c5e0 CROUCH2_PRESS                    ffe80b80 YAMSND
+ffe7c970 CTLCHECK                         ffe80c70 ROMBOARD_LABELS
+ffe8ccc0 CUTFRENCH                        ffe80c70 etext
+ffe8cd60 CUTGERMAN                        ffe83320 CPUBOARD_LABELS
+ffe89280 DMA_CHIP                         ffe84f40 CONTROL_LABELS
+ffe80160 ERROR_LED                        ffe850c0 JOYSTICK1_DOWN
+ffe8c7c0 EXTRA_CS                         ffe85150 JOYSTICK1_UP
+ffe8c130 GUN1_PRESS                       ffe851d0 JOYSTICK1_LEFT
+ffe8c4a0 GUN2_PRESS                       ffe85260 JOYSTICK1_RIGHT
+ffe7f700 HVLINE                           ffe85800 JOYSTICK2_DOWN
+ffe8d310 IMAGE_ROMS                       ffe85890 JOYSTICK2_UP
+ffe7f3f0 INITCOLR                         ffe85910 JOYSTICK2_LEFT
+ffe90970 IOREG_TABLE_END                  ffe859a0 JOYSTICK2_RIGHT
+ffe907b0 IOREG_TABLE_START                ffe86af0 ROMCOMPL
+ffe850c0 JOYSTICK1_DOWN                   ffe86d80 ROMERRL
+ffe851d0 JOYSTICK1_LEFT                   ffe86ff0 RAMCOMPL
+ffe85260 JOYSTICK1_RIGHT                  ffe87280 RAMERRL
+ffe85150 JOYSTICK1_UP                     ffe874f0 BROMERRL
+ffe85800 JOYSTICK2_DOWN                   ffe876e0 BRAMERRL
+ffe85910 JOYSTICK2_LEFT                   ffe878d0 ROMBOARD_RECTS
+ffe859a0 JOYSTICK2_RIGHT                  ffe87a10 ROM23
+ffe85890 JOYSTICK2_UP                     ffe87a60 ROM24
+ffe8c1d0 JUMP1_PRESS                      ffe87ab0 ROM41
+ffe8c540 JUMP2_PRESS                      ffe87b00 ROM42
+ffe90b90 LED_TABLE_END                    ffe87b50 ROM59
+ffe90af0 LED_TABLE_START                  ffe87ba0 ROM60
+ffe8c860 LEFT_CS                          ffe87bf0 ROM77
+ffe8cc20 MEMPROT                          ffe87c40 ROM78
+ffe8c310 P1_START                         ffe87c90 ROM25
+ffe8c680 P2_START                         ffe87ce0 ROM26
+ffe90310 PALCHIPS                         ffe87d30 ROM27
+ffe7f5b0 POINT                            ffe87d80 ROM28
+ffe77000 POWERUP                          ffe87dd0 ROM29
+ffe8a140 PRIMARY_COLORS                   ffe87e20 ROM30
+ffe89870 RAM41                            ffe87e70 ROM31
+ffe895a0 RAM42                            ffe87ec0 ROM32
+ffe895f0 RAM43                            ffe87f10 ROM33
+ffe89640 RAM44                            ffe87f60 ROM34
+ffe89690 RAM45                            ffe87fb0 ROM35
+ffe896e0 RAM46                            ffe88000 ROM36
+ffe89730 RAM47                            ffe88050 ROM37
+ffe89780 RAM48                            ffe880a0 ROM38
+ffe897d0 RAM49                            ffe880f0 ROM39
+ffe89910 RAM60                            ffe88140 ROM40
+ffe89960 RAM61                            ffe88190 ROM43
+ffe899b0 RAM62                            ffe881e0 ROM44
+ffe89a00 RAM63                            ffe88230 ROM45
+ffe898c0 RAM65                            ffe88280 ROM46
+ffe89320 RAM68                            ffe882d0 ROM47
+ffe89370 RAM69                            ffe88320 ROM48
+ffe893c0 RAM70                            ffe88370 ROM49
+ffe89410 RAM71                            ffe883c0 ROM50
+ffe89460 RAM72                            ffe88410 ROM51
+ffe894b0 RAM73                            ffe88460 ROM52
+ffe89500 RAM74                            ffe884b0 ROM53
+ffe89820 RAM7                             ffe88500 ROM54
+ffe89550 RAM75                            ffe88550 ROM55
+ffe7b430 RAMCHECK                         ffe885a0 ROM56
+ffe8fb20 RAMCHIPS                         ffe885f0 ROM57
+ffe86ff0 RAMCOMPL                         ffe88640 ROM58
+ffe87280 RAMERRL                          ffe88690 ROM61
+ffe7bd10 RAMSTATE                         ffe886e0 ROM62
+ffe7f640 RECTANGLE                        ffe88730 ROM63
+ffe8c9a0 RIHT_CS                          ffe88780 ROM64
+ffe8c3b0 ROCKET1_PRESS                    ffe887d0 ROM65
+ffe8c720 ROCKET2_PRESS                    ffe88820 ROM66
+ffe87a10 ROM23                            ffe88870 ROM67
+ffe87a60 ROM24                            ffe888c0 ROM68
+ffe87c90 ROM25                            ffe88910 ROM69
+ffe87ce0 ROM26                            ffe88960 ROM70
+ffe87d30 ROM27                            ffe889b0 ROM71
+ffe87d80 ROM28                            ffe88a00 ROM72
+ffe87dd0 ROM29                            ffe88a50 ROM73
+ffe87e20 ROM30                            ffe88aa0 ROM74
+ffe87e70 ROM31                            ffe88af0 ROM75
+ffe87ec0 ROM32                            ffe88b40 ROM76
+ffe87f10 ROM33                            ffe88b90 ROM79
+ffe87f60 ROM34                            ffe88be0 ROM80
+ffe87fb0 ROM35                            ffe88c30 ROM81
+ffe88000 ROM36                            ffe88c80 ROM82
+ffe88050 ROM37                            ffe88cd0 ROM83
+ffe880a0 ROM38                            ffe88d20 ROM84
+ffe880f0 ROM39                            ffe88d70 ROM85
+ffe88140 ROM40                            ffe88dc0 ROM86
+ffe87ab0 ROM41                            ffe88e10 ROM87
+ffe87b00 ROM42                            ffe88e60 ROM88
+ffe88190 ROM43                            ffe88eb0 ROM89
+ffe881e0 ROM44                            ffe88f00 ROM90
+ffe88230 ROM45                            ffe88f50 ROM91
+ffe88280 ROM46                            ffe88fa0 ROM92
+ffe882d0 ROM47                            ffe88ff0 ROM93
+ffe88320 ROM48                            ffe89040 ROM94
+ffe88370 ROM49                            ffe890a0 CPUBOARD_RECTS
+ffe883c0 ROM50                            ffe89280 DMA_CHIP
+ffe88410 ROM51                            ffe892d0 CPU_CHIP
+ffe88460 ROM52                            ffe89320 RAM68
+ffe884b0 ROM53                            ffe89370 RAM69
+ffe88500 ROM54                            ffe893c0 RAM70
+ffe88550 ROM55                            ffe89410 RAM71
+ffe885a0 ROM56                            ffe89460 RAM72
+ffe885f0 ROM57                            ffe894b0 RAM73
+ffe88640 ROM58                            ffe89500 RAM74
+ffe87b50 ROM59                            ffe89550 RAM75
+ffe87ba0 ROM60                            ffe895a0 RAM42
+ffe88690 ROM61                            ffe895f0 RAM43
+ffe886e0 ROM62                            ffe89640 RAM44
+ffe88730 ROM63                            ffe89690 RAM45
+ffe88780 ROM64                            ffe896e0 RAM46
+ffe887d0 ROM65                            ffe89730 RAM47
+ffe88820 ROM66                            ffe89780 RAM48
+ffe88870 ROM67                            ffe897d0 RAM49
+ffe888c0 ROM68                            ffe89820 RAM7
+ffe88910 ROM69                            ffe89870 RAM41
+ffe88960 ROM70                            ffe898c0 RAM65
+ffe889b0 ROM71                            ffe89910 RAM60
+ffe88a00 ROM72                            ffe89960 RAM61
+ffe88a50 ROM73                            ffe899b0 RAM62
+ffe88aa0 ROM74                            ffe89a00 RAM63
+ffe88af0 ROM75                            ffe8a140 PRIMARY_COLORS
+ffe88b40 ROM76                            ffe8a240 COLOR_BARS
+ffe87bf0 ROM77                            ffe8a4d0 CONTROL_RECTS
+ffe87c40 ROM78                            ffe8a4e0 ROMBOARD_VECTS
+ffe88b90 ROM79                            ffe8a630 CPUBOARD_VECTS
+ffe88be0 ROM80                            ffe8a780 CONVERGENCE_VECTS
+ffe88c30 ROM81                            ffe8b500 CONVERGENCE_POINTS
+ffe88c80 ROM82                            ffe8c0e0 CONTROL_CIRCS
+ffe88cd0 ROM83                            ffe8c130 GUN1_PRESS
+ffe88d20 ROM84                            ffe8c1d0 JUMP1_PRESS
+ffe88d70 ROM85                            ffe8c270 CROUCH1_PRESS
+ffe88dc0 ROM86                            ffe8c310 P1_START
+ffe88e10 ROM87                            ffe8c3b0 ROCKET1_PRESS
+ffe88e60 ROM88                            ffe8c4a0 GUN2_PRESS
+ffe88eb0 ROM89                            ffe8c540 JUMP2_PRESS
+ffe88f00 ROM90                            ffe8c5e0 CROUCH2_PRESS
+ffe88f50 ROM91                            ffe8c680 P2_START
+ffe88fa0 ROM92                            ffe8c720 ROCKET2_PRESS
+ffe88ff0 ROM93                            ffe8c7c0 EXTRA_CS
+ffe89040 ROM94                            ffe8c860 LEFT_CS
+ffe80c70 ROMBOARD_LABELS                  ffe8c900 CNTR_CS
+ffe878d0 ROMBOARD_RECTS                   ffe8c9a0 RIHT_CS
+ffe8a4e0 ROMBOARD_VECTS                   ffe8ca40 SLAM_SW
+ffe7a610 ROMCHECK                         ffe8cae0 COINVAULT
+ffe8ce10 ROMCHIPS                         ffe8cb80 ADVANCE
+ffe86af0 ROMCOMPL                         ffe8cc20 MEMPROT
+ffe86d80 ROMERRL                          ffe8ccc0 CUTFRENCH
+ffe80ae0 SCRCLR                           ffe8cd60 CUTGERMAN
+ffe8ca40 SLAM_SW                          ffe8ce10 ROMCHIPS
+010d0000 SRAM_STRING                      ffe8d310 IMAGE_ROMS
+010d0100 SRAM_TIME                        ffe8fb20 RAMCHIPS
+ffe7f890 STRING                           ffe90310 PALCHIPS
+ffe91510 SYSFONT                          ffe907a0 CMOSCHIPS
+ffe90a50 TRADEMARK_COLORS_END             ffe907b0 IOREG_TABLE_START
+ffe90970 TRADEMARK_COLORS_START           ffe90970 IOREG_TABLE_END
+ffe7f070 VIEWCNTL                         ffe90970 TRADEMARK_COLORS_START
+ffe7b880 VIEWRAMS                         ffe90a50 TRADEMARK_COLORS_END
+ffe7afa0 VIEWROMS                         ffe90a50 COLOR_TABLE_START
+ffe80b80 YAMSND                           ffe90af0 COLOR_TABLE_END
+00000000 edata                            ffe90af0 LED_TABLE_START
+010d0220 end                              ffe90b90 LED_TABLE_END
+ffe80c70 etext                            ffe91510 SYSFONT
+
+[187 symbols]

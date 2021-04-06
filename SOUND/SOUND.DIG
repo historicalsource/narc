@@ -1,0 +1,212 @@
+
+ ------ sound codes ------
+
+ 0:  all channels off
+ 1:  CVSD background loop off
+ 2:  CVSD break foreground loop
+	
+ 3:  gunshot 1, DAC, channel 1
+ 4:  gunshot 1, DAC, channel 2
+ 5:  gunshot 2, DAC, channel 1
+ 6:  gunshot 2, DAC, channel 2
+ 7:  CVSD, large explosion
+ 8:  CVSD, rocket launch
+ 9:  failed rocket launch  
+ a:  short garbage can drop (one hit) -- head
+ b:  short garbage can drop (one hit) -- tail
+ c:  button push (from car door open)
+ d:  old car skid (at 30 KHz)
+ e:  engine rev
+ f:  tire squeal
+ 10:  garbage can drop (dumpster fall?)
+ 11:  grunt	0
+ 12:  dumpster man -- lift
+ 13:  grunt	2
+ 14:  ritchie grunt	0
+ 15:  ritchie grunt	1
+ 16:  falling scream
+ 17:  car skid	(old, at 20 KHz with head chopped)
+ 18:  car door open
+ 19:  car door close
+ 1a:  subway 1 (looped, background)
+ 1b:  dumpster man -- throw
+ 1c:  subway 2 -- in tunnel? (looped, background)
+ 1d:  crowd cheer (stolen from Banzai)
+ 1e:  "oh no, the narcs, man"
+ 1f:  old car skid (at 30 KHz)
+ 20:  "you're busted"
+ 21:  "i'm clean"
+ 22:  "don't shoot"
+ 23:  dumpster man -- higher pitched "yeah"
+ 24:  "freeze"
+ 25: 
+ 26:  dumpster man -- lower pitched "yeah"
+ 27:  "let's go"
+ 28:  "roger,chief"
+ 29:  "police"
+ 2a:  "open up"
+ 2b:  "we're on our way"
+ 2c:  "spread 'em"
+ 2d:  "we got it"
+ 2e:  "don't shoot"
+ 2f:  "i give up"
+ 30:  CVSD, large explosion, 10KHz
+ 31:  large explosion, 20K
+ 32:  CVSD, large explosion, 30K
+ 33:  "police, freeze"
+ 34:  "don't shoot, i'm clean"
+ 35:  "busted"
+ 36:  "don't shoot, i give up"
+ 37:  female scream
+ 38:  muffled female scream
+ 39:  female "help"  (SPEED UP)
+ 3a:  female scream (attack only -- for knife stab)
+ 3b:  big bomb	 (10 KHz)
+ 3c:  big bomb	 (20 KHz)
+ 3d:  big bomb	 (30 KHz)
+ 3e:  "aah"  1
+ 3f:  "aah"  2
+ 40:  bullet clang  (20 KHz)
+ 41:  gun cock for ammo pick-up
+ 42:  eugene scream
+ 43:  bullet clang (30 KHz)
+ 44:  knock
+ 45:  "oh no"
+ 46:  "the narcs, man"
+ 47:  warning sound (clown laugh attack, looped)
+ 48:  click from gun cock (button click?)
+ 49:  cell door with fast attack (for bonus countdown)
+ 4a:  crunch and munch 
+ 4b:  knife slash
+ 4c:  deranged clown laugh
+ 4d:  slow crunch
+ 4e:  bit of slow crunch (bug smash?)			       
+ 4f:  jail cell door slam
+ 50:  dog growl
+ 51:  dog bark
+ 52:  dog yelp
+ 53:  click (for roach footstep left)
+ 54:  click (for roach footstep right)
+ 55:  mr big laugh
+ 56:  "get 'em"
+ 57:  "kill 'em"
+ 58:  "you die, cop"
+ 59:  "nice try, narc"
+ 5a:  chief -- "narc1"  (beginning of phrase)
+ 5b:  "narc1"  (end of phrase)
+ 5c:  "where the hell are you?"
+ 5d:  "get on it!"
+ 5e:  "nice job"
+ 5f:  "we need backup"
+ 60:  "suspect armed"
+ 61:  "armed"
+ 62:  2nd "two"
+ 63:  3rd "three"
+ 64:  2nd "four"
+ 65:  1st "five"
+ 66:  1st "six"
+ 67:  1st "seven"
+ 68:  2nd "one"
+ 69:  3rd "one"
+ 6a:  "attention, all units"
+ 6b:  "APB"
+ 6c:  "at large"
+ 6d:  "we want his ass"
+ 6e:  "in progress"
+ 6f:  "possible"
+ 70:  "do you copy?"
+ 71:  "pick 'em up"
+ 72:  "code red"
+ 73:  "bust 'em
+ 74:  "watch it"
+ 75:  "mr. big sighted"
+ 76:  "sighted"
+ 77:  3rd "two"
+ 78:  "all units"
+ 79:  "five-four-three"
+ 7a:  "four-three"
+ 7b:  "suspect"
+ 7c:  "suspect, at large"
+ 7d:		null
+ 7e:
+ 7f:  
+ 80:  short car screech (hit boundary)
+ 81:  jail cell door slam, half speed
+ 82:		null
+ 83:		null
+ 83:		null
+ 85:		null
+ 86:		null
+ 87:		null
+ 88:		null
+ 89:		null
+ 8a:		null
+ 8b:		null
+ 8c:		null
+ 8d:		null
+ 8e:		null
+ 8f:		null
+ 90:  511
+ 91:  512
+ 92:  513
+ 93:  563
+ 94:  663
+ 95:  543
+ 96:  611
+ 97:  612
+ 98:  613
+ 99:  573
+ 9a:  773
+ 9b:  643
+ 9c:  753
+ 9d:  712
+ 9e:  713
+ 9f:  763
+ a0:  742
+ a1:  743
+ a2:  11
+ a3:  12
+ a4:  13
+ a5:  41
+ a6:  42
+ a7:  43
+ a8:  53
+ a9:  63
+ aa:  73
+ ab:  mr. big laugh -- 10 KHz
+ ac:  "get 'em"
+ ad:  "kill 'em"
+ ae:  "you die, cop"
+ af:  "nice try, narc"
+ b0:  mr big laugh -- 15KHz (3/4 speed)
+ b1:  "get 'em"
+ b2:  "kill 'em"
+ b3:  "you die, cop"
+ b4:  "nice try, narc"
+ b5:  mr. big laugh -- 13.3KHz
+ b6:  "get 'em"
+ b7:  "kill 'em"
+ b8:  "you die, cop"
+ b9:  "nice try, narc"
+ ba:   marilyn ooh
+ bb:   marilyn ooh slower
+ bc:		null
+ bd:		null
+ be:		null
+ bf:		null
+ c0:	slow grunt
+ c1:	another slow grunt
+ c2:	yet another slow grunt
+ c3:	slow aah
+ c4:	another slow aah
+ c5:	not as slow grunt
+ c6:	not as slow another slow grunt
+ c7:	not as slow yet another slow grunt
+ c8:	not as slow aah
+ c9:	not as slow another slow aah
+ ca:	jaw clack
+ cb:	jaw clack
+ cc:	jaw clack
+ cd:	best jaw clack
+ ------ no control codes ------
+

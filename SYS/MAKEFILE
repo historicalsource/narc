@@ -1,0 +1,22 @@
+#
+.SUFFIXES : .asm .obj .tbl .out
+#
+OBJS = mproc.OBJ ndsp1.OBJ gspsnd.OBJ
+
+.asm.obj:
+	echome "$*.ASM(1) ----Assembling----"
+        c:\bin\gspa $* -h
+
+system: $(OBJS)
+      	echome "Done with system."
+
+banzail:        $(OBJS)
+                l68 -q game
+                echo loading...
+                c:\soft\xtalk\xtalk gamel
+
+
+mproc.OBJ: mproc.ASM 
+Ndsp1.OBJ: Ndsp1.ASM 
+gspsnd.OBJ: gspsnd.ASM 
+

@@ -1,0 +1,74 @@
+	.DATA
+chop1a:
+	.word	163,74,69,-106
+	.long	>251A380,HELWHT
+chop1b:
+	.word	82,23,151,-119
+	.long	>2531EC0,HELWHT
+chop1c:
+	.word	32,79,183,-74
+	.long	>2535B20,HELWHT
+skid1:
+	.word	123,22,33,-178
+	.long	>253AA20,HELWHT
+fana:
+	.word	55,55,187,-92
+	.long	>253FF60,HELWHT
+fanc:
+	.word	51,52,185,-94
+	.long	>2545FA0,HELWHT
+fane:
+	.word	55,56,188,-92
+	.long	>254B420,HELWHT
+spin1:
+	.word	114,29,113,-97
+	.long	>2551620,HELWHT
+spin2:
+	.word	29,29,28,-97
+	.long	>2557F40,HELWHT
+spin3:
+	.word	61,29,60,-97
+	.long	>2559C40,HELWHT
+spin4:
+	.word	106,26,105,-98
+	.long	>255D640,HELWHT
+cark3:
+	.word	161,43,67,-146
+	.long	>2562E00,HELWHT
+cark4:
+	.word	240,42,181,-104
+	.long	>2570A60,HELWHT
+bluchop1a:
+	.word	163,74,69,-106
+	.long	>251A380,HELBLUE
+bluchop1b:
+	.word	82,23,151,-119
+	.long	>2531EC0,HELBLUE
+bluchop1c:
+	.word	32,79,183,-74
+	.long	>2535B20,HELBLUE
+bluskid1:
+	.word	123,22,33,-178
+	.long	>253AA20,HELBLUE
+blufana:
+	.word	55,55,187,-92
+	.long	>253FF60,HELBLUE
+bluspin1:
+	.word	114,29,113,-97
+	.long	>2551620,HELBLUE
+pilot1:
+	.word	33,41,-30,-132
+	.long	>2584560,PILOTPAL
+pilot2:
+	.word	33,41,-30,-132
+	.long	>2587380,PILOTPAL
+pilot5:
+	.word	32,37,-31,-136
+	.long	>258A1A0,PILOTPAL
+narclo:
+	.word	34,18,54,-135
+	.long	>258C6A0,HELBLUE
+kraklo:
+	.word	24,30,36,-135
+	.long	>258DAE0,HELWHT
+	.TEXT

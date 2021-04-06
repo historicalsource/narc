@@ -1,0 +1,50 @@
+	.DATA
+warntxt:
+	.word	104,25,0,0
+	.long	>FFF93000,warntxtp
+filestxt:
+	.word	177,40,0,0
+	.long	>FFF96CF0,fbitxt4
+authtxt:
+	.word	99,44,0,0
+	.long	>FFF98910,fbitxt4
+gangmug:
+	.word	256,200,0,0
+	.long	>FFF99F70,gang4
+mbigmug:
+	.word	256,200,0,0
+	.long	>FFFA2BA0,mbig4
+loafmug:
+	.word	256,200,0,0
+	.long	>FFFAACC0,loaf4
+hypomug:
+	.word	256,200,0,0
+	.long	>FFFB53E0,hypo4
+dumpmug:
+	.word	256,200,0,0
+	.long	>FFFBE170,dump4
+rambomug:
+	.word	256,200,0,0
+	.long	>FFFC9B20,rambo4
+clownmug:
+	.word	256,200,0,0
+	.long	>FFFD6140,clown4
+badge:
+	.word	168,184,0,0
+	.long	>FFFE1870,badge4
+fbity1:
+	.word	233,20,0,0
+	.long	>FFFEC0D0,badge4
+fbity2:
+	.word	169,55,0,0
+	.long	>FFFED500,badge4
+fbiseal:
+	.word	110,165,0,0
+	.long	>FFFEF2C0,badge4
+NARCALF1a:
+	.word	208,186,0,0
+	.long	>FFFF1550,NARCsupr
+NARCALF2:
+	.word	168,164,0,0
+	.long	>FFFF8760,NARCsupr
+	.TEXT

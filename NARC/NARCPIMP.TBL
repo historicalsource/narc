@@ -1,0 +1,191 @@
+	.DATA
+PD3C:
+	.word	54,75,12,42
+	.long	>2CDD960,PIMPpal
+PD6C:
+	.word	72,53,30,35
+	.long	>2CE5CA0,PIMPpal
+PTD6C:
+	.word	37,87,18,46
+	.long	>2CED3E0,PIMPpal
+PTD7C:
+	.word	53,48,24,13
+	.long	>2CF40A0,PIMPpal
+PTD8C:
+	.word	80,23,33,10
+	.long	>2CF94A0,PIMPpal
+PDF3AC:
+	.word	48,68,34,41
+	.long	>2CFCE20,PIMPpal
+pbust1:
+	.word	33,96,14,-44
+	.long	>2D03420,PIMPpal
+pbust2:
+	.word	40,87,23,-53
+	.long	>2D0A020,PIMPpal
+pbust3:
+	.word	31,83,18,-57
+	.long	>2D10CE0,PIMPpal
+pd2:
+	.word	44,73,24,-66
+	.long	>2D15FE0,PIMPpal
+pd3:
+	.word	54,75,51,-63
+	.long	>2D1C440,PIMPpal
+pd4:
+	.word	64,57,68,-83
+	.long	>2D24780,PIMPpal
+pd5:
+	.word	79,32,79,-108
+	.long	>2D2B980,PIMPpal
+pdf2a:
+	.word	42,96,8,-46
+	.long	>2D30980,PIMPpal
+pdf3a:
+	.word	48,68,2,-73
+	.long	>2D38D80,PIMPpal
+pdf4a:
+	.word	100,21,-2,-124
+	.long	>2D3F380,PIMPpal
+pjump1n:
+	.word	41,63,15,-73
+	.long	>2D43520,PIMPpal
+pjump2n:
+	.word	45,87,10,-47
+	.long	>2D48BC0,PIMPpal
+pjump3n:
+	.word	44,62,12,-47
+	.long	>2D50E40,PIMPpal
+pjump4n:
+	.word	47,82,15,-51
+	.long	>2D56380,PIMPpal
+pmwk1:
+	.word	32,87,21,-52
+	.long	>2D5DE80,PIMPpal
+pmwk2:
+	.word	29,87,22,-52
+	.long	>2D63580,PIMPpal
+pmwk3:
+	.word	30,87,22,-52
+	.long	>2D68C80,PIMPpal
+pmwk5:
+	.word	24,86,17,-54
+	.long	>2D6E380,PIMPpal
+pmwk7:
+	.word	32,87,16,-53
+	.long	>2D72400,PIMPpal
+prun1t:
+	.word	35,83,20,-54
+	.long	>2D77B00,PIMPpal
+prun2t:
+	.word	32,84,15,-53
+	.long	>2D7D860,PIMPpal
+prun3t:
+	.word	47,84,32,-54
+	.long	>2D82C60,PIMPpal
+prun4t:
+	.word	30,81,15,-55
+	.long	>2D8AA60,PIMPpal
+prun5t:
+	.word	35,81,20,-56
+	.long	>2D8FB60,PIMPpal
+pshoot9:
+	.word	46,68,23,-67
+	.long	>2D95680,PIMPpal
+pshoot10:
+	.word	44,68,22,-67
+	.long	>2D9BC80,PIMPpal
+psqsht1:
+	.word	58,45,29,-89
+	.long	>2DA1A00,PIMPpal
+psqsht2:
+	.word	55,45,29,-89
+	.long	>2DA6E60,PIMPpal
+ptd1:
+	.word	37,71,23,-64
+	.long	>2DABD20,PIMPpal
+ptd2:
+	.word	47,72,24,-62
+	.long	>2DB15E0,PIMPpal
+ptd3:
+	.word	58,75,37,-61
+	.long	>2DB81E0,PIMPpal
+ptd4:
+	.word	41,73,26,-63
+	.long	>2DC0E80,PIMPpal
+ptd6:
+	.word	37,87,17,-49
+	.long	>2DC72E0,PIMPpal
+ptd7:
+	.word	53,48,33,-89
+	.long	>2DCDFA0,PIMPpal
+ptd9:
+	.word	85,27,48,-114
+	.long	>2DD33A0,PIMPpal
+ptd10:
+	.word	87,22,46,-126
+	.long	>2DD7DE0,PIMPpal
+ptw1:
+	.word	68,84,39,-53
+	.long	>2DDBA60,PIMPpal
+ptw2:
+	.word	37,87,20,-49
+	.long	>2DE6CE0,PIMPpal
+ptw3:
+	.word	71,81,21,-55
+	.long	>2DED9A0,PIMPpal
+ptw4:
+	.word	59,75,21,-61
+	.long	>2DF8FE0,PIMPpal
+pw1:
+	.word	24,87,19,-52
+	.long	>2E01C80,PIMPpal
+pw2:
+	.word	37,86,20,-52
+	.long	>2E05DC0,PIMPpal
+pw4:
+	.word	37,83,29,-55
+	.long	>2E0C940,PIMPpal
+pw5:
+	.word	31,88,22,-51
+	.long	>2E13100,PIMPpal
+pw6:
+	.word	40,86,17,-53
+	.long	>2E18900,PIMPpal
+pw8:
+	.word	42,83,30,-56
+	.long	>2E1F480,PIMPpal
+psp1a:
+	.word	43,81,22,-57
+	.long	>2E266A0,PIMPpal
+psp2a:
+	.word	46,81,19,-58
+	.long	>2E2D600,PIMPpal
+psp3a:
+	.word	49,81,21,-58
+	.long	>2E34F80,PIMPpal
+psp4a:
+	.word	52,72,21,-67
+	.long	>2E3D320,PIMPpal
+psp5a:
+	.word	58,50,24,-89
+	.long	>2E44820,PIMPpal
+psp6a:
+	.word	50,66,14,-71
+	.long	>2E4A5E0,PIMPpal
+psp7a:
+	.word	52,69,13,-69
+	.long	>2E51120,PIMPpal
+pimphide1:
+	.word	51,47,29,-87
+	.long	>2E58140,PIMPpal
+pimphide2:
+	.word	45,54,29,-79
+	.long	>2E5CDA0,PIMPpal
+pimphide3:
+	.word	45,58,29,-75
+	.long	>2E61EA0,PIMPpal
+pimphide4:
+	.word	47,63,33,-70
+	.long	>2E675A0,PIMPpal
+	.TEXT

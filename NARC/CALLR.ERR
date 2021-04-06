@@ -1,0 +1,258 @@
+
+
+Processing d:\video\narc\narc.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narc1.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narc1a.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcbgnd.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcbull.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcloot.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narc6.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcpimp.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcgang.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narchypo.asm
+----------------------------------------------
+d:\video\narc\narchypo.asm(498): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(522): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(554): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(582): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(986): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1008): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1018): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1027): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1033): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1035): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1063): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1082): CALLR to FRANCHEK (COMMENT)
+d:\video\narc\narchypo.asm(1668): CALLR to FRANCHEK (COMMENT)
+
+Processing d:\video\narc\narcndle.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narchook.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcdyna.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcbug.asm
+----------------------------------------------
+d:\video\narc\narcbug.asm(148): CALLR to EnqCold (COMMENT)
+d:\video\narc\narcbug.asm(205): CALLR to DeqCold (COMMENT)
+
+Processing d:\video\narc\narcmbig.asm
+----------------------------------------------
+d:\video\narc\narcmbig.asm(605): CALLR to CaseBack (COMMENT)
+
+Processing d:\video\narc\narcutil.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcmath.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcmugs.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcramb.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcflam.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narchead.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcheda.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narccars.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narccad.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcpors.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcmine.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcdoor.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narccans.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcatt.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcol.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcplay.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcmisc.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcpall.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcchop.asm
+----------------------------------------------
+d:\video\narc\narcchop.asm(644): CALLR to ADDSUPP (COMMENT)
+
+Processing d:\video\narc\narcscor.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcrime.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcdump.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narclown.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcdog.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcpal.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcram.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcsnd.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcent.asm
+----------------------------------------------
+d:\video\narc\narcent.asm(1161): CALLR to GET_FROB_DY_DX (COMMENT)
+
+Processing d:\video\narc\narcspry.asm
+----------------------------------------------
+d:\video\narc\narcspry.asm(335): CALLR to A2_FROM_ROBO_PALETTE (COMMENT)
+d:\video\narc\narcspry.asm(386): CALLR to INIT_BORDER_PALETTE (COMMENT)
+d:\video\narc\narcspry.asm(3034): CALLR to DETECTOR (COMMENT)
+d:\video\narc\narcspry.asm(3034): CALLR to TO (COMMENT)
+
+Processing d:\video\narc\narchstd.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narchelp.asm
+----------------------------------------------
+d:\video\narc\narchelp.asm(1692): CALLR to HS_RESET_COUNTER (COMMENT)
+
+Processing d:\video\narc\narctest.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcmenu.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcadj.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narctext.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcanim.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcdata.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcdatb.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\narcblip.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\imgtbl.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\bgndtbl.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\narc\bgndpal.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\mproc.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\ndsp1.asm
+----------------------------------------------
+No External CALLR's in this module.
+
+Processing d:\video\gspsnd.asm
+----------------------------------------------
+No External CALLR's in this module.
+

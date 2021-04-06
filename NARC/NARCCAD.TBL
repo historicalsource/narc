@@ -1,0 +1,122 @@
+	.DATA
+CADDY1:
+	.word	242,45,130,-139
+	.long	>235F060,caddy
+CAD1WIN1:
+	.word	35,26,-10,-123
+	.long	>2374780,caddy
+CAD1WIN2:
+	.word	31,14,-14,-135
+	.long	>23764C0,caddy
+CAD1WHL1:
+	.word	29,33,-60,-159
+	.long	>23772C0,caddy
+CAD1WHL2:
+	.word	29,33,-60,-159
+	.long	>23793C0,caddy
+CAD1WHL3:
+	.word	29,33,-60,-159
+	.long	>237B4C0,caddy
+CAD1WHL4:
+	.word	29,33,-60,-159
+	.long	>237D5C0,caddy
+CAD1WHL1C:
+	.word	29,33,76,-160
+	.long	>23772C0,caddy
+CAD1WHL2C:
+	.word	29,33,76,-160
+	.long	>23793C0,caddy
+CAD1WHL3C:
+	.word	29,33,76,-160
+	.long	>237B4C0,caddy
+CAD1WHL4C:
+	.word	29,33,76,-160
+	.long	>237D5C0,caddy
+CAD1WHL1CC:
+	.word	29,33,14,16
+	.long	>23772C0,caddy
+CAD1WHL2CC:
+	.word	29,33,14,16
+	.long	>23793C0,caddy
+CAD1WHL3CC:
+	.word	29,33,14,16
+	.long	>237B4C0,caddy
+CAD1WHL4CC:
+	.word	29,33,14,16
+	.long	>237D5C0,caddy
+CADSHAT1:
+	.word	43,26,-2,-123
+	.long	>237F6C0,caddy
+CADSHAT2:
+	.word	93,37,44,-113
+	.long	>2381A80,caddy
+CADSHAT3:
+	.word	122,33,67,-116
+	.long	>2388980,caddy
+CADSHAT4:
+	.word	31,14,-14,-135
+	.long	>2390960,caddy
+CADSHAT5:
+	.word	31,9,-14,-140
+	.long	>2391760,caddy
+CAD1TNK1:
+	.word	58,11,119,-141
+	.long	>2392060,caddy
+CAD1TNK2:
+	.word	61,26,122,-126
+	.long	>2393500,caddy
+CAD1TNK3:
+	.word	58,35,119,-117
+	.long	>2396900,caddy
+CAD1TNK4:
+	.word	58,43,119,-109
+	.long	>239AAA0,caddy
+CADFORS60:
+	.word	161,76,88,-125
+	.long	>239FB40,caddy
+CADFORS90:
+	.word	88,75,43,-126
+	.long	>23B80C0,caddy
+CADREVS60:
+	.word	158,75,91,-123
+	.long	>23C4F00,caddy
+CADREVS90:
+	.word	85,77,41,-124
+	.long	>23DC600,caddy
+CRYTEWHL1:
+	.word	27,33,-61,-164
+	.long	>23E99C0,caddy
+CRYTEWHL2:
+	.word	27,33,-61,-164
+	.long	>23EB6A0,caddy
+CRYTEWHL3:
+	.word	27,33,-61,-164
+	.long	>23ED380,caddy
+CRYTEWHL4:
+	.word	27,33,-61,-164
+	.long	>23EF060,caddy
+CRYTEWIN1:
+	.word	40,27,-1,-127
+	.long	>23F0D40,caddy
+CRYTEWIN2:
+	.word	40,16,-1,-138
+	.long	>23F2F00,caddy
+CLEFTWHL1:
+	.word	27,33,-61,-164
+	.long	>23F4300,caddy
+CLEFTWHL2:
+	.word	27,33,-61,-164
+	.long	>23F5FE0,caddy
+CLEFTWHL3:
+	.word	27,33,-62,-163
+	.long	>23F7CC0,caddy
+CLEFTWHL4:
+	.word	27,33,-62,-163
+	.long	>23F99A0,caddy
+CLEFTWIN1:
+	.word	41,26,0,-122
+	.long	>23FB680,caddy
+CLEFTWIN2:
+	.word	33,15,-8,-133
+	.long	>23FDA40,caddy
+	.TEXT

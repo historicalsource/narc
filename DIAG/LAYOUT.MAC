@@ -1,0 +1,388 @@
+R_COLR .SET 000H                ; OFFSETS INTO RECTANGLE RECORD
+R_DYDX .SET 010H
+R_XYAD .SET 030H
+R_SIZE .SET 050H
+
+V_COLR .SET 000H                ; OFFSETS INTO VECTOR RECORD
+V_SPNT .SET 010H
+V_EPNT .SET 030H
+V_SIZE .SET 050H
+
+P_COLR .SET 000H                ; OFFSETS INTO POINT RECORD
+P_XYAD .SET 010H
+P_SIZE .SET 030H
+
+L_COLR .SET 000H                ; OFFSETS INTO LABEL RECORD
+L_PATH .SET 010H
+L_XYAD .SET 020H
+L_NEXT .SET 040H
+L_TEXT .SET 060H
+
+C_COLR .SET 000H                ; OFFSETS INTO CIRCLE RECORD
+C_XYAD .SET 020H
+C_RADI .SET 040H
+C_SIZE .SET 050H
+
+RIGHT  .SET 00000H              ; PREFEDINED PATH SETTINGS
+DOWN   .SET 0FFFFH
+
+NOFILL .SET 00000H              ; FLAGS FOR CIRCLE FILLS
+FILL   .SET 00001H
+
+;****************************************************************************
+;* RECTANGL: MACRO DEFINES A RECTANGLE RECORD.                              *
+;*                                                                          *
+;*           NAME   -- OPTIONAL RECORD NAME                                 *
+;*           COLOR  -- RECTANGLE COLOR (COLOR 0 RESERVED)                   *
+;*           LENGTH -- RECTANGLE HEIGHT (Y-DIMENSION)                       *
+;*           WIDTH  -- RECTANGLE BASE   (X-DIMENSION)                       *
+;*           X      -- SCREEN X COORDINATE                                  *
+;*           Y      -- SCREEN Y COORDINATE                                  *
+;****************************************************************************
+
+RECTANGL $MACRO NAME, COLOR, WIDTH, LENGTH, X, Y
+
+         .SECT  "RECTS"
+
+         $IF NAME.A & $PCALL
+               .GLOBL :NAME:
+:NAME::        .WORD (:COLOR: * 256) + :COLOR:
+         $ELSE
+               .WORD (:COLOR: * 256) + :COLOR:
+         $ENDIF
+
+         .WORD :WIDTH:
+         .WORD :LENGTH:
+         .WORD :X:
+         .WORD :Y:
+
+         $END
+
+END_RECT $MACRO 
+         .SECT "RECTS"
+         .WORD 0
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A RECTANGLE RECORD   *
+;* AND PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER    *
+;* POINTING TO THE BEGINNING OF A RECTANGLE RECORD.                         *
+;****************************************************************************
+
+R_XYADR  $MACRO SRC, DST
+         MOVE *:SRC:(R_XYAD), :DST:, 1
+         $END
+
+R_DIMEN  $MACRO SRC, DST
+         MOVE *:SRC:(R_DYDX), :DST:, 1
+         $END
+
+R_COLOR  $MACRO SRC, DST
+         MOVE *:SRC:(R_COLR), :DST:
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT RECTANGLE RECORD IS *
+;* NOT EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A RECT- *
+;* ANGLE RECORD.                                                            *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* INCREMENTED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                *
+;****************************************************************************
+
+R_END    $MACRO SRC, LOCATION
+         ADDI R_SIZE, :SRC:
+         MOVE *:SRC:, SP
+         JRNZ :LOCATION:
+         $END
+
+        .PAGE
+
+;****************************************************************************
+;* VECTOR: MACRO DEFINES A VECTOR RECORD.                                   *
+;*                                                                          *
+;*           NAME   -- OPTIONAL RECORD NAME                                 *
+;*           COLOR  -- VECTOR COLOR (COLOR 0 RESERVED)                      *
+;*           STARTX -- FIRST ENDPOINT  (X-COORDINATE)                       *
+;*           STARTY -- FIRST ENDPOINT  (Y-COORDINATE)                       *
+;*           ENDX   -- SECOND ENDPOINT (X-COORDINATE)                       *
+;*           ENDY   -- SECOND ENDPOINT (Y-COORDINATE)                       *
+;****************************************************************************
+
+VECTOR   $MACRO NAME, COLOR, STARTX, STARTY, ENDX, ENDY
+
+         .SECT "VECTS"
+
+         $IF NAME.A & $PCALL
+               .GLOBL :NAME:
+:NAME::        .WORD (:COLOR: * 256) + :COLOR:
+         $ELSE
+               .WORD (:COLOR: * 256) + :COLOR:
+         $ENDIF
+
+         .WORD :STARTX:
+         .WORD :STARTY:
+         .WORD :ENDX:
+         .WORD :ENDY:
+
+         $END
+
+END_VECT $MACRO 
+         .SECT "VECTS"
+         .WORD 0
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A VECTOR RECORD      *
+;* AND PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER    *
+;* POINTING TO THE BEGINNING OF A VECTOR RECORD.                            *
+;****************************************************************************
+
+V_SADDR  $MACRO SRC, DST
+         MOVE *:SRC:(V_SPNT), :DST:, 1
+         $END
+
+V_EADDR  $MACRO SRC, DST
+         MOVE *:SRC:(V_EPNT), :DST:, 1
+         $END
+
+V_COLOR  $MACRO SRC, DST
+         MOVE *:SRC:(V_COLR), :DST:
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT VECTOR RECORD IS    *
+;* NOT EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A VECT- *
+;* OR RECORD.                                                               *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* INCREMENTED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                *
+;****************************************************************************
+
+V_END    $MACRO SRC, LOCATION
+         ADDI V_SIZE, :SRC:
+         MOVE *:SRC:, SP
+         JRNZ :LOCATION:
+         $END
+
+        .PAGE
+
+;****************************************************************************
+;* POINT: MACRO DEFINES A POINT RECORD.                                     *
+;*                                                                          *
+;*           NAME   -- OPTIONAL RECORD NAME                                 *
+;*           COLOR  -- POINT COLOR (COLOR 0 RESERVED)                       *
+;*           X      -- FIRST ENDPOINT  (X-COORDINATE)                       *
+;*           Y      -- FIRST ENDPOINT  (Y-COORDINATE)                       *
+;****************************************************************************
+
+POINT    $MACRO NAME, COLOR, X, Y
+
+         .SECT "POINTS"
+
+         $IF NAME.A & $PCALL
+               .GLOBL :NAME:
+:NAME::        .WORD (:COLOR: * 256) + :COLOR:
+         $ELSE
+               .WORD (:COLOR: * 256) + :COLOR:
+         $ENDIF
+
+         .WORD :X:
+         .WORD :Y:
+
+         $END
+
+END_PNT  $MACRO 
+         .SECT "POINTS"
+         .WORD 0
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A POINT RECORD       *
+;* AND PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER    *
+;* POINTING TO THE BEGINNING OF A POINT RECORD.                             *
+;****************************************************************************
+
+P_XYADR  $MACRO SRC, DST
+         MOVE *:SRC:(P_XYAD), :DST:, 1
+         $END
+
+P_COLOR  $MACRO SRC, DST
+         MOVE *:SRC:(P_COLR), :DST:
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT POINT RECORD IS NOT *
+;* EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE     *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A POINT *
+;* RECORD.                                                                  *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* INCREMENTED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                *
+;****************************************************************************
+
+P_END    $MACRO SRC, LOCATION
+         ADDI P_SIZE, :SRC:
+         MOVE *:SRC:, SP
+         JRNZ :LOCATION:
+         $END
+
+         .PAGE
+
+;****************************************************************************
+;* LABEL: MACRO DEFINES A LABEL RECORD.                                     *
+;*                                                                          *
+;*        NAME  -- <<REQUIRED>> RECORD NAME.                                *
+;*        COLOR -- LABEL TEXT COLOR (COLOR 0 RESERVED)                      *
+;*        X     -- STARTING XY SCREEN ADDRESS (X COORDINATE)                *
+;*        Y     -- STARTING XY SCREEN ADDRESS (Y COORDINATE)                *
+;*        TEXT  -- QUOTE ENCLOSED LABEL TEXT (LETTERS/DIGITS/SPACES ONLY)   *
+;****************************************************************************
+
+LABEL    $MACRO NAME, COLOR, PATH, X, Y, TEXT
+
+         .SECT "LABELS"
+
+         $IF NAME.A & $PCALL
+               .GLOBL :NAME:
+:NAME::        .WORD (:COLOR: * 256) + :COLOR:
+         $ELSE
+               .WORD (:COLOR: * 256) + :COLOR:
+         $ENDIF
+
+         .WORD :PATH:
+         .WORD :X:
+         .WORD :Y:
+
+         .LONG END?
+
+         $IF TEXT.A & $PCALL
+               .STRING :TEXT:, 0
+         $ELSE
+               .BYTE 0
+         $ENDIF
+
+         .EVEN
+
+END?:
+
+         $END
+
+END_LABL $MACRO 
+         .SECT "LABELS"
+         .WORD 0
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A LABEL RECORD       *
+;* AND PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER    *
+;* POINTING TO THE BEGINNING OF A LABEL RECORD.                             *
+;****************************************************************************
+
+L_XYADR $MACRO SRC, DST
+        MOVE *:SRC:(L_XYAD), :DST:, 1
+        $END
+
+L_COLOR $MACRO SRC, DST
+        MOVE *:SRC:(L_COLR), :DST:
+        $END
+
+L_DIREC $MACRO SRC, DST
+        MOVE *:SRC:(L_PATH), :DST:
+        $END
+
+L_TXADR $MACRO SRC, DST
+        MOVE  :SRC:, :DST:
+        ADDI L_TEXT, :DST:
+        $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT LABEL RECORD IS NOT *
+;* EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE     *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A LABEL *
+;* RECORD.                                                                  *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* CHANGED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                    *
+;****************************************************************************
+
+L_END   $MACRO SRC, LOCATION
+        MOVE *:SRC:(L_NEXT), :SRC:, 1
+        MOVE *:SRC:, SP
+        JRNZ :LOCATION:
+        $END
+
+        .PAGE
+
+;****************************************************************************
+;* CIRCLE: MACRO DEFINES A CIRCLE RECORD.                                   *
+;*                                                                          *
+;*           NAME   -- OPTIONAL RECORD NAME                                 *
+;*           COLOR  -- CIRCLE COLOR (COLOR 0 RESERVED)                      *
+;*           FILLV  -- FILL FLAG 0=OUTLINE 1=FILL                           *
+;*           X      -- SCREEN X COORDINATE                                  *
+;*           Y      -- SCREEN Y COORDINATE                                  *
+;*           R      -- CIRCLE RADIUS                                        *
+;****************************************************************************
+
+CIRCLE   $MACRO NAME, COLOR, FILLV, X, Y, R
+
+         .SECT  "CIRCLES"
+
+         $IF NAME.A & $PCALL
+               .GLOBL :NAME:
+:NAME::        .WORD ((:COLOR: * 256) + :COLOR:)
+               .WORD :FILLV:
+         $ELSE
+               .WORD ((:COLOR:* 256) + :COLOR:)
+               .WORD :FILLV:
+         $ENDIF
+
+         .WORD :X:
+         .WORD :Y:
+         .WORD :R:
+
+         $END
+
+END_CIRC $MACRO
+         .SECT "CIRCLES"
+         .WORD 0
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A CIRCLE RECORD      *
+;* AND PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER    *
+;* POINTING TO THE BEGINNING OF A CIRCLE RECORD.                            *
+;****************************************************************************
+
+C_COLOR $MACRO SRC, DST
+        MOVE *:SRC:(C_COLR), :DST:, 1
+        $END
+
+C_XYADR $MACRO SRC, DST
+        MOVE *:SRC:(C_XYAD), :DST:, 1
+        $END
+
+C_RDIUS $MACRO SRC, DST
+        MOVE *:SRC:(C_RADI), :DST:
+        $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT CIRCLE RECORD IS NOT*
+;* EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE     *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A CIRCLE*
+;* RECORD.                                                                  *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* CHANGED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                    *
+;****************************************************************************
+
+C_END   $MACRO SRC, LOCATION
+         ADDI C_SIZE, :SRC:
+         MOVE *:SRC:, SP
+         JRNZ :LOCATION:
+         $END
+
+

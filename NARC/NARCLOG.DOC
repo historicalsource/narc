@@ -1,0 +1,16 @@
+			NARC Error Log format
+			---------------------
+
+A0 = Possible Object Pointer, Current A0 at time of Error.
+A1 = Calling Routine Return Address.
+A2 = [Error type, Game State Variable]
+	0 = Recoverable
+	1 = System error
+	2 = "Watchdog caught" error
+A3 = Current PC
+A4 = [Player 1 Starts, World Top Left]
+A5 = [Wave #, *A0(OID)]
+A6 = [Current Process ID, *A8(OID)]
+A7 = Current Process Pointer
+A8 = Possible Object Pointer, Current A8 at time of Error.
+

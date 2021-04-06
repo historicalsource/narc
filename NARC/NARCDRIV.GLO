@@ -1,0 +1,15 @@
+	.globl	NARCS
+	.globl	DRIVER1
+	.globl	DRIVER2
+	.globl	DRIVER3
+	.globl	DRIVER4
+	.globl	DRIVER5
+	.globl	DRVDTH1
+	.globl	DRVDTH2
+	.globl	DRVDTH3
+	.globl	DRVDTH4
+	.globl	DRVDTH5
+	.globl	DRIVEF1
+	.globl	DRIVEF2
+	.globl	DRIVEF3
+	.globl	DRIVEF4

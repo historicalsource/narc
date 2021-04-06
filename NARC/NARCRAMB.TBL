@@ -1,0 +1,89 @@
+	.DATA
+SFLAME10:
+	.word	16,9,1,3
+	.long	>30860A0,NARCS
+SFLAME20:
+	.word	16,9,1,1
+	.long	>3086520,NARCS
+SFLAME90:
+	.word	8,18,3,1
+	.long	>30869A0,NARCS
+RAMBBULL:
+	.word	8,7,3,3
+	.long	>3086E20,NARCS
+rmrun1:
+	.word	45,52,25,-84
+	.long	>3086FE0,ram1
+rmrun2:
+	.word	45,49,25,-87
+	.long	>308BDE0,ram1
+rmrun3:
+	.word	27,47,15,-87
+	.long	>3090760,ram1
+rmrun4:
+	.word	31,49,13,-86
+	.long	>3093080,ram1
+rmrun5:
+	.word	40,53,23,-86
+	.long	>3096180,ram1
+rmrun6:
+	.word	42,50,18,-85
+	.long	>309A3C0,ram1
+rmrun7:
+	.word	25,51,7,-84
+	.long	>309E880,ram1
+rmrun8:
+	.word	35,52,13,-83
+	.long	>30A1520,ram1
+rmsh0a:
+	.word	72,45,16,-50
+	.long	>30A4FA0,ram1
+rmsh0b:
+	.word	75,44,21,-52
+	.long	>30AB4E0,ram1
+rmshb10:
+	.word	62,47,21,-51
+	.long	>30B1D60,ram1
+rmshb20:
+	.word	60,47,13,-50
+	.long	>30B7B60,ram1
+rmshf10:
+	.word	63,47,20,-49
+	.long	>30BD380,ram1
+rmshf20:
+	.word	58,53,22,-49
+	.long	>30C3180,ram1
+rmshf90:
+	.word	20,55,10,-50
+	.long	>30C94E0,ram1
+rmdth1:
+	.word	40,95,20,-39
+	.long	>30CB740,ram1
+rmdth2:
+	.word	49,75,21,-61
+	.long	>30D2E00,ram1
+rmdth3:
+	.word	39,61,20,-73
+	.long	>30DA7E0,ram1
+rmdth4:
+	.word	45,35,18,-96
+	.long	>30DF420,ram1
+rmdth5:
+	.word	66,30,34,-113
+	.long	>30E28A0,ram1
+rmdead1:
+	.word	38,83,15,-52
+	.long	>30E6860,ram1
+rmdead6:
+	.word	56,68,46,-65
+	.long	>30ED020,ram1
+rmdead7:
+	.word	68,58,48,-80
+	.long	>30F4720,ram1
+rmdead8:
+	.word	83,36,59,-101
+	.long	>30FC260,ram1
+rmdead9:
+	.word	91,28,64,-117
+	.long	>31020E0,ram1
+	.TEXT

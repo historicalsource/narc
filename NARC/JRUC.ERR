@@ -1,0 +1,340 @@
+
+
+Processing d:\video\narc\narc.asm
+----------------------------------------------
+d:\video\narc\narc.asm(2501): JRxx to GSP
+
+Processing d:\video\narc\narc1.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narc1a.asm
+----------------------------------------------
+d:\video\narc\narc1a.asm(824): JRxx to PFLYND0B (COMMENT)
+d:\video\narc\narc1a.asm(869): JRxx to PFLYND1B0 (COMMENT)
+d:\video\narc\narc1a.asm(1113): JRxx to PDELTOT1 (COMMENT)
+d:\video\narc\narc1a.asm(1116): JRxx to PDELTOTX (COMMENT)
+d:\video\narc\narc1a.asm(1120): JRxx to PDELTOT2 (COMMENT)
+d:\video\narc\narc1a.asm(1124): JRxx to PDELTOTX (COMMENT)
+d:\video\narc\narc1a.asm(1834): JRxx to BUYWAITS (COMMENT)
+d:\video\narc\narc1a.asm(1836): JRxx to BUYWAITS (COMMENT)
+d:\video\narc\narc1a.asm(1988): JRxx to UPBPTW (COMMENT)
+
+Processing d:\video\narc\narcbgnd.asm
+----------------------------------------------
+d:\video\narc\narcbgnd.asm(2032): JRxx to BSCHKLBL (COMMENT)
+d:\video\narc\narcbgnd.asm(2533): JRxx to ON
+d:\video\narc\narcbgnd.asm(2550): JRxx to ON
+
+Processing d:\video\narc\narcbull.asm
+----------------------------------------------
+d:\video\narc\narcbull.asm(475): JRxx to RSLPOK (COMMENT)
+
+Processing d:\video\narc\narcloot.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narc6.asm
+----------------------------------------------
+d:\video\narc\narc6.asm(334): JRxx to LOFBAK (COMMENT)
+d:\video\narc\narc6.asm(377): JRxx to LOFBZ1 (COMMENT)
+d:\video\narc\narc6.asm(381): JRxx to LOFBX0 (COMMENT)
+d:\video\narc\narc6.asm(386): JRxx to LOFBX1 (COMMENT)
+d:\video\narc\narc6.asm(394): JRxx to LOFBX2 (COMMENT)
+d:\video\narc\narc6.asm(396): JRxx to LOFBX3 (COMMENT)
+d:\video\narc\narc6.asm(403): JRxx to LOFBAK2 (COMMENT)
+d:\video\narc\narc6.asm(406): JRxx to LOFBAK3 (COMMENT)
+d:\video\narc\narc6.asm(413): JRxx to LOFBAK1 (COMMENT)
+
+Processing d:\video\narc\narcpimp.asm
+----------------------------------------------
+d:\video\narc\narcpimp.asm(1588): JRxx to SkOffScr (COMMENT)
+
+Processing d:\video\narc\narcgang.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narchypo.asm
+----------------------------------------------
+d:\video\narc\narchypo.asm(985): JRxx to SkB (COMMENT)
+d:\video\narc\narchypo.asm(1007): JRxx to SkB2 (COMMENT)
+d:\video\narc\narchypo.asm(1017): JRxx to SkFCK (COMMENT)
+d:\video\narc\narchypo.asm(1026): JRxx to SkB3 (COMMENT)
+d:\video\narc\narchypo.asm(1837): JRxx to in (COMMENT)
+d:\video\narc\narchypo.asm(2000): JRxx to AS (COMMENT)
+
+Processing d:\video\narc\narcndle.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narchook.asm
+----------------------------------------------
+d:\video\narc\narchook.asm(644): JRxx to VelPos2 (COMMENT)
+d:\video\narc\narchook.asm(646): JRxx to SetXV2 (COMMENT)
+
+Processing d:\video\narc\narcdyna.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcbug.asm
+----------------------------------------------
+d:\video\narc\narcbug.asm(157): JRxx to SkMkQ (COMMENT)
+d:\video\narc\narcbug.asm(159): JRxx to EnqX (COMMENT)
+d:\video\narc\narcbug.asm(173): JRxx to EnqX (COMMENT)
+d:\video\narc\narcbug.asm(371): JRxx to BWiggle (COMMENT)
+
+Processing d:\video\narc\narcmbig.asm
+----------------------------------------------
+d:\video\narc\narcmbig.asm(2565): JRxx to PosXV3 (COMMENT)
+
+Processing d:\video\narc\narcutil.asm
+----------------------------------------------
+d:\video\narc\narcutil.asm(301): JRxx to SkTp (COMMENT)
+d:\video\narc\narcutil.asm(303): JRxx to SkBt (COMMENT)
+d:\video\narc\narcutil.asm(307): JRxx to SkBt (COMMENT)
+
+Processing d:\video\narc\narcmath.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcmugs.asm
+----------------------------------------------
+d:\video\narc\narcmugs.asm(493): JRxx to BdgeFade (COMMENT)
+
+Processing d:\video\narc\narcramb.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcflam.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narchead.asm
+----------------------------------------------
+d:\video\narc\narchead.asm(511): JRxx to SkClrGT (COMMENT)
+d:\video\narc\narchead.asm(2301): JRxx to NoEar2 (COMMENT)
+d:\video\narc\narchead.asm(4607): JRxx to NoBnce (COMMENT)
+d:\video\narc\narchead.asm(4619): JRxx to NoBnce (COMMENT)
+d:\video\narc\narchead.asm(4628): JRxx to BnceLp (COMMENT)
+d:\video\narc\narchead.asm(4631): JRxx to BnceCk (COMMENT)
+d:\video\narc\narchead.asm(4632): JRxx to BnceLp (COMMENT)
+d:\video\narc\narchead.asm(4837): JRxx to SkNgBXV (COMMENT)
+
+Processing d:\video\narc\narcheda.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narccars.asm
+----------------------------------------------
+d:\video\narc\narccars.asm(370): JRxx to CADYZV4 (COMMENT)
+d:\video\narc\narccars.asm(405): JRxx to CADXV4 (COMMENT)
+
+Processing d:\video\narc\narccad.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcpors.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcmine.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcdoor.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narccans.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcatt.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcol.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcplay.asm
+----------------------------------------------
+d:\video\narc\narcplay.asm(3794): JRxx to PBUYD4A (COMMENT)
+d:\video\narc\narcplay.asm(3936): JRxx to PBUYINT5 (COMMENT)
+
+Processing d:\video\narc\narcmisc.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcpall.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcchop.asm
+----------------------------------------------
+d:\video\narc\narcchop.asm(619): JRxx to ENINITX (COMMENT)
+d:\video\narc\narcchop.asm(1162): JRxx to CHOPLND1 (COMMENT)
+d:\video\narc\narcchop.asm(1765): JRxx to CHOPPES (COMMENT)
+d:\video\narc\narcchop.asm(1766): JRxx to CHOPPD1 (COMMENT)
+d:\video\narc\narcchop.asm(1768): JRxx to CHOPPD2 (COMMENT)
+d:\video\narc\narcchop.asm(1907): JRxx to STRAIG3 (COMMENT)
+d:\video\narc\narcchop.asm(2234): JRxx to SETRVELA (COMMENT)
+
+Processing d:\video\narc\narcscor.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcrime.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcdump.asm
+----------------------------------------------
+d:\video\narc\narcdump.asm(39): JRxx to DUMPDIS4 (COMMENT)
+
+Processing d:\video\narc\narclown.asm
+----------------------------------------------
+d:\video\narc\narclown.asm(44): JRxx to CLWNDIS4 (COMMENT)
+d:\video\narc\narclown.asm(667): JRxx to STABHER (COMMENT)
+d:\video\narc\narclown.asm(722): JRxx to HKSTAB0 (COMMENT)
+d:\video\narc\narclown.asm(724): JRxx to HKSTAB1 (COMMENT)
+d:\video\narc\narclown.asm(739): JRxx to HKSTAB10 (COMMENT)
+d:\video\narc\narclown.asm(744): JRxx to HKSTAB11 (COMMENT)
+d:\video\narc\narclown.asm(765): JRxx to HKSTAB2 (COMMENT)
+d:\video\narc\narclown.asm(768): JRxx to HKSTAB2 (COMMENT)
+d:\video\narc\narclown.asm(770): JRxx to HKSTAB3 (COMMENT)
+d:\video\narc\narclown.asm(815): JRxx to STABHL01 (COMMENT)
+d:\video\narc\narclown.asm(827): JRxx to HOOKFITL (COMMENT)
+d:\video\narc\narclown.asm(843): JRxx to HOOKFIT2 (COMMENT)
+d:\video\narc\narclown.asm(852): JRxx to HOOKFIT3 (COMMENT)
+d:\video\narc\narclown.asm(862): JRxx to HOOKFT2L (COMMENT)
+d:\video\narc\narclown.asm(866): JRxx to HOOKFT2L (COMMENT)
+d:\video\narc\narclown.asm(1087): JRxx to CLNBL1A (COMMENT)
+
+Processing d:\video\narc\narcdog.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcpal.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcram.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcsnd.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcent.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcspry.asm
+----------------------------------------------
+d:\video\narc\narcspry.asm(339): JRxx to IBP1 (COMMENT)
+d:\video\narc\narcspry.asm(1318): JRxx to NOT_F_3 (COMMENT)
+d:\video\narc\narcspry.asm(2223): JRxx to WORK_TO_DO (COMMENT)
+d:\video\narc\narcspry.asm(2232): JRxx to NO_Y_COR (COMMENT)
+d:\video\narc\narcspry.asm(2248): JRxx to NO_Y_COR3 (COMMENT)
+d:\video\narc\narcspry.asm(2269): JRxx to DO_LOW_PIX (COMMENT)
+d:\video\narc\narcspry.asm(2272): JRxx to HIGH_1 (COMMENT)
+d:\video\narc\narcspry.asm(2275): JRxx to DO_LOW_PIX (COMMENT)
+d:\video\narc\narcspry.asm(2276): JRxx to DO_LOW_PIX (COMMENT)
+d:\video\narc\narcspry.asm(2282): JRxx to NO_FUDGE_1 (COMMENT)
+d:\video\narc\narcspry.asm(2284): JRxx to NO_FUDGE_1 (COMMENT)
+d:\video\narc\narcspry.asm(2301): JRxx to HIGH_0 (COMMENT)
+d:\video\narc\narcspry.asm(2306): JRxx to HIGH_2 (COMMENT)
+d:\video\narc\narcspry.asm(2309): JRxx to HIGH_2 (COMMENT)
+d:\video\narc\narcspry.asm(2314): JRxx to HIGH_3 (COMMENT)
+d:\video\narc\narcspry.asm(2317): JRxx to HIGH_3 (COMMENT)
+d:\video\narc\narcspry.asm(2322): JRxx to HIGH_4 (COMMENT)
+d:\video\narc\narcspry.asm(2336): JRxx to PUT_PIX_OUT (COMMENT)
+d:\video\narc\narcspry.asm(2339): JRxx to LOW_1 (COMMENT)
+d:\video\narc\narcspry.asm(2342): JRxx to PUT_PIX_OUT (COMMENT)
+d:\video\narc\narcspry.asm(2343): JRxx to PUT_PIX_OUT (COMMENT)
+d:\video\narc\narcspry.asm(2349): JRxx to NO_FUDGE_2 (COMMENT)
+d:\video\narc\narcspry.asm(2351): JRxx to NO_FUDGE_2 (COMMENT)
+d:\video\narc\narcspry.asm(2369): JRxx to LOW_0 (COMMENT)
+d:\video\narc\narcspry.asm(2374): JRxx to LOW_2 (COMMENT)
+d:\video\narc\narcspry.asm(2377): JRxx to LOW_2 (COMMENT)
+d:\video\narc\narcspry.asm(2382): JRxx to LOW_3 (COMMENT)
+d:\video\narc\narcspry.asm(2385): JRxx to LOW_3 (COMMENT)
+d:\video\narc\narcspry.asm(2390): JRxx to LOW_4 (COMMENT)
+
+Processing d:\video\narc\narchstd.asm
+----------------------------------------------
+d:\video\narc\narchstd.asm(441): JRxx to MEANS (COMMENT)
+d:\video\narc\narchstd.asm(1097): JRxx to KILL_TAB_2 (COMMENT)
+
+Processing d:\video\narc\narchelp.asm
+----------------------------------------------
+d:\video\narc\narchelp.asm(260): JRxx to FOR (COMMENT)
+d:\video\narc\narchelp.asm(1840): JRxx to CCC_X (COMMENT)
+
+Processing d:\video\narc\narctest.asm
+----------------------------------------------
+d:\video\narc\narctest.asm(1490): JRxx to LOOP (COMMENT)
+
+Processing d:\video\narc\narcmenu.asm
+----------------------------------------------
+d:\video\narc\narcmenu.asm(1699): JRxx to NO_JOY (COMMENT)
+d:\video\narc\narcmenu.asm(1702): JRxx to WERE_IN (COMMENT)
+d:\video\narc\narcmenu.asm(1705): JRxx to TRY_AGAIN (COMMENT)
+
+Processing d:\video\narc\narcadj.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narctext.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcanim.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcdata.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcdatb.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\narcblip.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\imgtbl.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\bgndtbl.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\narc\bgndpal.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\mproc.asm
+----------------------------------------------
+No External JRUC's in this module.
+
+Processing d:\video\ndsp1.asm
+----------------------------------------------
+d:\video\ndsp1.asm(332): JRxx to YZNSRTX (COMMENT)
+d:\video\ndsp1.asm(336): JRxx to YZNSRTX (COMMENT)
+d:\video\ndsp1.asm(343): JRxx to YZNLP (COMMENT)
+d:\video\ndsp1.asm(344): JRxx to YZNSWAP (COMMENT)
+d:\video\ndsp1.asm(349): JRxx to YZNLP (COMMENT)
+d:\video\ndsp1.asm(366): JRxx to YZNLP0 (COMMENT)
+d:\video\ndsp1.asm(373): JRxx to YZNLP0 (COMMENT)
+d:\video\ndsp1.asm(738): JRxx to no_del (COMMENT)
+
+Processing d:\video\gspsnd.asm
+----------------------------------------------
+No External JRUC's in this module.
+

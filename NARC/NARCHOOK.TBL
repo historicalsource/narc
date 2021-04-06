@@ -1,0 +1,92 @@
+	.DATA
+hkwlk1:
+	.word	20,85,9,-50
+	.long	>2ED1260,hookpal
+hkwlk2:
+	.word	27,86,9,-49
+	.long	>2ED4780,hookpal
+hkwlk3:
+	.word	40,83,14,-51
+	.long	>2ED92C0,hookpal
+hkwlk4:
+	.word	40,82,16,-51
+	.long	>2EDFA80,hookpal
+hkwlk5:
+	.word	23,85,9,-50
+	.long	>2EE6100,hookpal
+hkwlk6:
+	.word	28,85,8,-50
+	.long	>2EEA0C0,hookpal
+hkwlk7:
+	.word	45,82,18,-52
+	.long	>2EEEB20,hookpal
+hkwlk8:
+	.word	42,81,18,-52
+	.long	>2EF6620,hookpal
+hkwlk9:
+	.word	23,82,8,-53
+	.long	>2EFD580,hookpal
+hook1:
+	.word	19,82,8,-53
+	.long	>2F01300,hookpal
+hook2:
+	.word	23,80,8,-55
+	.long	>2F04640,hookpal
+hook3:
+	.word	27,80,9,-55
+	.long	>2F08240,hookpal
+seduc2:
+	.word	40,86,10,-50
+	.long	>2F10F20,hookpal
+seduc3:
+	.word	46,86,12,-50
+	.long	>2F17AA0,hookpal
+seduc4:
+	.word	38,84,13,-51
+	.long	>2F1FBA0,hookpal
+seduc5:
+	.word	33,84,13,-52
+	.long	>2F264A0,hookpal
+seduc6:
+	.word	32,87,11,-49
+	.long	>2F2C320,hookpal
+seduc7:
+	.word	30,86,10,-50
+	.long	>2F31A20,hookpal
+seduc8:
+	.word	24,85,11,-51
+	.long	>2F37020,hookpal
+seduc9:
+	.word	32,85,16,-51
+	.long	>2F3AFE0,hookpal
+seduc11:
+	.word	32,84,14,-52
+	.long	>2F404E0,hookpal
+seduc13:
+	.word	32,86,18,-50
+	.long	>2F458E0,hookpal
+seduc14:
+	.word	27,86,15,-50
+	.long	>2F4AEE0,hookpal
+hkpose1:
+	.word	34,86,17,-50
+	.long	>2F4FA20,hookpal
+hkpose2:
+	.word	32,86,16,-49
+	.long	>2F55AE0,hookpal
+hkpose3:
+	.word	28,85,13,-50
+	.long	>2F5B0E0,hookpal
+hkpose6:
+	.word	35,85,15,-50
+	.long	>2F5FB40,hookpal
+hkpose7:
+	.word	35,87,13,-49
+	.long	>2F65AE0,hookpal
+hkpose8:
+	.word	27,86,8,-50
+	.long	>2F6BCC0,hookpal
+hkpose9:
+	.word	28,87,8,-48
+	.long	>2F70800,hookpal
+	.TEXT

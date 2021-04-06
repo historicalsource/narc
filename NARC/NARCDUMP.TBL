@@ -1,0 +1,134 @@
+	.DATA
+pick2:
+	.word	56,82,27,-56
+	.long	>25ADBC0,DUMPPAL
+pick3:
+	.word	67,73,27,-64
+	.long	>25B6B40,DUMPPAL
+pick4:
+	.word	73,65,30,-72
+	.long	>25C0660,DUMPPAL
+pick6:
+	.word	69,49,29,-89
+	.long	>25CA0C0,DUMPPAL
+pick7:
+	.word	73,58,31,-77
+	.long	>25D0F00,DUMPPAL
+pick8:
+	.word	68,70,28,-68
+	.long	>25D98C0,DUMPPAL
+pick9:
+	.word	63,78,29,-59
+	.long	>25E2D80,DUMPPAL
+pick10:
+	.word	57,90,27,-47
+	.long	>25EC980,DUMPPAL
+pick11:
+	.word	51,100,26,-39
+	.long	>25F7240,DUMPPAL
+bwlk4_vda:
+	.word	43,93,13,-44
+	.long	>26014C0,DUMPPAL
+bwlk5_vda:
+	.word	37,92,11,-45
+	.long	>26094A0,DUMPPAL
+bwlk6_vda:
+	.word	35,92,12,-45
+	.long	>26107A0,DUMPPAL
+bwlk8_vda:
+	.word	43,91,18,-46
+	.long	>2616F20,DUMPPAL
+bwlk9_vda:
+	.word	42,91,23,-46
+	.long	>261EC40,DUMPPAL
+bwlk10_vda:
+	.word	28,93,8,-44
+	.long	>2626960,DUMPPAL
+bwlk12_vda:
+	.word	31,92,11,-46
+	.long	>262BAC0,DUMPPAL
+bwlk13_vda:
+	.word	42,89,17,-47
+	.long	>26316C0,DUMPPAL
+bwlk14_vda:
+	.word	45,90,23,-47
+	.long	>2639120,DUMPPAL
+bdie1:
+	.word	33,87,15,-50
+	.long	>2641820,DUMPPAL
+bdie2:
+	.word	36,90,7,-47
+	.long	>2647A00,DUMPPAL
+bdie3:
+	.word	35,88,12,-49
+	.long	>264DF40,DUMPPAL
+bdie4:
+	.word	32,82,11,-55
+	.long	>2654240,DUMPPAL
+bdie5:
+	.word	29,73,13,-63
+	.long	>2659440,DUMPPAL
+bdie6:
+	.word	31,83,12,-53
+	.long	>265DD40,DUMPPAL
+bdie7:
+	.word	41,83,15,-53
+	.long	>2663040,DUMPPAL
+bdie9:
+	.word	42,85,20,-52
+	.long	>266A260,DUMPPAL
+bdie10:
+	.word	50,87,24,-50
+	.long	>2671740,DUMPPAL
+bdie11:
+	.word	73,73,28,-63
+	.long	>267A4A0,DUMPPAL
+bdie12:
+	.word	82,48,33,-87
+	.long	>2685200,DUMPPAL
+bdie14:
+	.word	90,28,34,-113
+	.long	>268D000,DUMPPAL
+dmthr1:
+	.word	39,94,19,-42
+	.long	>2692080,DUMPPAL
+dmthr2:
+	.word	35,93,20,-43
+	.long	>2699600,DUMPPAL
+dmthr3:
+	.word	34,93,16,-43
+	.long	>269FEA0,DUMPPAL
+dmthr4:
+	.word	43,94,18,-42
+	.long	>26A6740,DUMPPAL
+dmthr5:
+	.word	54,91,25,-44
+	.long	>26AE880,DUMPPAL
+dmthr7:
+	.word	52,89,27,-45
+	.long	>26B87C0,DUMPPAL
+dmthr8:
+	.word	51,96,25,-40
+	.long	>26C1860,DUMPPAL
+dmthr9:
+	.word	58,95,24,-41
+	.long	>26CB460,DUMPPAL
+dmthr10:
+	.word	65,85,23,-51
+	.long	>26D6680,DUMPPAL
+dmthr11:
+	.word	62,82,23,-54
+	.long	>26E1B20,DUMPPAL
+dmthr12:
+	.word	52,86,24,-51
+	.long	>26EBF20,DUMPPAL
+dmthra:
+	.word	50,92,21,-44
+	.long	>26F4AE0,DUMPPAL
+dmthrb:
+	.word	38,94,22,-43
+	.long	>26FE060,DUMPPAL
+dmthrc:
+	.word	30,97,13,-40
+	.long	>27055E0,DUMPPAL
+	.TEXT

@@ -1,0 +1,3 @@
+
+P NARC         616 FFC02DC0         MOVK    1,A0
+	MOVK 5,A0

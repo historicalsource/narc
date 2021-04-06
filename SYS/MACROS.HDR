@@ -1,0 +1,43 @@
+
+*------- Macros for TMS34010 assembly language programs ----------------
+
+* Swap contents of two registers that reside in same file
+
+SWAP	$MACRO R1,R2
+	XOR    :R1.S:,:R2.S:
+	XOR    :R2.S:,:R1.S:
+	XOR    :R1.S:,:R2.S:
+	$END
+
+* Test a register for zero
+TEST	$MACRO R1
+	MOVE	:R1.S:,:R1.S:
+	$END
+
+*EQUATES FOR XY COMPARES(MOTOLORA STYLE)
+JRXEQ	$MACRO	P1
+	JRXZ	P1.S
+	$END
+JRXNE	$MACRO	P1
+	JRXNZ	P1.S
+	$END
+JRXGE	$MACRO	P1
+	JRXNN	P1.S
+	$END
+JRXLT	$MACRO	P1
+	JRXN	P1.S
+	$END
+JRYEQ	$MACRO	P1
+	JRYZ	P1.S
+	$END
+JRYNE	$MACRO	P1
+	JRYNZ	P1.S
+	$END
+JRYGE	$MACRO	P1
+	JRYNN	P1.S
+	$END
+JRYLT	$MACRO	P1
+	JRYN	P1.S
+	$END
+                                                                                                                                              
+

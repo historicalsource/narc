@@ -1,0 +1,34 @@
+;****************************************************************************
+;* UTILITIE.MAC: UTILITY MACROS;                                            *
+;****************************************************************************
+
+;       FUNCTION CALL AND RETURN WITHOUT USING THE SYSTEM STACK
+
+FCALL   $MACRO NAME, BREG
+         MOVI  :NAME:, :BREG:, L
+         EXGPC :BREG:
+        $END
+
+FRET    $MACRO BREG
+         EXGPC :BREG:
+        $END
+
+;       TIMED PAUSE
+
+PAUSE   $MACRO TIME, REG
+         MOVI :TIME:, :REG:, L
+LABEL?:  NOP
+         DSJS :REG:, LABEL?
+        $END
+
+;       CLEAR SCREEN
+
+CLEARSCR $MACRO
+          CLR   A0
+          MOVI  [400,512], A1, L
+          MOVI  (BLACK * 256) + BLACK, A2
+          MOVI  RECTANGLE, B6, L
+          EXGPC B6
+         $END
+
+

@@ -1,0 +1,95 @@
+RAM_WDTH .SET 000H                ; OFFSETS INTO RAM CHIP RECORD
+RAM_ITLV .SET 010H
+RAM_NMBR .SET 020H
+RAM_SADR .SET 030H
+RAM_EADR .SET 050H
+RAM_LINK .SET 070H
+RAM_SIZE .SET 090H
+
+;****************************************************************************
+;* RAM_CHIP: MACRO DEFINES A RAM CHIP RECORD.                               *
+;*                                                                          *
+;*       CHIP_NO    -- CHIP NUMBER                                          *
+;*       WIDTH      -- CHIP CELL SIZE IN BITS (MUST BE > 0)                 *
+;*       INTERLEAVE -- DISTANCE BETWEEN ADJACENT CELLS ON CHIP (IN BITS)    *
+;*       START_ADDR -- ADDRESS OF FIRST CELL ON CHIP                        *
+;*       END_ADDR   -- ADDRESS OF LAST CELL ON CHIP                         *
+;*       CHECK_SUM  -- DATAIO CHECK SUM FOR CHIP                            *
+;****************************************************************************
+
+RAM_CHIP $MACRO CHIP_NO, WIDTH, INTERLEAVE, START_ADDR, END_ADDR           
+
+         .SECT  "CHIPS"
+
+         .WORD  :WIDTH:
+         .WORD  :INTERLEAVE:
+         .WORD  :CHIP_NO:H                ; BCD CHIP NUMBER.
+         .LONG  :START_ADDR:
+         .LONG  :END_ADDR:
+
+         .GLOBL RAM:CHIP_NO:              ; SYMBOL SHOULD LABEL A RECTANGLE
+         .LONG  RAM:CHIP_NO:              ; RECORD CORRESPONDING TO A RAM
+                                          ; CHIP ICON
+
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO MARKS THE END OF ANY RAM CHIP TABLE.                 *
+;****************************************************************************
+
+END_CHIP $MACRO
+
+         .SECT  "CHIPS"
+         .WORD  0
+
+         $END
+
+        .PAGE
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A CHIP RECORD AND    *
+;* PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER POINT- *
+;* ING TO THE BEGINNING OF A CHIP RECORD.                                   *
+;****************************************************************************
+
+RAMSADDR $MACRO SRC, DST
+         MOVE *:SRC:(RAM_SADR), :DST:, 1
+         $END
+
+RAMEADDR $MACRO SRC, DST
+         MOVE *:SRC:(RAM_EADR), :DST:, 1
+         $END
+
+RAMRLINK $MACRO SRC, DST
+         MOVE *:SRC:(RAM_LINK), :DST:, 1
+         $END
+
+RAMNUMBR $MACRO SRC, DST
+         MOVE *:SRC:(RAM_NMBR), :DST:
+         $END
+
+RAMINTLV $MACRO SRC, DST
+         MOVE *:SRC:(RAM_ITLV), :DST:
+         $END
+
+RAMWIDTH $MACRO SRC, DST
+         MOVE *:SRC:(RAM_WDTH), :DST:
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT CHIP RECORD IS NOT  *
+;* EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE     *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A CHIP  *
+;* RECORD.                                                                  *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* INCREMENTED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                *
+;****************************************************************************
+
+RAMEND  $MACRO SRC, LOCATION
+        ADDI RAM_SIZE, :SRC:
+        MOVE *:SRC:, SP
+        JRNZ :LOCATION:
+        $END
+
+

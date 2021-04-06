@@ -1,0 +1,95 @@
+	.DATA
+lfwk1:
+	.word	37,72,23,-64
+	.long	>295ED40,fnklof
+lfwk2:
+	.word	47,72,25,-65
+	.long	>2964740,loafer
+lfwk3:
+	.word	37,72,22,-65
+	.long	>296B340,loafer
+lfwk4:
+	.word	35,73,19,-64
+	.long	>2970D40,loafer
+lfwk5:
+	.word	33,72,18,-65
+	.long	>2975F60,loafer
+lfwk6:
+	.word	35,72,18,-65
+	.long	>297B060,loafer
+lcuf2:
+	.word	49,93,30,-45
+	.long	>2980160,loafer
+lcuf4:
+	.word	27,87,17,-51
+	.long	>2989880,loafer
+lcuf5:
+	.word	44,88,25,-49
+	.long	>298E4A0,loafer
+lcuf8:
+	.word	29,86,17,-52
+	.long	>2995DA0,loafer
+ldth2:
+	.word	48,76,25,-65
+	.long	>299B3A0,loafer
+ldth4:
+	.word	53,51,25,-98
+	.long	>29A25A0,loafer
+ldth6:
+	.word	84,32,37,-114
+	.long	>29A7EE0,loafer
+ldth7:
+	.word	93,23,38,-123
+	.long	>29AD2E0,loafer
+lsho1:
+	.word	56,59,19,-77
+	.long	>29B17E0,loafer
+lsho2:
+	.word	39,60,19,-77
+	.long	>29B7F20,loafer
+lsho4:
+	.word	53,76,12,-62
+	.long	>29BCA20,loafer
+lsho5:
+	.word	46,76,12,-62
+	.long	>29C4F20,loafer
+lsho6:
+	.word	103,24,57,-114
+	.long	>29CC120,loafer
+lsho7:
+	.word	98,25,55,-114
+	.long	>29D0F20,loafer
+hell1:
+	.word	41,51,20,-86
+	.long	>29D5D40,loafer
+hell2:
+	.word	46,57,21,-80
+	.long	>29DA360,loafer
+hell3:
+	.word	36,58,18,-78
+	.long	>29DF8E0,loafer
+hell7:
+	.word	51,62,22,-77
+	.long	>29E3A20,loafer
+ljmp1:
+	.word	51,73,27,-63
+	.long	>29E9EE0,loafer
+ljmp6:
+	.word	57,70,26,-62
+	.long	>29F1580,loafer
+hang1:
+	.word	29,75,14,-65
+	.long	>29F98C0,loafer
+hang2:
+	.word	27,72,14,-70
+	.long	>29FE3C0,loafer
+hang3:
+	.word	29,72,14,-69
+	.long	>2A022C0,loafer
+hang4:
+	.word	29,73,14,-68
+	.long	>2A06AC0,loafer
+hang5:
+	.word	29,72,15,-69
+	.long	>2A0B3C0,loafer
+	.TEXT

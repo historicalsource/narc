@@ -1,0 +1,107 @@
+	.DATA
+gh1a:
+	.word	47,76,21,-37
+	.long	>2BEB640,gangpal
+gh2a:
+	.word	37,84,12,-29
+	.long	>2BF2840,gangpal
+gh3a:
+	.word	37,89,11,-25
+	.long	>2BF9140,gangpal
+gh4a:
+	.word	44,90,18,-25
+	.long	>2C00080,gangpal
+gh5a:
+	.word	61,75,28,-39
+	.long	>2C07C40,gangpal
+gh6a:
+	.word	44,83,14,-32
+	.long	>2C11240,gangpal
+gh7a:
+	.word	39,89,11,-26
+	.long	>2C18460,gangpal
+gh8a:
+	.word	48,87,19,-29
+	.long	>2C1F3A0,gangpal
+n_duck1:
+	.word	56,63,26,-52
+	.long	>2C27620,gangpal
+n_duck2:
+	.word	56,49,25,-69
+	.long	>2C2E460,gangpal
+n_duck3:
+	.word	57,45,27,-69
+	.long	>2C33A20,gangpal
+n_pk1:
+	.word	36,74,15,-40
+	.long	>2C38E80,gangpal
+n_pk2:
+	.word	37,73,16,-41
+	.long	>2C3E1C0,gangpal
+n_pk3:
+	.word	39,62,18,-53
+	.long	>2C43D00,gangpal
+n_wa1:
+	.word	35,83,12,-29
+	.long	>2C48A80,gangpal
+n_wa2:
+	.word	44,78,22,-35
+	.long	>2C4E7E0,gangpal
+n_wa3:
+	.word	46,86,19,-28
+	.long	>2C55320,gangpal
+n_wa4:
+	.word	34,77,16,-36
+	.long	>2C5D420,gangpal
+n_wa5:
+	.word	61,75,24,-38
+	.long	>2C62AC0,gangpal
+n_wa6:
+	.word	48,86,15,-28
+	.long	>2C6C0C0,gangpal
+n_sht1:
+	.word	53,80,18,-32
+	.long	>2C741C0,gangpal
+n_sht2:
+	.word	61,80,21,-35
+	.long	>2C7CDC0,gangpal
+n_sht3:
+	.word	32,82,8,-30
+	.long	>2C86DC0,gangpal
+n_sht4:
+	.word	49,81,11,-31
+	.long	>2C8BFC0,gangpal
+n_bht1:
+	.word	36,88,18,-26
+	.long	>2C94360,gangpal
+n_bht3:
+	.word	36,88,18,-26
+	.long	>2C9A660,gangpal
+n_die1:
+	.word	36,79,16,-35
+	.long	>2CA0960,gangpal
+n_die2:
+	.word	49,81,36,-32
+	.long	>2CA6240,gangpal
+n_die3:
+	.word	67,45,68,-67
+	.long	>2CAE5E0,gangpal
+n_die4:
+	.word	91,26,84,-101
+	.long	>2CB4580,gangpal
+n_bt2:
+	.word	22,98,13,-13
+	.long	>2CB9040,gangpal
+n_bust1:
+	.word	53,95,26,-19
+	.long	>2CBD9C0,gangpal
+n_bust3:
+	.word	57,84,37,-30
+	.long	>2CC8000,gangpal
+n_bust4:
+	.word	44,87,25,-27
+	.long	>2CD1D80,gangpal
+gduck3:
+	.word	53,39,29,-75
+	.long	>2CD9520,gangpal
+	.TEXT

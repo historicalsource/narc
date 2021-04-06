@@ -1,0 +1,428 @@
+	.DATA
+jlsw1:
+	.word	21,52,12,-86
+	.long	>3158620,bluenc
+jlsw2:
+	.word	18,51,7,-86
+	.long	>315AD20,bluenc
+jlsw3:
+	.word	24,51,8,-87
+	.long	>315CD00,bluenc
+jlsw5:
+	.word	29,51,18,-86
+	.long	>315F340,bluenc
+jlsw6:
+	.word	22,51,13,-87
+	.long	>3162640,bluenc
+jlsw7:
+	.word	18,52,7,-88
+	.long	>3164C80,bluenc
+jlsw8:
+	.word	21,53,8,-86
+	.long	>3166D00,bluenc
+jlsw9:
+	.word	34,53,10,-85
+	.long	>31694C0,bluenc
+jlsw10:
+	.word	35,51,19,-87
+	.long	>316D060,bluenc
+jlsw11:
+	.word	30,54,18,-86
+	.long	>31709C0,bluenc
+jlqfw1:
+	.word	25,54,7,-85
+	.long	>3173FC0,bluenc
+jlqfw2:
+	.word	18,55,2,-84
+	.long	>3176F00,bluenc
+jlqfw3:
+	.word	16,56,0,-82
+	.long	>3179160,bluenc
+jlqfw4:
+	.word	18,54,1,-84
+	.long	>317AD60,bluenc
+jlqfw5:
+	.word	17,53,2,-85
+	.long	>317CF20,bluenc
+jlqfw6:
+	.word	19,53,1,-85
+	.long	>317F040,bluenc
+jlqfw7:
+	.word	31,53,5,-85
+	.long	>3181160,bluenc
+jlfw1:
+	.word	16,52,6,-88
+	.long	>3184660,bluenc
+jlfw2:
+	.word	17,51,7,-88
+	.long	>3186060,bluenc
+jlfw3:
+	.word	18,52,7,-88
+	.long	>3188040,bluenc
+jlfw4:
+	.word	17,53,6,-89
+	.long	>318A0C0,bluenc
+jlfw5:
+	.word	17,54,6,-87
+	.long	>318C1E0,bluenc
+jlqbw1:
+	.word	14,54,0,-82
+	.long	>318E3A0,bluenc
+jlqbw2:
+	.word	22,55,2,-82
+	.long	>318FEA0,bluenc
+jlqbw3:
+	.word	24,54,9,-82
+	.long	>31927E0,bluenc
+jlqbw4:
+	.word	20,51,4,-83
+	.long	>3195060,bluenc
+jlqbw5:
+	.word	21,51,2,-83
+	.long	>3197040,bluenc
+jlqbw6:
+	.word	35,52,10,-83
+	.long	>3199680,bluenc
+jlqbw7:
+	.word	23,53,9,-83
+	.long	>319D100,bluenc
+jlbw1:
+	.word	15,52,8,-83
+	.long	>319F8C0,bluenc
+jlbw2:
+	.word	15,53,6,-85
+	.long	>31A12C0,bluenc
+jlbw3:
+	.word	17,52,8,-85
+	.long	>31A2D40,bluenc
+jlbw4:
+	.word	16,53,8,-85
+	.long	>31A4DC0,bluenc
+jlbw5:
+	.word	16,53,8,-84
+	.long	>31A6840,bluenc
+jlju1:
+	.word	26,33,8,-104
+	.long	>31CF2A0,bluenc
+jlju2:
+	.word	27,47,6,-79
+	.long	>31D0F80,bluenc
+jlju3:
+	.word	28,34,6,-74
+	.long	>31D38A0,bluenc
+jlju4:
+	.word	31,39,7,-79
+	.long	>31D5660,bluenc
+jlju5:
+	.word	27,32,9,-106
+	.long	>31D7D60,bluenc
+jlssqrst:
+	.word	55,31,31,-111
+	.long	>31D9960,bluenc
+jlssqw1:
+	.word	35,32,10,-106
+	.long	>31DCFA0,bluenc
+jljuhel3:
+	.word	28,34,-29,-162
+	.long	>31D38A0,bluenc
+jljuhel4:
+	.word	31,39,-28,-153
+	.long	>31D5660,bluenc
+jljucar3:
+	.word	28,34,22,-100
+	.long	>31D38A0,bluenc
+jljucar4:
+	.word	31,39,16,-108
+	.long	>31D5660,bluenc
+jlssqw2:
+	.word	29,35,10,-105
+	.long	>31DF3A0,bluenc
+jlssqw3:
+	.word	25,36,8,-104
+	.long	>31E16A0,bluenc
+jlssqw4:
+	.word	32,33,7,-105
+	.long	>31E3620,bluenc
+jlssqw5:
+	.word	31,38,15,-102
+	.long	>31E5720,bluenc
+jlssqw6:
+	.word	24,37,8,-104
+	.long	>31E7D20,bluenc
+jlssqw7:
+	.word	25,37,7,-104
+	.long	>31E98E0,bluenc
+jlssqw8:
+	.word	36,35,7,-105
+	.long	>31EB940,bluenc
+jlsstd:
+	.word	39,50,15,-90
+	.long	>31EE0A0,bluenc
+jtqfwshgs1:
+	.word	63,40,10,-52
+	.long	>31F1F20,bluenc
+jtqfwshgs2:
+	.word	55,42,11,-51
+	.long	>31F6F20,bluenc
+jtqfwshms1:
+	.word	60,40,4,-53
+	.long	>31FB8A0,bluenc
+jtqfwshms2:
+	.word	43,37,2,-54
+	.long	>32003A0,bluenc
+jtfwshgs1:
+	.word	58,41,12,-56
+	.long	>3203680,bluenc
+jtfwshgs2:
+	.word	55,41,14,-57
+	.long	>3208360,bluenc
+jtfwshms1:
+	.word	56,37,10,-56
+	.long	>320CB20,bluenc
+jtfwshms2:
+	.word	42,40,14,-55
+	.long	>3210BE0,bluenc
+jtqbwshgs1:
+	.word	50,41,3,-51
+	.long	>32142E0,bluenc
+jtqbwshgs2:
+	.word	40,42,0,-51
+	.long	>3218580,bluenc
+jtqbwshms1:
+	.word	76,40,13,-52
+	.long	>321BA00,bluenc
+jtqbwshms2:
+	.word	59,41,10,-52
+	.long	>3221900,bluenc
+jtbwshgs1:
+	.word	47,37,9,-54
+	.long	>32265E0,bluenc
+jtbwshgs2:
+	.word	40,40,8,-54
+	.long	>3229D60,bluenc
+jtbwshms1:
+	.word	68,34,17,-55
+	.long	>322CF60,bluenc
+jtbwshms2:
+	.word	56,38,13,-54
+	.long	>32317A0,bluenc
+jtjushg1:
+	.word	63,36,6,-45
+	.long	>3235A20,bluenc
+jtjushg2:
+	.word	54,36,7,-47
+	.long	>323A220,bluenc
+jtjushm1:
+	.word	70,37,6,-43
+	.long	>323E120,bluenc
+jtjushm2:
+	.word	42,37,5,-43
+	.long	>3243460,bluenc
+comdb1:
+	.word	48,89,28,-49
+	.long	>3246740,bluenc
+comdb2:
+	.word	61,73,33,-65
+	.long	>324ECC0,bluenc
+comdb3:
+	.word	64,71,37,-66
+	.long	>3257EC0,bluenc
+comdb4:
+	.word	63,79,38,-59
+	.long	>3260CC0,bluenc
+comdb5:
+	.word	78,51,49,-87
+	.long	>326AAC0,bluenc
+comdb6:
+	.word	79,42,54,-97
+	.long	>3272A40,bluenc
+comdb7:
+	.word	96,31,72,-114
+	.long	>3279340,bluenc
+jtswrst1:
+	.word	45,41,7,-52
+	.long	>327F040,bluenc
+jtswrst2:
+	.word	51,40,8,-52
+	.long	>3282DC0,bluenc
+jtswrst3:
+	.word	56,41,9,-54
+	.long	>3286EC0,bluenc
+jtswrst4:
+	.word	58,40,8,-54
+	.long	>328B680,bluenc
+jtswrst5:
+	.word	53,38,7,-54
+	.long	>3290180,bluenc
+jtswrst6:
+	.word	45,41,7,-54
+	.long	>3294400,bluenc
+jtswrst7:
+	.word	40,42,7,-56
+	.long	>3298180,bluenc
+jtswrst8:
+	.word	39,41,10,-55
+	.long	>329B600,bluenc
+jtswrst9:
+	.word	38,45,13,-53
+	.long	>329E940,bluenc
+jtswrst10:
+	.word	43,41,15,-54
+	.long	>32A2180,bluenc
+jtswrst11:
+	.word	44,41,11,-54
+	.long	>32A59E0,bluenc
+jtqfwrst1:
+	.word	36,38,7,-54
+	.long	>32A9240,bluenc
+jtqfwrst2:
+	.word	36,41,8,-53
+	.long	>32ABD00,bluenc
+jtqfwrst3:
+	.word	36,40,10,-52
+	.long	>32AEB20,bluenc
+jtqfwrst4:
+	.word	37,39,11,-53
+	.long	>32B1820,bluenc
+jtqfwrst5:
+	.word	37,39,10,-54
+	.long	>32B48E0,bluenc
+jtqfwrst6:
+	.word	37,39,9,-53
+	.long	>32B79A0,bluenc
+jtqfwrst7:
+	.word	35,39,6,-53
+	.long	>32BAA60,bluenc
+jtfwrst1:
+	.word	40,40,14,-54
+	.long	>32BD640,bluenc
+jtfwrst2:
+	.word	39,39,14,-54
+	.long	>32C0840,bluenc
+jtfwrst3:
+	.word	35,39,11,-55
+	.long	>32C3900,bluenc
+jtfwrst4:
+	.word	38,43,15,-54
+	.long	>32C64E0,bluenc
+jtfwrst5:
+	.word	37,40,14,-53
+	.long	>32C9AA0,bluenc
+jtqbwrst1:
+	.word	37,40,6,-49
+	.long	>32CCCA0,bluenc
+jtqbwrst2:
+	.word	36,39,8,-50
+	.long	>32CFEA0,bluenc
+jtqbwrst3:
+	.word	34,39,8,-50
+	.long	>32D2A80,bluenc
+jtqbwrst4:
+	.word	36,39,7,-51
+	.long	>32D5660,bluenc
+jtqbwrst5:
+	.word	36,40,4,-51
+	.long	>32D8240,bluenc
+jtqbwrst6:
+	.word	39,43,2,-49
+	.long	>32DAF40,bluenc
+jtqbwrst7:
+	.word	37,41,4,-50
+	.long	>32DE500,bluenc
+jtbwrst1:
+	.word	38,39,19,-51
+	.long	>32E1840,bluenc
+jtbwrst2:
+	.word	37,39,17,-53
+	.long	>32E4900,bluenc
+jtbwrst3:
+	.word	34,39,18,-52
+	.long	>32E79C0,bluenc
+jtbwrst4:
+	.word	39,37,24,-54
+	.long	>32EA5A0,bluenc
+jtbwrst5:
+	.word	34,39,21,-52
+	.long	>32ED3E0,bluenc
+jtju1:
+	.word	42,40,9,-72
+	.long	>32EFFC0,bluenc
+jtju2:
+	.word	47,45,2,-39
+	.long	>32F36C0,bluenc
+jtju3:
+	.word	50,42,6,-40
+	.long	>32F7A40,bluenc
+jtju4:
+	.word	49,38,7,-48
+	.long	>32FBE80,bluenc
+jtju5:
+	.word	51,39,9,-72
+	.long	>32FFC40,bluenc
+jtjuhel3:
+	.word	50,42,-29,-128
+	.long	>32F7A40,bluenc
+jtjuhel4:
+	.word	49,38,-28,-122
+	.long	>32FBE80,bluenc
+jtjucar3:
+	.word	50,42,22,-66
+	.long	>32F7A40,bluenc
+jtjucar4:
+	.word	49,38,16,-77
+	.long	>32FBE80,bluenc
+jtswshgs1:
+	.word	67,40,17,-54
+	.long	>3303BA0,bluenc
+jtswshgs2:
+	.word	62,40,17,-53
+	.long	>33090A0,bluenc
+jtswshgs1c:
+	.word	67,40,17,-58
+	.long	>3303BA0,bluenc
+jtswshgs2c:
+	.word	62,40,17,-57
+	.long	>33090A0,bluenc
+jtswshms1:
+	.word	71,39,15,-54
+	.long	>330E0A0,bluenc
+jtswshms2:
+	.word	56,38,15,-55
+	.long	>3313860,bluenc
+jtswshms1c:
+	.word	71,39,15,-56
+	.long	>330E0A0,bluenc
+jtswshms2c:
+	.word	56,38,15,-57
+	.long	>3313860,bluenc
+jtssqshg1:
+	.word	61,35,6,-84
+	.long	>3317AE0,bluenc
+jtssqshg2:
+	.word	51,35,6,-83
+	.long	>331C0E0,bluenc
+jtssqshg1c:
+	.word	61,35,6,-87
+	.long	>3317AE0,bluenc
+jtssqshg2c:
+	.word	51,35,6,-87
+	.long	>331C0E0,bluenc
+jtssqshm1:
+	.word	64,38,8,-77
+	.long	>331F9C0,bluenc
+jtssqshm2:
+	.word	46,38,9,-78
+	.long	>33245C0,bluenc
+jtssqshm1c:
+	.word	64,38,6,-84
+	.long	>331F9C0,bluenc
+jtssqshm2c:
+	.word	46,38,6,-85
+	.long	>3327EC0,bluenc
+jtssqrst:
+	.word	39,33,6,-85
+	.long	>332B7C0,bluenc
+jtssqrstc:
+	.word	39,33,5,-89
+	.long	>332B7C0,bluenc
+	.TEXT

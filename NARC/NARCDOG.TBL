@@ -1,0 +1,128 @@
+	.DATA
+dog1:
+	.word	70,38,36,-101
+	.long	>2A0FBC0,dog
+dog2:
+	.word	57,44,27,-95
+	.long	>2A15140,dog
+dog3:
+	.word	69,43,37,-94
+	.long	>2A1A3C0,dog
+dog4:
+	.word	70,38,36,-100
+	.long	>2A20480,dog
+drag1:
+	.word	56,34,32,-106
+	.long	>2A25A00,dog
+drag2:
+	.word	54,38,36,-101
+	.long	>2A29580,dog
+drag3:
+	.word	54,37,34,-102
+	.long	>2A2D800,dog
+drag4:
+	.word	59,32,30,-108
+	.long	>2A318C0,dog
+drag5:
+	.word	57,33,31,-106
+	.long	>2A354C0,dog
+drag6:
+	.word	58,33,31,-107
+	.long	>2A392A0,dog
+drag7:
+	.word	56,35,30,-105
+	.long	>2A3D080,dog
+smdog1:
+	.word	34,22,20,-116
+	.long	>2A40DC0,dog
+smdog2:
+	.word	34,19,18,-118
+	.long	>2A42680,dog
+smdog3:
+	.word	35,19,19,-119
+	.long	>2A43BE0,dog
+smdog4:
+	.word	26,18,13,-121
+	.long	>2A45140,dog
+smdog5:
+	.word	25,22,13,-117
+	.long	>2A46100,dog
+smdog6:
+	.word	28,22,14,-117
+	.long	>2A47440,dog
+leap1:
+	.word	54,37,26,-103
+	.long	>2A48780,dog
+leap2:
+	.word	51,45,26,-95
+	.long	>2A4C840,dog
+leap3:
+	.word	45,61,19,-79
+	.long	>2A51160,dog
+atack1:
+	.word	31,67,16,-72
+	.long	>2A56CE0,dog
+atack2:
+	.word	29,77,15,-62
+	.long	>2A5AFE0,dog
+atack3:
+	.word	37,88,20,-51
+	.long	>2A5FCE0,dog
+atack4:
+	.word	43,79,27,-51
+	.long	>2A66AE0,dog
+atack5:
+	.word	38,78,17,-57
+	.long	>2A6D780,dog
+atack6:
+	.word	40,81,19,-55
+	.long	>2A73900,dog
+atack7:
+	.word	32,82,22,-53
+	.long	>2A79E40,dog
+atack8:
+	.word	33,79,17,-58
+	.long	>2A7F040,dog
+atack9:
+	.word	38,66,19,-65
+	.long	>2A84920,dog
+atack10:
+	.word	50,62,31,-56
+	.long	>2A89BA0,dog
+atack11:
+	.word	32,82,17,-59
+	.long	>2A90060,dog
+atack12:
+	.word	50,73,23,-58
+	.long	>2A95260,dog
+atack13:
+	.word	39,67,17,-62
+	.long	>2A9C900,dog
+atack14:
+	.word	49,68,24,-61
+	.long	>2AA1CC0,dog
+growl1:
+	.word	57,32,27,-108
+	.long	>2AA8B40,dog
+growl2:
+	.word	53,37,29,-103
+	.long	>2AAC740,dog
+tear1:
+	.word	44,55,22,-85
+	.long	>2AB0800,dog
+tear2:
+	.word	32,63,24,-76
+	.long	>2AB53A0,dog
+tear3:
+	.word	43,50,23,-86
+	.long	>2AB92A0,dog
+tear4:
+	.word	51,51,23,-85
+	.long	>2ABD760,dog
+tear5:
+	.word	37,54,18,-83
+	.long	>2AC2A40,dog
+tear6:
+	.word	38,46,24,-90
+	.long	>2AC6DC0,dog
+	.TEXT

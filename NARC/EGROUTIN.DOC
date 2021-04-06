@@ -1,0 +1,17 @@
+Enemy Generation Routine
+------------------------
+	Routine Name = xxxxCOLD
+
+		Parameters:
+		----------
+		A5  = [y,x]
+		A6  = [0,z]	if A5 & A6 = 0, then random position.
+		A14 = [par1;par2,OID]
+				par1 = undefined 	(8 bits)
+				par2 = # to start 	(hi nybble)
+				       # random to add 	(lo nybble)	
+				OID  = >0E 		(hi byte)
+				       enemy type 	(hi nybble,lo byte)
+				       enemy sub-type 	(lo nybble,lo byte)	
+					
+

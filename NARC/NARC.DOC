@@ -1,0 +1,110 @@
+			Assembling NARC
+			---------------
+
+	There are two published versions of NARC. The first being the
+normal 25kHz horizontal scan version (400x512). The second being the
+interlaced 16kHz horizontal scan (400x512).
+
+To Assemble 25kHz version:
+
+	1) cd \VIDEO\NARC
+	2) run "LOADIMG NARC1 /T"	;This will create the image tables	
+	3) set INTERLACE = 0 in \VIDEO\SYS.INC	
+	4) cd DIAG
+	5) run "ALLDIAG"		;This will assemble the low level diag
+	6) cd ..	
+	7) run "ALLNARC"		;This will assemble and link the game
+	8) done NARC.OUT is the executable object
+
+To Assemble 16kHz version:
+
+	1) cd \VIDEO\NARC
+	2) run "LOADIMG NARC1 /T"	;This will create the image tables	
+	3) set INTERLACE = 1 in \VIDEO\SYS.INC	
+	4) cd DIAG
+	5) run "ALLDIAG"		;This will assemble the low level diag
+	6) cd ..	
+	7) run "ALLNARC"		;This will assemble and link the game
+	8) done NARC.OUT is the executable object
+	
+
+			Making ROMs for NARC
+			--------------------
+
+	Again there are two options when burning ROMs for NARC. The first
+being the version for 27010 (1 Mbit) ROMs. The second is for the less
+expensive 27512 (512 Kbit) ROMs.
+
+To make 27010's:
+
+	1) cd \VIDEO\NARC
+	2) run MAKEROMS		;This will take you through all the steps.
+		a) when in SYSCHECK.SET set ROM512 = 0
+		b) copy DATAIO checksums for FC roms when given
+		c) insert these checksums into ROMCHIPS.ASM when it appears. 
+		   Also, set the FE checksums to FFFFh (this is important).
+		d) copy DATAIO checksums for FE roms when given
+		e) insert these checksums into ROMCHIPS.ASM when it appears. 
+		f) calculate FE fudge bytes using FE checksums (see below).
+		g) insert fudge bytes in an empty area of each FE rom.
+		h) check final DATAIO checksums against theoretical(optional).
+		i) burn NARCFC.0 (U42), NARCFC.1 (U24),
+			NARCFE.0 (U41), NARCFE.1 (U23)  with PP
+		j) done.
+
+To make 27512's:
+
+	1) cd \VIDEO\NARC
+	2) run MAKER512		;This will take you through all the steps.
+		a) when in SYSCHECK.SET set ROM512 = 1
+		b) copy DATAIO checksums for F9, FA, and FD roms when given
+		c) insert these checksums into ROMCHIPS.ASM when it appears. 
+		   Also, set the FE checksums to FFFFh (this is important).
+		d) copy DATAIO checksums for FE roms when given
+		e) insert these checksums into ROMCHIPS.ASM when it appears. 
+		f) calculate FE fudge bytes using FE checksums (see below).
+		g) insert fudge bytes in an empty area of each FE rom.
+		h) check final DATAIO checksums against theoretical(optional).
+		i) burn NARCF9.0 (U78), NARCF9.1 (U60),
+			NARCFA.0 (U77), NARCFA.1 (U59),
+			NARCFC.0 (U42), NARCFC.1 (U24),
+			NARCFE.0 (U41), NARCFE.1 (U23)	  with PP
+		j) done.		
+
+
+			Calculating FE fudge bytes
+			--------------------------
+
+	Using the two 16 bit DATAIO FE checksums that were inserted into
+the file ROMCHIPS.ASM in place of the previously inserted FFFFh's, perform
+these simple operations.
+
+	1) Subtract the low bytes of each checksum from FFh.
+	   These are the fudge bytes for NARCFE.0
+
+	2) Subtract the high bytes of each checksum from FFh.
+	   These are the fudge bytes for NARCFE.1
+
+
+example:
+
+	NARCFE.0 checksum = 0345h	NARCFE.1 checksum = 67ACh
+
+	NARCFE.0 fudge bytes	       NARCFE.1 fudge bytes
+	--------------------	       --------------------
+	   FFh - 45h = BAh	          FFh - 03h = FCh
+	   FFh - ACh = 53h	          FFh - 67h = 98h
+
+
+			Reserved Fudge Byte Area
+			------------------------
+
+	With the NORTON utilities you can scan the ROM file for a copyright
+message, "NARC COPYRIGHT (C) 1988 WILLIAMS ELECTRONICS GAMES, INC." In front
+of this message should be four bytes all equal to 0. Feel free to use any
+of these to insert the two fudge bytes. Yes, you can use the same NORTON
+utility to find the area and insert the fudge bytes.
+
+
+That is all and have a nice day. (GNP - 7/31/89)
+

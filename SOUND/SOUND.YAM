@@ -1,0 +1,157 @@
+ ------ Yamaha sound codes ------
+
+ 0:  all off
+
+ ------ background tunes ------
+ 1:  mr big theme
+ 2:  also mr big theme
+ 3:  rock groove with 6 feel
+ 4:  narc rap  ("d-d-d-don't shoot...")
+ 5:  tune for dying player
+ 6:  brian driving music
+ 7:  Narc Theme
+ 8:  Herr Ritchie tribute theme
+ 9:  STICK
+ a:  narc theme w/ drum intro and melody
+ b:  stick theme starting at solo (right in!)
+ c:		.
+ d:		.
+ e:		.
+ f:		.
+ 10:		.
+ ------ drum volume calls ------
+ 20:  max drum volume
+ .
+ .
+ .
+ 2f:  min drum volume
+
+ ------ yamaha foreground volume calls ------
+ 30:  max yamaha volume (foreground effects)
+ .
+ .
+ .
+ 3f:  min yamaha foreground volume
+
+ ------ background tune transitions ------
+ 40:  transition to silence from anything
+ 41:  transition to buy in music
+ 42:  transition from buy in music back to what was playing before
+ 43:  transition to the Narc Theme with melody used for bonus countdown
+ 44:  NULL
+ .
+ 4c:  
+ 4d:  
+ 4e:  
+ .
+ .
+
+ ------ yamaha background volume calls ------
+ 60:  max yamaha volume (background tunes)
+ .
+ .
+ .
+ 6f:  min yamaha volume
+ 70:		null
+ .
+ .
+ .
+
+ 7e:  kill background tune
+ 7f:  kill foreground effect
+
+ ------ foreground effects ------
+ 80:	* Parod sounds *
+ 81:  siren
+ 82:  helicopter
+ 83:
+ 84:  good siren
+ 85:
+ 86:
+ 87:
+ 88:  big hiss
+ 89:
+ 8a:
+ 8b:
+ 8c:
+ 8d:
+ 8e:
+ 8f:  
+ 90:	* F-14 sounds *
+ 91:  bonus countdown short (actually, now a background tune)
+ 92:  call 90 + helicopter (take-off)
+ 93:  bomb drop
+ 94:  sizzle
+ 95:  car horn
+ 96:  silencer
+ 97:  clang
+ 98:  "jing" -- cash register
+ 99:  knife throw
+ 9a:  warped nursery rhyme
+ 9b:  windshield smash
+ 9c:  steel crash (garbage can?)
+ 9d:  something flying (or running) away
+ 9e:  something else flying away
+ 9f:  cockroaches from hell
+ a0:  car horn honk (fixed length)
+ a1:  bug squash (spiral ramp drop from pinbot)
+ a2:  beep1
+ a3:  beep2
+ a4:  beep3
+ a5:  beep4
+ a6:  burglar alarm bell
+ a7:  no rocket launch (limp sound)
+ a8:  elevator drone
+ a9:  elevator bell
+ aa:  escalator
+ ab:  no key for exit door
+ ac:  bonus countdown long (actually, now a background tune)
+ ad:  spray paint
+ ae:		null
+ af:		.
+ b0:  porsche idle slow
+ b1:  porsche rev fast	from idle
+ b2:  porsche rev, slower & lower pitched, from $b1
+ b3:  porsche rev, slow, to high pitch, from $b2
+ b4:  porsche idle fast
+ b5:  slow flatulent caddy
+ b6:  caddy
+ b7:  caddy
+ b8:  caddy
+ b9:		. 
+ ba:		.
+ bb:		.
+ bc:  fast caddy
+ bd:  accelerating caddy
+ be:		null
+ bf:		.
+ ----- absolute speed transpose table for porsche sound -----
+ c0:  down 2 octaves
+ c1:	.
+ c2:	.
+ c3:	.
+ c4:	.
+ c5:	.
+ c6:  clear pitch shift
+ c7:	.
+ c8:	.
+ c9:	.
+ ca:	.
+ cb:  up 2 octaves
+ cc:  porsche accelerate (4 pitch fracs up)
+ cd:  porsche decelerate (4 pitch fracs down)
+ ce:  select sound for larry
+ cf:  flame thrower sound 
+ d0:  mr big head drone (needs to be re-started after other yamaha fx)
+ d1:  MACHINE: motor	(needs to be re-started after other yamaha fx)
+ d2:  MACHINE: hisser 	(needs to be re-started after other yamaha fx)
+ d3:  MACHINE: blurper	(needs to be re-started after other yamaha fx)
+ d4:  MACHINE: basher  	(needs to be re-started after other yamaha fx)
+ d5:  MACHINE: turn OFF motor
+ d6:  MACHINE: turn OFF hisser
+ d7:  MACHINE: turn OFF blurper
+ d8:  MACHINE: turn OFF basher
+ d9:  mr big base shock sound ALSO TRIGGER CVSD 7 at the same time!!!!
+ da:  mr big tongue launch
+ ------ the end ------
+

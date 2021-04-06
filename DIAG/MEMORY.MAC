@@ -1,0 +1,96 @@
+C_WDTH .SET 000H                ; OFFSETS INTO CHIP RECORD
+C_ITLV .SET 010H
+C_NMBR .SET 020H
+C_CKSM .SET 030H
+C_SADR .SET 040H
+C_EADR .SET 060H
+C_LINK .SET 080H
+C_SIZE .SET 0A0H
+
+;****************************************************************************
+;* CHIP: MACRO DEFINES A CHIP RECORD.                                       *
+;*                                                                          *
+;*       CHIP_NO    -- CHIP NUMBER                                          *
+;*       WIDTH      -- CHIP CELL SIZE IN BITS (MUST BE > 0)                 *
+;*       INTERLEAVE -- DISTANCE BETWEEN ADJACENT CELLS ON CHIP (IN BITS)    *
+;*       START_ADDR -- ADDRESS OF FIRST CELL ON CHIP                        *
+;*       END_ADDR   -- ADDRESS OF LAST CELL ON CHIP                         *
+;*       CHECK_SUM  -- DATAIO CHECK SUM FOR CHIP                            *
+;****************************************************************************
+
+CHIP     $MACRO CHIP_NO, WIDTH, INTERLEAVE, START_ADDR, END_ADDR, CHECK_SUM
+
+         .SECT  'CHIPS'
+
+         .WORD  :WIDTH:
+         .WORD  :INTERLEAVE:
+         .WORD  :CHIP_NO:
+         .WORD  :CHECK_SUM:
+         .LONG  :START_ADDR:
+         .LONG  :END_ADDR:
+
+         .GLOBL U:CHIP_NO:              ; SYMBOL SHOULD LABEL A RECTANGLE
+         .LONG  U:CHIP_NO:              ; RECORD CORRESPONDING TO A CHIP
+                                        ; ICON
+         $END
+
+END_CHIP $MACRO
+
+         .SECT 'CHIPS'
+         .WORD  0
+
+         $END
+
+        .PAGE
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A CHIP RECORD AND    *
+;* PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER POINT- *
+;* ING TO THE BEGINNING OF A CHIP RECORD.                                   *
+;****************************************************************************
+
+C_SADDR  $MACRO SRC, DST
+         MOVE *:SRC:(C_SADR), :DST:, 1
+         $END
+
+C_EADDR  $MACRO SRC, DST
+         MOVE *:SRC:(C_EADR), :DST:, 1
+         $END
+
+C_RLINK  $MACRO SRC, DST
+         MOVE *:SRC:(C_LINK), :DST:, 1
+         $END
+
+C_NUMBR  $MACRO SRC, DST
+         MOVE *:SRC:(C_NMBR), :DST:
+         $END
+
+C_INTLV  $MACRO SRC, DST
+         MOVE *:SRC:(C_ITLV), :DST:
+         $END
+
+C_WIDTH  $MACRO SRC, DST
+         MOVE *:SRC:(C_WDTH), :DST:
+         $END
+
+C_CHKSM  $MACRO SRC, DST
+         MOVE *:SRC:(C_CKSM), :DST:
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT CHIP RECORD IS NOT  *
+;* EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE     *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A CHIP  *
+;* RECORD.                                                                  *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* INCREMENTED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                *
+;****************************************************************************
+
+C_END   $MACRO SRC, LOCATION
+        ADDI C_SIZE, :SRC:
+        MOVE *:SRC:, SP
+        JRNZ :LOCATION:
+        $END
+
+

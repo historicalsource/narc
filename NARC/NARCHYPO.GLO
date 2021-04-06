@@ -1,0 +1,11 @@
+	.globl	JRwalk
+	.globl	HYPOB0
+	.globl	HYPOB02
+	.globl	HYPOB03
+	.globl	HYPOB30
+	.globl	HYPOB60
+	.globl	HYPOB90
+	.globl	HYPOT0
+	.globl	HYPOT30
+	.globl	HYPOT60
+	.globl	HYPOT90

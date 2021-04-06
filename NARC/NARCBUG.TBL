@@ -1,0 +1,80 @@
+	.DATA
+bugwk1:
+	.word	33,22,13,5
+	.long	>2FAB380,brnbug
+bugwk2:
+	.word	34,23,13,6
+	.long	>2FACC40,brnbug
+bugwk3:
+	.word	32,22,13,5
+	.long	>2FAE620,brnbug
+bugwk4:
+	.word	32,21,13,6
+	.long	>2FAFC20,brnbug
+bugwk5:
+	.word	31,21,13,6
+	.long	>2FB1120,brnbug
+bugwk6:
+	.word	32,23,13,7
+	.long	>2FB2620,brnbug
+bugfly1:
+	.word	32,19,12,7
+	.long	>2FB3D20,brnbug
+bugfly2:
+	.word	32,28,11,17
+	.long	>2FB5020,brnbug
+bugfly3:
+	.word	31,32,12,20
+	.long	>2FB6C20,brnbug
+bugfly4:
+	.word	30,35,13,22
+	.long	>2FB8C20,brnbug
+bugjmp1:
+	.word	29,27,10,11
+	.long	>2FBAF20,brnbug
+bugjmp2:
+	.word	30,24,16,7
+	.long	>2FBCA20,brnbug
+bugjmp3:
+	.word	30,33,17,11
+	.long	>2FBE220,brnbug
+bugjmp4:
+	.word	30,35,14,18
+	.long	>2FC0320,brnbug
+bugdie1:
+	.word	32,29,14,13
+	.long	>2FC2620,brnbug
+bugdie2:
+	.word	21,28,7,14
+	.long	>2FC4320,brnbug
+bugdie3:
+	.word	29,25,10,15
+	.long	>2FC5820,brnbug
+bugdie4:
+	.word	33,25,13,11
+	.long	>2FC7120,brnbug
+bugdie5:
+	.word	38,32,18,15
+	.long	>2FC8D40,brnbug
+bugdie6:
+	.word	33,27,15,15
+	.long	>2FCB540,brnbug
+squish1:
+	.word	42,32,17,16
+	.long	>2FCD3A0,brnbug
+squish2:
+	.word	54,24,24,9
+	.long	>2FCFFA0,brnbug
+bugfly5:
+	.word	37,24,18,6
+	.long	>2FD29A0,brnbug
+bugfly6:
+	.word	35,29,15,11
+	.long	>2FD47A0,brnbug
+bugfly7:
+	.word	33,32,14,15
+	.long	>2FD6840,brnbug
+bugfly8:
+	.word	33,34,15,18
+	.long	>2FD8C40,brnbug
+	.TEXT

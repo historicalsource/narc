@@ -1,0 +1,23 @@
+ECHO *----assembling----NARCHELP.ASM(0)
+
+D:\VIDEO\NARC>echo off
+*----assembling----NARCHELP.ASM(0)
+
+GSPA NARCHELP -H -L -v10
+GSP Family Assembler  Version 3.50.01
+(c) Copyright 1985, 1988, Texas Instruments Incorporated 
+ PASS 1
+ PASS 1.1 ON SECTION .text   
+ PASS 1.2 ON SECTION .text   
+ PASS 2
+
+ No Errors,  No Warnings
+GSPLNK NARCL.CMD
+GSP COFF Linker       Version 3.00   
+(c) Copyright 1985, 1988, Texas Instruments Incorporated 
+GSPLNK NARCG.CMD
+>> NARCG.CMD: Can't open file NARCE.REL for input
+GSP COFF Linker       Version 3.00   
+(c) Copyright 1985, 1988, Texas Instruments Incorporated 
+
+*** Error code 1

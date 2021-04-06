@@ -1,0 +1,464 @@
+***> 2000000
+GLO> IMGTBL.GLO
+E:\video\IMG\NARCFONT.IMG
+---> RRD0,RRD1,RRD2,RRD3,RRD4,RRD5,RRD6,RRD7,RRD8,RRD9
+ASM> NARCTEXT.TBL
+---> RD200,RD201,RD202,RD203,RD204,RD205,RD206
+---> RD207,RD208,RD209,RD20A,RD20AND,RD20ASTR,RD20AT,RD20B
+---> RD20C,RD20COL,RD20COM,RD20D,RD20DASH,RD20DOLL,RD20E
+---> RD20EQL,RD20EXP,RD20F,RD20G,RD20GRTR,RD20H,RD20I,RD20J
+---> RD20K,RD20L,RD20LESS,RD20LPAR,RD20M,RD20N,RD20O,RD20P
+---> RD20PCNT,RD20PER,RD20PLUS,RD20PND,RD20Q,RD20QUES,RD20QUOT
+---> RD20R,RD20RPAR,RD20S,RD20SCOL,RD20SLSH,RD20SQOT,RD20T
+---> RD20U,RD20V,RD20W,RD20X,RD20Y,RD20Z
+E:\video\IMG\NARCF15.IMG
+---> FON15A,FON15B,FON15C,FON15D,FON15E,FON15F,FON15G,FON15H
+---> FON15I,FON15J,FON15K,FON15L,FON15M,FON15N,FON15O,FON15P
+---> FON15Q,FON15R,FON15S,FON15T,FON15U,FON15V,FON15W,FON15X
+---> FON15Y,FON15Z
+---> FON151,FON152,FON153,FON154,FON155,FON156,FON157,FON158
+---> FON159,FON150,FON15apos1,FON15excla,FON15poun,OFON15doll
+---> FON15perc,FON15carr,FON15and,FON15ast,FON15parenl
+---> FON15parenr,FON15dash,FON15line,FON15equal,FON15plus
+---> FON15brackl,FON15brackr,FON15paren2l,FON15paren2r,FON15backsp
+---> FON15break,FON15semicol,FON15colon,FON15apos,FON15quote
+---> FON15comma,FON15less,FON15period,FON15more,FON15forsp
+---> FON15quest,FON15rquote,FON15doll,FON15engPOUN,FON15CR
+e:\video\img\NARCF7.img
+---> FONT7A,FONT7B,FONT7C,FONT7D,FONT7E,FONT7F,FONT7G,FONT7H
+---> FONT7I,FONT7J,FONT7K,FONT7L,FONT7M,FONT7N,FONT7O,FONT7P
+---> FONT7Q,FONT7R,FONT7S,FONT7T,FONT7U,FONT7V,FONT7W,FONT7X
+---> FONT7Y,FONT7Z
+---> FONT71,FONT72,FONT73,FONT74,FONT75,FONT76,FONT77,FONT78
+---> FONT79,FONT70,FONT7excla,FONT7pound,FONT7doll,FONT7percen
+---> FONT7and,FONT7ast,FONT7parenl,FONT7parenr,FONT7dash
+---> FONT7line,FONT7equal,FONT7plus,FONT7bracl,FONT7bracr
+---> FONT7backsp,FONT7paren2l,FONT7paren2r,FONT7break,FONT7semicol
+---> FONT7apost,FONT7colon,FONT7quote,FONT7comma,FONT7period
+---> FONT7forsp,FONT7less,FONT7more,FONT7quest
+ASM> IMGTBL.ASM
+E:\video\IMG\INTRLACE\NARC2.IMG
+GLO> NARCDRIV.GLO
+---> DRIVER1,DRIVER2,DRIVER3,DRIVER4,DRIVER5
+---> DRVDTH1,DRVDTH2,DRVDTH3,DRVDTH4,DRVDTH5
+---> DRIVEF1,DRIVEF2,DRIVEF3,DRIVEF4
+GLO> IMGTBL.GLO
+---> SCORESIDE,SCORETOP,SCOREBOT
+E:\video\IMG\INTRLACE\NARC3.IMG
+---> CAN1,CAN2,CAN3,DUMP,DSLIME,LAMPTOP,LAMPOST
+---> FLHIT1,FLHIT2,FLHIT3
+---> ROCKET1,ROCKET2,ROCKET3,ROCKET4,ROCKBIG
+---> PUF1,PUF2,PUF3,PUF4,PUF5
+---> TPART1,TPART2
+---> BLAM1,BLAM2,BLAM3,BLAM4,BLAM5,BLAM6,BLAM7,BLAM8
+---> GETCASH1,GETCASH2,GETROCK,GETCLIP
+---> LDING1,LDING2,LDING3,LDING4,LDING5,DING45A,DING45B,DING90A,DING90B
+---> DOPE1,DOPE2,DOPE3,GETDOPE,DOPEICON,BUSTICON,BUSTED,POTICON
+---> LANDMINE
+---> FLHD1A,FLHD1B,FLHD1C
+---> FLHD2A,FLHD2B,FLHD2C
+---> FLTLA,FLTLB,FLTLC
+GLO> NARCFRAG.GLO
+---> BGDF1C+BGDF1LNK,BGDF2C+BGDF2LNK,BGDF3C+BGDF3LNK,BGDF4C+BGDF4LNK
+---> LLEG1,LLEG2,LLEG3,LLEG4,LLEG5,LLEG6,LLEG7,LLEG8
+---> L4ARM1,L4ARM2,L4ARM3,L4ARM4,L4ARM5,L4ARM6,L4ARM7,L4ARM8
+---> LSHIN1,LSHIN2,LSHIN3,LSHIN4,LSHIN5,LSHIN6,LSHIN7,LSHIN8
+---> LCREOSOTE
+---> BGDTHF1+BGDF1LNK,BGDTHF2+BGDF2LNK,BGDTHF3+BGDF3LNK,BGDTHF4+BGDF4LNK
+---> BGDTHF5,BGDTHF6,BGDTHF7,BGDTHF8
+---> BGDTHF9,BGDTHF10,BGDTHF11,BGDTHF12,BGDTHF13,BGDTHF14,BGDTHF15
+---> LGOAT1,LGOAT2,LGOAT3,LGOAT4,LGOAT5,LGOAT6,LGOAT7,LGOAT8,LGOAT9,LGOAT10
+GLO> IMGTBL.GLO
+E:\VIDEO\IMG\INTRLACE\NARCKRAK.IMG
+---> GOLDcard,BLUEcard,REDcard,SILVcard,GREENcard
+---> GOLDTYPE,BLUETYPE,REDTYPE,SILVTYPE
+---> cardslot2
+---> OPENTYPE,safedrl+SAFELNKL,safedrr+SAFELNKR,safedrlr+SAFELNKL
+---> safedrrr+SAFELNKR,safedrlb+SAFELNKL,safedrrb+SAFELNKR,safedrlg+SAFELNKL
+---> safedrrg+SAFELNKR
+---> ARROWDN
+---> BIGDOOR1,BIGDOOR2,BIGDOOR3
+---> safdrlgr+SAFELNKL,safdrrgr+SAFELNKR
+---> goldbr1,goldbr2,GRNTYPE,INSTYPE
+---> SMblucrd,SMgldcrd,SMredcrd,SMsilvcrd,SMgrncrd
+E:\VIDEO\IMG\INTRLACE\NARC4.IMG
+---> SEWERCAP,COLUMN1,COLUMNB
+---> CHINADR1,CHINADR2,CHINADR3,ARMDR1,ARMDR2,ARMDR3,GARAGE1
+---> HOTWIN1,EXITSIGN
+---> K2x5IMG,K10IMG,K1IMG,K5IMG,K25IMG
+---> WEED,CASHMACH
+E:\video\IMG\NARCCAD.IMG
+ASM> NARCCAD.TBL
+---> CADDY1,CAD1WIN1,CAD1WIN2
+---> CAD1WHL1+CWHL1LNK,CAD1WHL2+CWHL2LNK,CAD1WHL3+CWHL3LNK,CAD1WHL4+CWHL4LNK
+---> CAD1WHL1C+CWHL1LNK,CAD1WHL2C+CWHL2LNK
+---> CAD1WHL3C+CWHL3LNK,CAD1WHL4C+CWHL4LNK
+---> CAD1WHL1CC+CWHL1LNK,CAD1WHL2CC+CWHL2LNK
+---> CAD1WHL3CC+CWHL3LNK,CAD1WHL4CC+CWHL4LNK
+---> CADSHAT1,CADSHAT2,CADSHAT3,CADSHAT4,CADSHAT5
+---> CAD1TNK1,CAD1TNK2,CAD1TNK3,CAD1TNK4
+---> CADFORS60,CADFORS90,CADREVS60,CADREVS90
+---> CRYTEWHL1,CRYTEWHL2,CRYTEWHL3,CRYTEWHL4,CRYTEWIN1,CRYTEWIN2
+---> CLEFTWHL1,CLEFTWHL2,CLEFTWHL3,CLEFTWHL4,CLEFTWIN1,CLEFTWIN2
+ASM> IMGTBL.ASM
+GLO> NARCFRAG.GLO
+---> CWRECK
+---> CSHRAPA1,CSHRAPA2,CSHRAPA3,CSHRAPA4,CSHRAPA5
+---> CSHRAPB1,CSHRAPB2,CSHRAPB3,CSHRAPB4,CSHRAPB5
+---> CSHRAPC1,CSHRAPC2,CSHRAPC3,CSHRAPC4,CSHRAPC5
+---> CSHRAPD1,CSHRAPD2,CSHRAPD3,CSHRAPD4,CSHRAPD5
+---> CSHRAPE1,CSHRAPE2,CSHRAPE3,CSHRAPE4,CSHRAPE5
+---> CFRAG1,CFRAG2,CFRAG3,CFRAG4,CFRAG5
+---> CSHRAP1,CSHRAP2,CSHRAP3,CSHRAP4,CSHRAP5
+---> CDOOR1,CDOOR2,CDOOR3,CDOOR4,CDOOR5
+---> CSHELLL,CSHELLR
+GLO> IMGTBL.GLO
+E:\video\img\NARCPORS.IMG
+ASM> NARCPORS.TBL
+---> PRYTEWHL1,PRYTEWHL2,PRYTEWHL3,PRYTEWHL4
+---> PLEFTWHL1,PLEFTWHL2,PLEFTWHL3,PLEFTWHL4
+---> PORWHL1F+PW1LINK,PORWHL2F+PW2LINK,PORWHL3F+PW3LINK,PORWHL4F+PW4LINK
+---> PORWHL1R+PW1LINK,PORWHL2R+PW2LINK,PORWHL3R+PW3LINK,PORWHL4R+PW4LINK
+---> PORWHL1C+PW1LINK,PORWHL2C+PW2LINK,PORWHL3C+PW3LINK,PORWHL4C+PW4LINK
+---> POR1WIN1,PORFORS60,PORFORS90,PORREVS60,PORREVS90,PORSCHE1,PORCRASH1
+---> PORSHAT1,PORSHAT2,PORSHAT3,PORSHAT4,PORSHAT5
+E:\video\img\INTRLACE\NARCCHOP.IMG
+ASM> NARCCHOP.TBL
+---> chop1a+chopa,chop1b+chopb,chop1c+chopc,skid1+skid
+---> fana+fanaa,fanc,fane
+---> spin1+spin11,spin2,spin3,spin4
+---> cark3,cark4
+---> bluchop1a+chopa,bluchop1b+chopb,bluchop1c+chopc,bluskid1+skid
+---> blufana+fanaa
+---> bluspin1+spin11
+---> pilot1,pilot2,pilot5
+---> Onarclo,kraklo
+E:\VIDEO\IMG\INTRLACE\NARCBON.IMG
+ASM> NARCBON.TBL
+---> OHITB,OMAXB,B999,B357,BADGE7a,EVIDENCE,BONUS,BONBOLT,BONANG2
+---> BONANG1,BONANG3
+E:\video\img\NARCDUMP.IMG
+ASM> NARCDUMP.TBL
+---> pick2,pick3,pick4,pick6,pick7,pick8,pick9,pick10,pick11
+---> bwlk4_vda,bwlk5_vda,bwlk6_vda,bwlk8_vda,bwlk9_vda,bwlk10_vda
+---> bwlk12_vda,bwlk13_vda,bwlk14_vda
+---> bdie1,bdie2,bdie3,bdie4,bdie5,bdie6,bdie7,bdie9,bdie10
+---> bdie11,bdie12,bdie14
+---> dmthr1,dmthr2,dmthr3,dmthr4,dmthr5,dmthr7,dmthr8,dmthr9
+---> dmthr10,dmthr11,dmthr12
+---> dmthra,dmthrb,dmthrc
+E:\video\img\NARCLOWN.IMG
+ASM> NARCLOWN.TBL
+---> clwlk2,clwlk3,clwlk4,clwlk5,clwlk6,clwlk7
+---> clrun1,clrun2,clrun3,clrun4,clrun5,clrun6
+---> cldie1,cldie2,cldie3,cldie4,cldie5,cldie6,cldie7
+---> clduk1,clduk3
+---> stab1,stab2,stab3,stab4,stab5,stab7,stab8,stab9
+---> throw3,throw4,throw5,throw6,throw7
+---> cljmp3,cljmp6,cljmp7,cljmp8,cljmp9,cljmp10,cljmp11,cljmp12
+---> kill1,kill3,kill4,kill5,kill7,kill8,kill9,kill10,kill11,kill12,kill14
+---> laugh1,laugh2,laugh3,laugh4,laugh5,laugh6,laugh7,laugh8
+E:\video\img\NARCHOOK.IMG
+---> carry1,carry2,carry3,carry4,carry5,carry6,carry7
+---> lift1,lift2,lift3,lift4
+---> drway1,drway2
+---> chtrn1,chtrn2,chtrn3,chtrn4,chtrn5
+---> chmve1,chmve2,chmve3,chmve4
+E:\video\img\NARCLOAF.IMG
+ASM> NARCLOAF.TBL
+---> lfwk1,lfwk2,lfwk3,lfwk4,lfwk5,lfwk6
+---> lcuf2,lcuf4,lcuf5,lcuf8
+---> ldth2,ldth4,ldth6,ldth7
+---> lsho1,lsho2,lsho4,lsho5,lsho6,lsho7
+---> hell1,hell2,hell3,hell7
+---> ljmp1,ljmp6
+---> hang1,hang2,hang3,hang4,hang5
+E:\video\img\NARCDOG.IMG
+ASM> NARCDOG.TBL
+---> dog1,dog2,dog3,dog4,drag1,drag2,drag3,drag4,drag5,drag6,drag7
+---> smdog1,smdog2,smdog3,smdog4,smdog5,smdog6
+---> leap1,leap2,leap3
+---> atack1,atack2,atack3,atack4,atack5,atack6,atack7,atack8,atack9
+---> atack10,atack11,atack12,atack13,atack14
+---> growl1,growl2,tear1,tear2,tear3,tear4,tear5,tear6
+E:\video\IMG\NARCHYPO.IMG
+ASM> narchypo.tbl
+---> JRD1,JRD2,JRD3,JRD4,JRD5,JRD6,JRD7,JRD8,JRD9
+---> JRW1,JRW2,JRW3,JRW4,JRW5,JRW6,JRW7,JRW8
+---> JRTH1,JRTH2,JRTH3,JRTH4,JRTH5,JRTH6,JRTH7
+---> JRBUST1,JRBUST2,JRBUST3,JRBUST4
+---> JMPTH1,JMPTH2,JMPTH3,JMPTH4,JMPTH5,JMPTH6
+---> JRBODY,JRHEAD1,JRHEAD2,JRHEAD3
+ASM> IMGTBL.ASM
+GLO> NARCHYPO.GLO
+---> HYPOB0,HYPOB02,HYPOB03,HYPOB30,HYPOB60,HYPOB90
+---> HYPOT0,HYPOT30,HYPOT60,HYPOT90
+E:\video\img\NARCPMP2.IMG
+GLO> IMGTBL.GLO
+---> blood1,blood2,blood3a
+E:\video\img\narcgang.img
+ASM> narcgang.tbl
+---> gh1a,gh2a,gh3a,gh4a,gh5a,gh6a,gh7a,gh8a
+---> n_duck1,n_duck2,n_duck3
+---> n_pk1,n_pk2,n_pk3
+---> n_wa1,n_wa2,n_wa3,n_wa4,n_wa5,n_wa6
+---> n_sht1,n_sht2,n_sht3,n_sht4
+---> n_bht1,n_bht3
+---> n_die1,n_die2,n_die3,n_die4
+---> n_bt2,n_bust1,n_bust3,n_bust4
+---> gduck3
+E:\video\img\narcpimp.img
+ASM> narcpimp.tbl
+---> PD3C,PD6C,PTD6C,PTD7C,PTD8C,PDF3AC
+---> pbust1,pbust2,pbust3
+---> pd2,pd3,pd4,pd5
+---> pdf2a,pdf3a,pdf4a
+---> pjump1n,pjump2n,pjump3n,pjump4n
+---> pmwk1,pmwk2,pmwk3,pmwk5,pmwk7
+---> prun1t,prun2t,prun3t,prun4t,prun5t
+---> pshoot9,pshoot10
+---> psqsht1,psqsht2
+---> ptd1,ptd2,ptd3,ptd4,ptd6,ptd7,ptd9,ptd10
+---> ptw1,ptw2,ptw3,ptw4
+---> pw1,pw2,pw4,pw5,pw6,pw8
+---> psp1a,psp2a,psp3a,psp4a,psp5a,psp6a,psp7a
+---> pimphide1,pimphide2,pimphide3,pimphide4
+E:\video\img\narcbomb.img
+ASM> imgtbl.asm
+;airburst frames
+---> nb2a,nb3a,nb4
+---> nb1+BMB1LNK,nb5+BMB2LNK,nb6+BMB3LNK,nb7+BMB4LNK,nb8+BMB5LNK
+---> hiro9air+BMB6LNK,hiro10air+BMB7LNK,hiro11air+BMB8LNK
+;ground nuke frames
+---> hiro1,hiro2,hiro3,hiro4,hiro5,hiro6
+---> nb1grnd+BMB1LNK,nb5grnd+BMB2LNK,nb6grnd+BMB3LNK,nb7grnd+BMB4LNK
+---> nb8grnd+BMB5LNK,hiro9+BMB6LNK,hiro10+BMB7LNK,hiro11+BMB8LNK
+E:\video\img\narcobjs.img
+ASM> imgtbl.asm
+---> dstk0,dstk30,dstk60,dstk90
+---> spk0a,spk30a,spk60a,spk90a
+---> spk0b,spk30b,spk60b,spk90b
+---> spk0c,spk30c,spk60c,spk90c
+E:\video\img\NARCHOOK.img
+ASM> NARCHOOK.TBL
+---> hkwlk1,hkwlk2,hkwlk3,hkwlk4,hkwlk5,hkwlk6,hkwlk7,hkwlk8,hkwlk9
+---> hook1,hook2,hook3
+ASM> IMGTBL.ASM
+---> hook4
+ASM> NARCHOOK.TBL
+---> seduc2,seduc3,seduc4,seduc5,seduc6,seduc7
+---> seduc8,seduc9,seduc11,seduc13,seduc14
+---> hkpose1,hkpose2,hkpose3,hkpose6,hkpose7,hkpose8,hkpose9
+ASM> IMGTBL.ASM
+---> hkfgt4,hkfgt5,hkfgt6,hkfgt7,hkfgt8
+---> hkdie1,hkdie2,hkdie3,hkdie4,hkdie5,hkdie6
+E:\video\img\NARCBUG.IMG
+ASM> NARCBUG.TBL
+---> bugwk1,bugwk2,bugwk3,bugwk4,bugwk5,bugwk6
+---> bugfly1,bugfly2,bugfly3,bugfly4
+---> bugjmp1,bugjmp2,bugjmp3,bugjmp4
+---> bugdie1,bugdie2,bugdie3,bugdie4,bugdie5,bugdie6
+---> squish1,squish2
+---> bugfly5,bugfly6,bugfly7,bugfly8
+ASM> NARCMBIG.TBL
+E:\video\img\NARCMBIG.IMG
+;---> mbgun1,mbgun2
+;---> mbust3,mbust4,mbust5,mbust6,mbust7,mbust8,mbust9
+;---> mbup1
+;---> fone1,fone2,fone3,fone4,fone5,fone6,fone7,fone8,fone9
+;---> mbpush1,mbpush2,mbpush3,mbpush4,mbpush5,mbpush6
+;---> case1,case2,case3,case4,case5,case6,case7,case8,case9
+;---> mbomb1,mbomb2,mbomb3,mbomb4,mbomb5,mbomb6,mbomb7,mbomb8,mbomb9,mbomb10
+;---> mbinc1,mbinc2,mbinc3,mbinc4,mbinc5,mbinc6
+;---> mbincd1,mbincd2
+;---> big1,big2,big3,big4,big5,big6,big7,big8,big9,big10
+;---> big11,big12,big13,big14,big15
+;---> chair1,chair2,chair3,chair4,chair5,chair6
+;---> chair7,chair8,chair9,chair10,chair11
+;---> mdead1,mdead2,mdead3,mdead4,mdead5,mdead6,mdead7,mdead8,mdead9,mdead10
+;---> mdead11,mdead12,m90dead6,m90dead7
+---> case1,case4,case5,case9
+---> mdead2,mdead3,mdead4,mdead5,mdead6
+---> mdead11,mdead12,m90dead6,m90dead7
+---> ang1,ang2,ang3,ang4,ang1b,ang4b
+---> angcase1,angcase2
+---> weel1,weel2,weel3,weel4,weel5,weel6
+---> sweel1,sweel2,sweel3,sweel4,sweel5,sweel6
+---> ang2wa,ang2wb,ang2wc,ang2wd
+---> ang3wa,ang3wb,ang3wc,ang3wd
+---> sflame0,sflame45,sflame90
+---> bigbull
+E:\video\img\NARCRAMB.IMG
+ASM> NARCRAMB.TBL
+---> SFLAME10,SFLAME20,SFLAME90,RAMBBULL
+---> rmrun1,rmrun2,rmrun3,rmrun4,rmrun5,rmrun6,rmrun7,rmrun8
+---> rmsh0a,rmsh0b
+---> rmshb10,rmshb20
+---> rmshf10,rmshf20,rmshf90
+---> rmdth1,rmdth2,rmdth3,rmdth4,rmdth5
+---> rmdead1,rmdead6,rmdead7,rmdead8,rmdead9
+ASM> IMGTBL.ASM
+E:\video\img\INTRLACE\NARCSUB.IMG
+---> DRUM,SUBCOLM1,SUBCOLM2,SUBCOLM3,SUBCOLM4,SUBCOLM5,SUBCOLM6,TELEPHON
+---> NEWCAN,BENCHL,BENCHM,BENCHR,ADDISON,TRNDR1
+E:\video\IMG\INTRLACE\NARC1.IMG
+---> BULLET,OBULLETE,BULLET45,SFLAME
+GLO> IMGTBL.GLO
+E:\video\IMG\NARCHAND.IMG
+ASM> NARCENT.TBL
+---> hand+foo,fing+foo1,b_hand+foo,b_fing+foo1
+ASM> NARCTEXT.TBL
+---> RD15SP,RD15RUB,RD15END
+e:\video\img\NARCBLUE.img
+ASM> IMGTBL.ASM
+GLO> IMGTBL.GLO
+---> jtdrive1+JTD1LNK,jtdrive2+JTD2LNK,jtdrive3+JTD3LNK,jtdrive4+JTD4LNK
+---> jtdrive5+JTD5LNK
+---> jtpassen1+JTP1LNK,jtpassen2+JTD2LNK,jtpassen3+JTD3LNK,jtpassen4+JTD4LNK
+---> jtpassen5+JTD5LNK
+---> ytdrive1+JTD1LNK,ytpassen1+JTP1LNK
+---> jtsstdrst+JTRSTLNK,jlsw4+JTSWLNK
+---> ytsstdrst+JTRSTLNK,ylsw4+JTSWLNK
+---> P1LIFE+LIFELNK,P2LIFE+LIFELNK
+---> jrpilot+JTPILNK,jrhelpas+JTPILNK
+---> jrpilohit+JTD4LNK,jrhelphit+JTD4LNK
+ASM> NARCPLAY.TBL
+---> jlsw1,jlsw2,jlsw3,jlsw5,jlsw6,jlsw7,jlsw8,jlsw9
+---> jlsw10,jlsw11,jlqfw1,jlqfw2,jlqfw3
+---> jlqfw4,jlqfw5,jlqfw6,jlqfw7,jlfw1,jlfw2,jlfw3,jlfw4
+---> jlfw5,jlqbw1,jlqbw2,jlqbw3,jlqbw4,jlqbw5,jlqbw6,jlqbw7
+---> jlbw1,jlbw2,jlbw3,jlbw4,jlbw5
+ASM> IMGTBL.ASM
+---> flail1,flail2,flail3,flail4
+ASM> NARCPLAY.TBL
+---> jlju1,jlju2,jlju3+JLJU3LNK,jlju4+JLJU4LNK,jlju5,jlssqrst,jlssqw1
+---> jljuhel3+JLJU3LNK,jljuhel4+JLJU4LNK
+---> jljucar3+JLJU3LNK,jljucar4+JLJU4LNK
+---> jlssqw2,jlssqw3,jlssqw4,jlssqw5,jlssqw6,jlssqw7,jlssqw8
+---> jlsstd
+---> jtqfwshgs1,jtqfwshgs2,jtqfwshms1,jtqfwshms2
+---> jtfwshgs1,jtfwshgs2,jtfwshms1,jtfwshms2,jtqbwshgs1
+---> jtqbwshgs2,jtqbwshms1,jtqbwshms2,jtbwshgs1,jtbwshgs2
+---> jtbwshms1,jtbwshms2,jtjushg1,jtjushg2,jtjushm1,jtjushm2
+---> comdb1,comdb2,comdb3,comdb4,comdb5,comdb6,comdb7
+---> jtswrst1,jtswrst2,jtswrst3,jtswrst4,jtswrst5,jtswrst6
+---> jtswrst7,jtswrst8,jtswrst9,jtswrst10,jtswrst11,jtqfwrst1
+---> jtqfwrst2,jtqfwrst3,jtqfwrst4,jtqfwrst5,jtqfwrst6,jtqfwrst7
+---> jtfwrst1,jtfwrst2,jtfwrst3,jtfwrst4,jtfwrst5,jtqbwrst1
+---> jtqbwrst2,jtqbwrst3,jtqbwrst4,jtqbwrst5,jtqbwrst6,jtqbwrst7
+---> jtbwrst1,jtbwrst2,jtbwrst3,jtbwrst4,jtbwrst5,jtju1,jtju2
+---> jtju3+JTJU3LNK,jtju4+JTJU4LNK,jtju5
+---> jtjuhel3+JTJU3LNK,jtjuhel4+JTJU4LNK
+---> jtjucar3+JTJU3LNK,jtjucar4+JTJU4LNK
+---> jtswshgs1+JTSWG1LK,jtswshgs2+JTSWG2LK
+---> jtswshgs1c+JTSWG1LK,jtswshgs2c+JTSWG2LK
+---> jtswshms1+JTSWM1LK,jtswshms2+JTSWM2LK
+---> jtswshms1c+JTSWM1LK,jtswshms2c+JTSWM2LK
+---> jtssqshg1+JTSQG1LK,jtssqshg2+JTSQG2LK
+---> jtssqshg1c+JTSQG1LK,jtssqshg2c+JTSQG2LK
+---> jtssqshm1+JTSQM1LK,jtssqshm2+STSQM2LK
+---> jtssqshm1c+JTSQM1LK,jtssqshm2c+JTSQM2LK
+---> jtssqrst+JTSQRLK,jtssqrstc+JTSQRLK
+e:\video\img\NARCLAB.img
+ASM> NARCLAB.TBL
+---> BKhalf1+BK1LNK,BKhalf2+BK2LNK,BKhalf3+BK3LNK,BKhalf4+BK4LNK
+---> BKhalf5+BK5LNK
+---> GBKhalf1+BK1LNK,GBKhalf2+BK2LNK,GBKhalf3+BK3LNK,GBKhalf4+BK4LNK
+---> GBKhalf5+BK5LNK
+---> RBKhalf1+BK1LNK,RBKhalf2+BK2LNK,RBKhalf3+BK3LNK,RBKhalf4+BK4LNK
+---> RBKhalf5+BK5LNK
+---> BOWLhalf1+BW1LNK,BOWLhalf2+BW2LNK,BOWLhalf3+BW3LNK,BOWLhalf4+BW4LNK
+---> GBOWLhalf1+BW1LNK,GBOWLhalf2+BW2LNK,GBOWLhalf3+BW3LNK,GBOWLhalf4+BW4LNK
+---> RBOWLhalf1+BW1LNK,RBOWLhalf2+BW2LNK,RBOWLhalf3+BW3LNK,RBOWLhalf4+BW4LNK
+---> FLAShalf1+FL1LNK,FLAShalf2+FL2LNK,FLAShalf3+FL3LNK,FLAShalf4+FL4LNK
+---> GFLAShalf1+FL1LNK,GFLAShalf2+FL2LNK,GFLAShalf3+FL3LNK,GFLAShalf4+FL4LNK
+---> RFLAShalf1+FL1LNK,RFLAShalf2+FL2LNK,RFLAShalf3+FL3LNK,RFLAShalf4+FL4LNK
+---> PIPE1+PIPLINK,RPIPE1+PIPLINK,GPIPE1+PIPLINK
+---> smoa1,smoa2,smoa3,smoa4,smoa5,smoa6
+---> smob1,smob2,smob3,smob4,smob5,smob6
+---> wheel1,wheel2,wheel3
+---> VALVhaf1,VALVhaf2
+---> rbsml1,rbsml2,rbsml3,rbsml4,rbsml5,rbsml6,rc1a,rc2a
+---> rc3a,rc4a,rc5a,rc6a,FLblow3+FLBLNK,BWblow3+BWBLNK,BKblow3+BKBLNK
+---> RFLblow3+FLBLNK,GFLblow3+FLBLNK,RBKblow3+BKBLNK,GBKblow3+BKBLNK
+---> RBWblow3+BWBLNK,GBWblow3+BWBLNK
+---> water1,water2,water3,water4,water5,water6
+---> wdrop1,wdrop2,wdrop3,wdrop4
+E:\video\img\NARCHEAD.IMG
+ASM> NARCHEAD.TBL
+---> HEAD0,HEAD1,HEAD2,HEAD3r,HEAD4
+---> BASElh2e+bigbase,BASEskl+bigbase
+---> HED3hat,HED3mou1,HED3mou2,HED3mou3,HED3neck
+---> BOOM5a,BOOM5b,BOOM5c,BOOM6,stump+bigstump,stumpskl+bigstump
+---> GLAS0,GLAS1,GLAS2,GLAS3+glslnk,GLAS3r,GLAS4
+---> GLAS3r2+glslnk
+---> TUNG0+T0,TUNG1+T1,TUNG2+T2,TUNG3+T3,TUNG4+T4,TUNG5+T5,TUNG6+T6
+---> TUNG7+T7,TUNG8+T8,TUNG9+T9
+---> TUNG0C+T0,TUNG1C+T1,TUNG2C+T2,TUNG3C+T3,TUNG4C+T4,TUNG5C+T5,TUNG6C+T6
+---> TUNG7C+T7,TUNG8C+T8,TUNG9C+T9
+---> TUNG0SF,TUNG1SF,TUNG2SF
+;---> skull4sH+SK4LNK,jaw4H+JW4LNK
+;---> tiltups,tiltdns
+;---> skull1,skull2s,skull3s,skull4s+SK4LNK,skull5s,skull6s,skull7s
+---> skull4H+SK4LNK,jaw4H+JW4LNK
+---> tiltup,tiltdn
+---> skull1,skull2,skull3,skull4+SK4LNK,skull5,skull6,skull7
+---> jawup1,jawup2,jawup3,jawup4
+---> jaw1,jaw2,jaw3,jaw4+JW4LNK
+---> craneum,spine,skcarc
+---> bonea0,bonea30,bonea60,bonea90
+---> boneb0,boneb30,boneb60,boneb90
+---> bonec0,bonec30,bonec60,bonec90
+---> boned0,boned30,boned60,boned90
+---> meat2a,meat2b,meat2c,meat2d,meat2e,meat2f,meat2g,meat2h,meat2i,meat2j
+---> meat8a,meat8b,meat8c,meat8d,meat8e,meat8f,meat8g,meat8h,meat8i,meat8j
+---> meat11a,meat11b,meat11c,meat11d,meat11e,meat11f,meat11g,meat11h
+---> meat12a,meat12b,meat12c,meat12d,meat12e,meat12f,meat12g,meat12h,meat12i
+ASM> IMGTBL.ASM
+GLO> IMGTBL.GLO
+e:\video\img\NARCBLIP.img
+---> mbigblp1a
+GLO> BGNDTBL.GLO
+BBB> E:\VIDEO\IMG\INTRLACE\NARCSKY1
+BBB> E:\VIDEO\IMG\INTRLACE\NARCDEMO
+BBB> E:\VIDEO\IMG\INTRLACE\NARCBRID
+BBB> E:\VIDEO\IMG\INTRLACE\NARCROOM
+BBB> E:\VIDEO\IMG\INTRLACE\NARCRISE
+BBB> E:\VIDEO\IMG\INTRLACE\NARCMSU
+BBB> E:\VIDEO\IMG\INTRLACE\NARCSTAT
+BBB> E:\VIDEO\IMG\INTRLACE\NARCTSCR
+BBB> E:\VIDEO\IMG\INTRLACE\NARCGHS
+BBB> E:\VIDEO\IMG\INTRLACE\NARCGHSI
+BBB> E:\VIDEO\IMG\INTRLACE\NARCCHEM
+BBB> E:\VIDEO\IMG\INTRLACE\NARCKAST
+BBB> E:\VIDEO\IMG\INTRLACE\NARCHDRM
+E:\video\img\INTRLACE\NARCCHOP.IMG
+ASM> NARCCHOP.TBL
+---> narclo
+E:\VIDEO\IMG\INTRLACE\NARCBON.IMG
+ASM> NARCBON.TBL
+---> HITB,MAXB
+ASM> IMGTBL.ASM
+GLO> IMGTBL.GLO
+E:\video\IMG\INTRLACE\NARC1.IMG
+---> BULLETE
+***> FFF93000
+ASM> NARCMUGS.TBL
+E:\video\img\NARCMSU.IMG
+PPP> 6
+---> warntxt
+PPP> 8
+RLC>
+---> filestxt,authtxt
+E:\video\img\NARCMUGS.IMG
+---> gangmug,mbigmug,loafmug,hypomug,dumpmug,rambomug
+---> clownmug
+;---> gaymug,pimpmug,snowmug
+E:\video\img\narcfbi.IMG
+---> badge,fbity1,fbity2,fbiseal
+E:\video\img\NARCATT.IMG
+---> NARCALF1a,NARCALF2
+RLC>
+ASM> IMGTBL.ASM
+
+

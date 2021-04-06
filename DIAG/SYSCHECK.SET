@@ -1,0 +1,75 @@
+
+	.NOLIST
+
+;****************************************************************************
+;* SYSCHECK.SET: HEADER DECLARES ALL CONSTANTS FOR THE SYSCHECK MODULE.     *
+;****************************************************************************
+
+BLUEP1	.EQU	0	;IF = 0 THEN PLAYER 1 IS RED, OTHERWISE BLUE
+ROM512	.EQU	0	;IF = 1 THEN 512'S ARE BEING USED FOR PROGRAM ROMS
+
+;       ============================
+;       | COLORS                   |
+;       ============================
+
+TRANSP  .SET 0
+GRAY	.SET 1
+GREEN	.SET 2
+RED	.SET 3
+BLUE	.SET 4
+BLACK	.SET 5
+WHITE	.SET 6
+YELLOW  .SET 7
+PURPLE  .SET 8
+CYAN    .SET 9
+
+;       ============================
+;       | ADDRESSES.               |
+;       ============================
+
+SWITCH_REGISTER_1 .SET 1C00000H         ; PLAYER CONTROLS
+SWITCH_REGISTER_2 .SET 1C00010H
+SYS_REGISTER_00   .SET 1F00000H         ; SYSTEM CONTROL (AUTO-ERASE)
+SOUND_BOARD       .SET 1E00000H
+
+PALETTE00_START   .SET 1800000h         ; COLOR PALETTES
+PALETTE00_END     .SET 1800FF0h
+PALETTE01_START   .SET 1801000h
+PALETTE01_END     .SET 1801FF0h
+
+PALETTE15_START   .SET 180F000h
+PALETTE15_END     .SET 180FFF0h
+
+;       ============================
+;       | MISC.                    |
+;       ============================
+
+DELIMITER_DISPLAY_TIME .SET 300000     ; ERROR LED PARAMETERS
+DIGIT_DISPLAY_TIME     .SET 200000
+DIGIT_BLANK_TIME       .SET 100000
+DIGIT_REPEAT           .SET 2
+DIGIT_COUNT            .SET 2
+
+ADV_UP_TIME  .SET  30000H
+
+LED_LETTER_E .SET 061FCH
+LED_BLANK    .SET 0FFFCH
+
+RANDOM_SEED .SET 5A5A5A5Ah              ; RAM TESTS: PSEUDO-RANDOM SEQUENCE
+ZERO_EXTEND .SET 1Fh                    ; PARAMETERS
+SIGN_EXTEND .SET 20h
+
+CUSTOM_PRICING .SET 3
+
+PAL_SELECT  .SET 0FFDCH                 ; ENABLE VIDEO PALETTE MAP ACCESS
+
+R_JYS_UPDN .SET 180H                    ; MASKS FOR JOYSTICK POSITIONS 
+R_JYS_DN   .SET 100H
+R_JYS_UP   .SET 080H
+
+L_JYS_UPDN .SET 3H
+L_JYS_DN   .SET 2H
+L_JYS_UP   .SET 1H
+
+        .LIST
+

@@ -1,0 +1,587 @@
+	.DATA
+RD200:
+	.word	16,20,0,0
+	.long	>2002D00,NARCS
+RD201:
+	.word	13,20,0,0
+	.long	>2003700,NARCS
+RD202:
+	.word	15,20,0,0
+	.long	>2004100,NARCS
+RD203:
+	.word	16,20,0,0
+	.long	>2004B00,NARCS
+RD204:
+	.word	16,20,0,0
+	.long	>2005500,NARCS
+RD205:
+	.word	15,20,0,0
+	.long	>2005F00,NARCS
+RD206:
+	.word	15,20,0,0
+	.long	>2006900,NARCS
+RD207:
+	.word	15,20,0,0
+	.long	>2007300,NARCS
+RD208:
+	.word	16,20,0,0
+	.long	>2007D00,NARCS
+RD209:
+	.word	15,20,0,0
+	.long	>2008700,NARCS
+RD20A:
+	.word	25,20,0,0
+	.long	>2009100,NARCS
+RD20AND:
+	.word	23,20,0,0
+	.long	>200A280,NARCS
+RD20ASTR:
+	.word	11,13,0,-3
+	.long	>200B180,NARCS
+RD20AT:
+	.word	21,20,0,1
+	.long	>200B660,NARCS
+RD20B:
+	.word	23,20,0,0
+	.long	>200C560,NARCS
+RD20C:
+	.word	19,20,0,0
+	.long	>200D460,NARCS
+RD20COL:
+	.word	7,18,0,-1
+	.long	>200E0E0,NARCS
+RD20COM:
+	.word	7,11,0,-13
+	.long	>200E560,NARCS
+RD20D:
+	.word	23,20,0,0
+	.long	>200E820,NARCS
+RD20DASH:
+	.word	7,3,0,-8
+	.long	>200F720,NARCS
+RD20DOLL:
+	.word	15,25,0,2
+	.long	>200F7E0,NARCS
+RD20E:
+	.word	21,20,0,0
+	.long	>2010460,NARCS
+RD20EQL:
+	.word	7,9,0,-5
+	.long	>2011360,NARCS
+RD20EXP:
+	.word	7,20,0,0
+	.long	>20115A0,NARCS
+RD20F:
+	.word	21,20,0,0
+	.long	>2011AA0,NARCS
+RD20G:
+	.word	21,20,0,0
+	.long	>20129A0,NARCS
+RD20GRTR:
+	.word	7,13,0,-3
+	.long	>20138A0,NARCS
+RD20H:
+	.word	27,20,0,0
+	.long	>2013BE0,NARCS
+RD20I:
+	.word	14,20,0,0
+	.long	>2014D60,NARCS
+RD20J:
+	.word	20,20,0,0
+	.long	>2015760,NARCS
+RD20K:
+	.word	27,20,0,0
+	.long	>20163E0,NARCS
+RD20L:
+	.word	19,20,0,0
+	.long	>2017560,NARCS
+RD20LESS:
+	.word	7,13,0,-3
+	.long	>20181E0,NARCS
+RD20LPAR:
+	.word	11,30,0,0
+	.long	>2018520,NARCS
+RD20M:
+	.word	30,20,0,0
+	.long	>2019060,NARCS
+RD20N:
+	.word	23,20,0,0
+	.long	>201A460,NARCS
+RD20O:
+	.word	20,20,0,0
+	.long	>201B360,NARCS
+RD20P:
+	.word	22,20,0,0
+	.long	>201BFE0,NARCS
+RD20PCNT:
+	.word	20,20,0,0
+	.long	>201CEE0,NARCS
+RD20PER:
+	.word	7,7,0,-13
+	.long	>201DB60,NARCS
+RD20PLUS:
+	.word	9,9,0,-6
+	.long	>201DD20,NARCS
+RD20PND:
+	.word	18,17,0,0
+	.long	>201E080,NARCS
+RD20Q:
+	.word	21,25,0,0
+	.long	>201EB20,NARCS
+RD20QUES:
+	.word	15,20,0,0
+	.long	>201FDE0,NARCS
+RD20QUOT:
+	.word	16,11,0,0
+	.long	>20207E0,NARCS
+RD20R:
+	.word	25,20,0,0
+	.long	>2020D60,NARCS
+RD20RPAR:
+	.word	11,30,0,0
+	.long	>2021EE0,NARCS
+RD20S:
+	.word	17,20,0,0
+	.long	>2022A20,NARCS
+RD20SCOL:
+	.word	7,22,0,-2
+	.long	>20236A0,NARCS
+RD20SLSH:
+	.word	7,19,0,0
+	.long	>2023C20,NARCS
+RD20SQOT:
+	.word	7,11,0,0
+	.long	>20240E0,NARCS
+RD20T:
+	.word	20,20,0,0
+	.long	>20243A0,NARCS
+RD20U:
+	.word	21,20,0,0
+	.long	>2025020,NARCS
+RD20V:
+	.word	23,20,0,0
+	.long	>2025F20,NARCS
+RD20W:
+	.word	33,20,0,0
+	.long	>2026E20,NARCS
+RD20X:
+	.word	23,20,0,0
+	.long	>20284A0,NARCS
+RD20Y:
+	.word	24,20,0,0
+	.long	>20293A0,NARCS
+RD20Z:
+	.word	17,20,0,0
+	.long	>202A2A0,NARCS
+FON15A:
+	.word	11,15,0,0
+	.long	>202AF20,NARCS
+FON15B:
+	.word	11,15,0,0
+	.long	>202B4C0,NARCS
+FON15C:
+	.word	11,15,0,0
+	.long	>202BA60,NARCS
+FON15D:
+	.word	12,15,0,0
+	.long	>202C000,NARCS
+FON15E:
+	.word	11,15,0,0
+	.long	>202C5A0,NARCS
+FON15F:
+	.word	11,15,0,0
+	.long	>202CB40,NARCS
+FON15G:
+	.word	12,15,0,0
+	.long	>202D0E0,NARCS
+FON15H:
+	.word	12,15,0,0
+	.long	>202D680,NARCS
+FON15I:
+	.word	3,15,0,0
+	.long	>202DC20,NARCS
+FON15J:
+	.word	10,15,0,0
+	.long	>202DE00,NARCS
+FON15K:
+	.word	12,15,0,0
+	.long	>202E3A0,NARCS
+FON15L:
+	.word	10,15,0,0
+	.long	>202E940,NARCS
+FON15M:
+	.word	16,15,0,0
+	.long	>202EEE0,NARCS
+FON15N:
+	.word	12,15,0,0
+	.long	>202F660,NARCS
+FON15O:
+	.word	12,15,0,0
+	.long	>202FC00,NARCS
+FON15P:
+	.word	11,15,0,0
+	.long	>20301A0,NARCS
+FON15Q:
+	.word	13,17,0,0
+	.long	>2030740,NARCS
+FON15R:
+	.word	11,15,0,0
+	.long	>2030FC0,NARCS
+FON15S:
+	.word	12,15,0,0
+	.long	>2031560,NARCS
+FON15T:
+	.word	11,15,0,0
+	.long	>2031B00,NARCS
+FON15U:
+	.word	11,15,0,0
+	.long	>20320A0,NARCS
+FON15V:
+	.word	14,15,0,0
+	.long	>2032640,NARCS
+FON15W:
+	.word	16,15,0,0
+	.long	>2032DC0,NARCS
+FON15X:
+	.word	15,15,0,0
+	.long	>2033540,NARCS
+FON15Y:
+	.word	13,15,0,0
+	.long	>2033CC0,NARCS
+FON15Z:
+	.word	13,15,0,0
+	.long	>2034440,NARCS
+FON151:
+	.word	6,15,0,0
+	.long	>2034BC0,NARCS
+FON152:
+	.word	12,15,0,0
+	.long	>2034F80,NARCS
+FON153:
+	.word	12,15,0,0
+	.long	>2035520,NARCS
+FON154:
+	.word	13,15,0,0
+	.long	>2035AC0,NARCS
+FON155:
+	.word	12,15,0,0
+	.long	>2036240,NARCS
+FON156:
+	.word	13,15,0,0
+	.long	>20367E0,NARCS
+FON157:
+	.word	13,15,0,0
+	.long	>2036F60,NARCS
+FON158:
+	.word	12,15,0,0
+	.long	>20376E0,NARCS
+FON159:
+	.word	13,15,0,0
+	.long	>2037C80,NARCS
+FON150:
+	.word	12,15,0,0
+	.long	>2038400,NARCS
+FON15apos1:
+	.word	4,6,0,0
+	.long	>20389A0,NARCS
+FON15excla:
+	.word	3,15,0,0
+	.long	>2038A60,NARCS
+FON15poun:
+	.word	12,10,0,-2
+	.long	>2038C40,NARCS
+OFON15doll:
+	.word	11,20,0,2
+	.long	>2039000,NARCS
+FON15perc:
+	.word	13,15,0,0
+	.long	>2039780,NARCS
+FON15carr:
+	.word	9,5,0,0
+	.long	>2039F00,NARCS
+FON15and:
+	.word	13,15,0,0
+	.long	>203A0E0,NARCS
+FON15ast:
+	.word	7,7,-2,-3
+	.long	>203A860,NARCS
+FON15parenl:
+	.word	6,17,0,1
+	.long	>203AA20,NARCS
+FON15parenr:
+	.word	6,17,0,1
+	.long	>203AE60,NARCS
+FON15dash:
+	.word	7,3,0,-6
+	.long	>203B2A0,NARCS
+FON15line:
+	.word	11,3,0,-12
+	.long	>203B360,NARCS
+FON15equal:
+	.word	7,8,-2,-4
+	.long	>203B480,NARCS
+FON15plus:
+	.word	7,8,-2,-4
+	.long	>203B680,NARCS
+FON15brackl:
+	.word	5,19,0,0
+	.long	>203B880,NARCS
+FON15brackr:
+	.word	5,19,0,0
+	.long	>203BD40,NARCS
+FON15paren2l:
+	.word	7,19,0,2
+	.long	>203C200,NARCS
+FON15paren2r:
+	.word	7,19,0,2
+	.long	>203C6C0,NARCS
+FON15backsp:
+	.word	9,15,0,0
+	.long	>203CB80,NARCS
+FON15break:
+	.word	2,15,0,0
+	.long	>203D120,NARCS
+FON15semicol:
+	.word	4,13,0,-2
+	.long	>203D300,NARCS
+FON15colon:
+	.word	4,11,0,-2
+	.long	>203D4A0,NARCS
+FON15apos:
+	.word	4,6,0,0
+	.long	>203D600,NARCS
+FON15quote:
+	.word	10,6,0,1
+	.long	>203D6C0,NARCS
+FON15comma:
+	.word	4,6,0,-10
+	.long	>203D900,NARCS
+FON15less:
+	.word	6,9,-2,-4
+	.long	>203D9C0,NARCS
+FON15period:
+	.word	4,4,0,-11
+	.long	>203DC00,NARCS
+FON15more:
+	.word	6,9,-3,-4
+	.long	>203DC80,NARCS
+FON15forsp:
+	.word	9,15,0,0
+	.long	>203DEC0,NARCS
+FON15quest:
+	.word	10,15,0,0
+	.long	>203E460,NARCS
+FON15rquote:
+	.word	10,6,0,1
+	.long	>203EA00,NARCS
+FON15doll:
+	.word	11,20,0,2
+	.long	>203EC40,NARCS
+FON15engPOUN:
+	.word	11,15,0,0
+	.long	>203F3C0,NARCS
+FON15CR:
+	.word	15,11,0,0
+	.long	>203F960,NARCS
+FONT7A:
+	.word	6,8,0,0
+	.long	>203FEE0,NARCS
+FONT7B:
+	.word	6,8,0,0
+	.long	>20400E0,NARCS
+FONT7C:
+	.word	6,8,0,0
+	.long	>20402E0,NARCS
+FONT7D:
+	.word	6,8,0,0
+	.long	>20404E0,NARCS
+FONT7E:
+	.word	6,8,0,0
+	.long	>20406E0,NARCS
+FONT7F:
+	.word	6,8,0,0
+	.long	>20408E0,NARCS
+FONT7G:
+	.word	6,8,0,0
+	.long	>2040AE0,NARCS
+FONT7H:
+	.word	6,8,0,0
+	.long	>2040CE0,NARCS
+FONT7I:
+	.word	2,8,0,0
+	.long	>2040EE0,NARCS
+FONT7J:
+	.word	6,8,0,0
+	.long	>2040FE0,NARCS
+FONT7K:
+	.word	6,8,0,0
+	.long	>20411E0,NARCS
+FONT7L:
+	.word	5,8,0,0
+	.long	>20413E0,NARCS
+FONT7M:
+	.word	10,8,0,0
+	.long	>20415E0,NARCS
+FONT7N:
+	.word	7,8,0,0
+	.long	>20418E0,NARCS
+FONT7O:
+	.word	7,8,0,0
+	.long	>2041AE0,NARCS
+FONT7P:
+	.word	6,8,0,0
+	.long	>2041CE0,NARCS
+FONT7Q:
+	.word	7,10,0,0
+	.long	>2041EE0,NARCS
+FONT7R:
+	.word	6,8,0,0
+	.long	>2042160,NARCS
+FONT7S:
+	.word	6,8,0,0
+	.long	>2042360,NARCS
+FONT7T:
+	.word	6,8,0,0
+	.long	>2042560,NARCS
+FONT7U:
+	.word	6,8,0,0
+	.long	>2042760,NARCS
+FONT7V:
+	.word	7,8,0,0
+	.long	>2042960,NARCS
+FONT7W:
+	.word	11,8,0,0
+	.long	>2042B60,NARCS
+FONT7X:
+	.word	7,8,0,0
+	.long	>2042E60,NARCS
+FONT7Y:
+	.word	6,8,0,0
+	.long	>2043060,NARCS
+FONT7Z:
+	.word	6,8,0,0
+	.long	>2043260,NARCS
+FONT71:
+	.word	4,8,0,0
+	.long	>2043460,NARCS
+FONT72:
+	.word	6,8,0,0
+	.long	>2043560,NARCS
+FONT73:
+	.word	6,8,0,0
+	.long	>2043760,NARCS
+FONT74:
+	.word	6,8,0,0
+	.long	>2043960,NARCS
+FONT75:
+	.word	6,8,0,0
+	.long	>2043B60,NARCS
+FONT76:
+	.word	6,8,0,0
+	.long	>2043D60,NARCS
+FONT77:
+	.word	6,8,0,0
+	.long	>2043F60,NARCS
+FONT78:
+	.word	6,8,0,0
+	.long	>2044160,NARCS
+FONT79:
+	.word	6,8,0,0
+	.long	>2044360,NARCS
+FONT70:
+	.word	6,8,0,0
+	.long	>2044560,NARCS
+FONT7excla:
+	.word	2,8,0,0
+	.long	>2044760,NARCS
+FONT7pound:
+	.word	10,8,0,0
+	.long	>2044860,NARCS
+FONT7doll:
+	.word	6,9,0,1
+	.long	>2044B60,NARCS
+FONT7percen:
+	.word	11,8,0,0
+	.long	>2044DA0,NARCS
+FONT7and:
+	.word	7,8,0,0
+	.long	>20450A0,NARCS
+FONT7ast:
+	.word	7,8,1,-1
+	.long	>20452A0,NARCS
+FONT7parenl:
+	.word	3,10,0,1
+	.long	>20454A0,NARCS
+FONT7parenr:
+	.word	3,10,0,1
+	.long	>20455E0,NARCS
+FONT7dash:
+	.word	5,2,0,-4
+	.long	>2045720,NARCS
+FONT7line:
+	.word	6,2,0,-6
+	.long	>20457A0,NARCS
+FONT7equal:
+	.word	5,5,0,-3
+	.long	>2045820,NARCS
+FONT7plus:
+	.word	6,6,0,-2
+	.long	>2045960,NARCS
+FONT7bracl:
+	.word	3,10,0,0
+	.long	>2045AE0,NARCS
+FONT7bracr:
+	.word	3,10,0,0
+	.long	>2045C20,NARCS
+FONT7backsp:
+	.word	5,8,0,0
+	.long	>2045D60,NARCS
+FONT7paren2l:
+	.word	4,10,0,0
+	.long	>2045F60,NARCS
+FONT7paren2r:
+	.word	4,10,0,0
+	.long	>20460A0,NARCS
+FONT7break:
+	.word	2,8,0,0
+	.long	>20461E0,NARCS
+FONT7semicol:
+	.word	2,8,0,0
+	.long	>20462E0,NARCS
+FONT7apost:
+	.word	2,4,0,0
+	.long	>20463E0,NARCS
+FONT7colon:
+	.word	2,6,0,-1
+	.long	>2046460,NARCS
+FONT7quote:
+	.word	6,4,0,0
+	.long	>2046520,NARCS
+FONT7comma:
+	.word	2,4,0,-5
+	.long	>2046620,NARCS
+FONT7period:
+	.word	2,2,0,-6
+	.long	>20466A0,NARCS
+FONT7forsp:
+	.word	5,8,0,0
+	.long	>20466E0,NARCS
+FONT7less:
+	.word	4,7,0,0
+	.long	>20468E0,NARCS
+FONT7more:
+	.word	4,7,0,0
+	.long	>20469C0,NARCS
+FONT7quest:
+	.word	6,8,0,0
+	.long	>2046AA0,NARCS
+RD15SP:
+	.word	13,13,0,0
+	.long	>3142D00,NARCS
+RD15RUB:
+	.word	20,16,0,0
+	.long	>3143380,NARCS
+RD15END:
+	.word	21,16,0,0
+	.long	>3143D80,NARCS
+	.TEXT

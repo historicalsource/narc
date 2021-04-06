@@ -1,0 +1,251 @@
+	.DATA
+clwlk2:
+	.word	35,78,15,-60
+	.long	>270B6E0,clown
+clwlk3:
+	.word	39,77,18,-61
+	.long	>2710EA0,clown
+clwlk4:
+	.word	41,76,21,-62
+	.long	>2716EE0,clown
+clwlk5:
+	.word	36,74,16,-63
+	.long	>271D760,clown
+clwlk6:
+	.word	35,80,16,-59
+	.long	>2722AA0,clown
+clwlk7:
+	.word	35,79,15,-59
+	.long	>27284A0,clown
+clrun1:
+	.word	39,86,18,-54
+	.long	>272DD80,clown
+clrun2:
+	.word	31,88,11,-53
+	.long	>2734900,clown
+clrun3:
+	.word	31,86,12,-55
+	.long	>273A100,clown
+clrun4:
+	.word	34,87,16,-54
+	.long	>273F700,clown
+clrun5:
+	.word	34,86,16,-55
+	.long	>27458E0,clown
+clrun6:
+	.word	32,81,14,-59
+	.long	>274B9A0,clown
+cldie1:
+	.word	31,74,17,-63
+	.long	>2750AA0,clown
+cldie2:
+	.word	38,72,19,-65
+	.long	>27554A0,clown
+cldie3:
+	.word	49,84,25,-55
+	.long	>275AEA0,clown
+cldie4:
+	.word	75,60,43,-79
+	.long	>2763720,clown
+cldie5:
+	.word	76,50,36,-91
+	.long	>276C5A0,clown
+cldie6:
+	.word	70,36,31,-106
+	.long	>2773C60,clown
+cldie7:
+	.word	90,28,46,-119
+	.long	>2778D60,clown
+clduk1:
+	.word	58,62,31,-74
+	.long	>277DDE0,clown
+clduk3:
+	.word	59,35,31,-103
+	.long	>2785220,clown
+stab1:
+	.word	47,81,19,-55
+	.long	>27893C0,clown
+stab2:
+	.word	53,84,21,-53
+	.long	>2790D40,clown
+stab3:
+	.word	57,80,20,-57
+	.long	>279A040,clown
+stab4:
+	.word	52,78,20,-59
+	.long	>27A3640,clown
+stab5:
+	.word	44,77,20,-59
+	.long	>27AB500,clown
+stab7:
+	.word	67,64,34,-73
+	.long	>27B1EE0,clown
+stab8:
+	.word	65,56,37,-81
+	.long	>27BA6E0,clown
+stab9:
+	.word	64,46,37,-92
+	.long	>27C1DE0,clown
+throw3:
+	.word	60,80,28,-55
+	.long	>27C79E0,clown
+throw4:
+	.word	57,75,33,-59
+	.long	>27D0FE0,clown
+throw5:
+	.word	59,72,33,-62
+	.long	>27D9C80,clown
+throw6:
+	.word	75,66,33,-68
+	.long	>27E2380,clown
+throw7:
+	.word	67,68,33,-66
+	.long	>27EC040,clown
+cljmp3:
+	.word	35,68,17,-69
+	.long	>27F50C0,clown
+cljmp6:
+	.word	34,53,19,-84
+	.long	>27F9D40,clown
+cljmp7:
+	.word	36,79,18,-59
+	.long	>27FD8E0,clown
+cljmp8:
+	.word	46,73,18,-66
+	.long	>28031C0,clown
+cljmp9:
+	.word	50,56,20,-66
+	.long	>2809F40,clown
+cljmp10:
+	.word	51,63,22,-67
+	.long	>280FA40,clown
+cljmp11:
+	.word	47,74,22,-63
+	.long	>28160A0,clown
+cljmp12:
+	.word	39,66,21,-73
+	.long	>281CFA0,clown
+kill1:
+	.word	43,79,20,-57
+	.long	>2822220,clown
+kill3:
+	.word	43,78,25,-58
+	.long	>2828EC0,clown
+kill4:
+	.word	73,79,26,-58
+	.long	>282FA00,clown
+kill5:
+	.word	55,77,27,-60
+	.long	>283B5A0,clown
+kill7:
+	.word	50,83,27,-56
+	.long	>2843C60,clown
+kill8:
+	.word	44,83,25,-56
+	.long	>284C340,clown
+kill9:
+	.word	51,81,27,-59
+	.long	>2853560,clown
+kill10:
+	.word	74,77,26,-62
+	.long	>285B900,clown
+kill11:
+	.word	48,80,26,-58
+	.long	>2866FE0,clown
+kill12:
+	.word	69,67,26,-70
+	.long	>286E7E0,clown
+kill14:
+	.word	69,73,27,-67
+	.long	>2877EA0,clown
+laugh1:
+	.word	44,81,20,-54
+	.long	>28822E0,clown
+laugh2:
+	.word	41,72,19,-63
+	.long	>2889240,clown
+laugh3:
+	.word	42,55,19,-80
+	.long	>288F540,clown
+laugh4:
+	.word	48,77,22,-58
+	.long	>28940E0,clown
+laugh5:
+	.word	45,78,21,-58
+	.long	>289B460,clown
+laugh6:
+	.word	49,79,21,-58
+	.long	>28A2960,clown
+laugh7:
+	.word	44,75,21,-61
+	.long	>28AA9C0,clown
+laugh8:
+	.word	43,81,20,-55
+	.long	>28B10E0,clown
+carry1:
+	.word	57,79,33,-61
+	.long	>28B8040,hookpal
+carry2:
+	.word	49,77,31,-62
+	.long	>28C1460,hookpal
+carry3:
+	.word	52,75,30,-63
+	.long	>28C9180,hookpal
+carry4:
+	.word	53,80,29,-60
+	.long	>28D0B60,hookpal
+carry5:
+	.word	50,81,28,-60
+	.long	>28D9760,hookpal
+carry6:
+	.word	52,80,29,-60
+	.long	>28E1B00,hookpal
+carry7:
+	.word	49,79,30,-61
+	.long	>28E9D00,hookpal
+lift1:
+	.word	56,86,44,-55
+	.long	>28F1D60,hookpal
+lift2:
+	.word	47,86,37,-54
+	.long	>28FB3E0,hookpal
+lift3:
+	.word	33,82,24,-58
+	.long	>29034E0,hookpal
+lift4:
+	.word	40,77,31,-62
+	.long	>2909120,hookpal
+drway1:
+	.word	36,83,25,-54
+	.long	>290F160,hookpal
+drway2:
+	.word	36,76,26,-61
+	.long	>2914EC0,hookpal
+chtrn1:
+	.word	47,87,22,-49
+	.long	>291A440,hookpal
+chtrn2:
+	.word	42,86,19,-50
+	.long	>29226C0,hookpal
+chtrn3:
+	.word	29,88,15,-49
+	.long	>2929D00,hookpal
+chtrn4:
+	.word	35,88,20,-50
+	.long	>292F500,hookpal
+chtrn5:
+	.word	46,88,24,-47
+	.long	>2935800,hookpal
+chmve1:
+	.word	47,83,31,-54
+	.long	>293DC00,hookpal
+chmve2:
+	.word	48,83,31,-52
+	.long	>2945880,hookpal
+chmve3:
+	.word	49,82,33,-54
+	.long	>294D500,hookpal
+chmve4:
+	.word	53,84,35,-53
+	.long	>2955A40,hookpal
+	.TEXT

@@ -1,0 +1,137 @@
+	.DATA
+case1:
+	.word	54,63,22,-67
+	.long	>2FDB280,mrbigpal
+case4:
+	.word	54,61,22,-69
+	.long	>2FE20C0,mrbigpal
+case5:
+	.word	55,69,22,-60
+	.long	>2FE8B80,mrbigpal
+case9:
+	.word	63,63,31,-65
+	.long	>2FF0440,mrbigpal
+mdead2:
+	.word	67,70,26,25
+	.long	>2FF8240,mrbigpal
+mdead3:
+	.word	73,82,32,34
+	.long	>3001700,mrbigpal
+mdead4:
+	.word	76,59,42,26
+	.long	>300D9C0,mrbigpal
+mdead5:
+	.word	47,66,28,30
+	.long	>30165E0,mrbigpal
+mdead6:
+	.word	54,57,32,16
+	.long	>301C8E0,mrbigpal
+mdead11:
+	.word	74,37,41,-101
+	.long	>3022CA0,mrbigpal
+mdead12:
+	.word	88,24,45,-114
+	.long	>3028480,mrbigpal
+m90dead6:
+	.word	57,54,37,34
+	.long	>302C680,mrbigpal
+m90dead7:
+	.word	63,63,37,22
+	.long	>3032BC0,mrbigpal
+ang1:
+	.word	39,71,19,-62
+	.long	>303A9C0,mrbigpal
+ang2:
+	.word	48,77,19,-58
+	.long	>3040280,mrbigpal
+ang3:
+	.word	51,68,22,-62
+	.long	>3047600,mrbigpal
+ang4:
+	.word	39,71,18,-63
+	.long	>304E480,mrbigpal
+ang1b:
+	.word	41,71,21,-63
+	.long	>3053D40,mrbigpal
+ang4b:
+	.word	42,70,19,-64
+	.long	>3059EE0,mrbigpal
+angcase1:
+	.word	39,71,19,-62
+	.long	>305FF20,mrbigpal
+angcase2:
+	.word	48,77,19,-58
+	.long	>30657E0,mrbigpal
+weel1:
+	.word	31,32,15,15
+	.long	>306CB60,mrbigpal
+weel2:
+	.word	31,32,15,15
+	.long	>306EB60,mrbigpal
+weel3:
+	.word	31,32,15,15
+	.long	>3070B60,mrbigpal
+weel4:
+	.word	31,32,15,15
+	.long	>3072B60,mrbigpal
+weel5:
+	.word	31,32,15,15
+	.long	>3074B60,mrbigpal
+weel6:
+	.word	31,32,15,15
+	.long	>3076B60,mrbigpal
+sweel1:
+	.word	11,11,5,5
+	.long	>3078B60,mrbigpal
+sweel2:
+	.word	11,11,5,5
+	.long	>3078F80,mrbigpal
+sweel3:
+	.word	11,11,5,5
+	.long	>30793A0,mrbigpal
+sweel4:
+	.word	11,11,5,5
+	.long	>30797C0,mrbigpal
+sweel5:
+	.word	11,11,5,5
+	.long	>3079BE0,mrbigpal
+sweel6:
+	.word	11,11,5,5
+	.long	>307A000,mrbigpal
+ang2wa:
+	.word	19,30,10,14
+	.long	>307A420,mrbigpal
+ang2wb:
+	.word	19,30,9,15
+	.long	>307B6E0,mrbigpal
+ang2wc:
+	.word	19,30,9,15
+	.long	>307C9A0,mrbigpal
+ang2wd:
+	.word	19,30,9,14
+	.long	>307DC60,mrbigpal
+ang3wa:
+	.word	21,31,10,15
+	.long	>307EF20,mrbigpal
+ang3wb:
+	.word	21,31,11,15
+	.long	>3080660,mrbigpal
+ang3wc:
+	.word	21,31,11,15
+	.long	>3081DA0,mrbigpal
+ang3wd:
+	.word	21,31,10,15
+	.long	>30834E0,mrbigpal
+sflame0:
+	.word	16,9,0,4
+	.long	>3084C20,mrbigpal
+sflame45:
+	.word	13,15,0,0
+	.long	>30850A0,mrbigpal
+sflame90:
+	.word	9,18,4,1
+	.long	>3085820,mrbigpal
+bigbull:
+	.word	8,7,3,3
+	.long	>3085EE0,mrbigpal
+	.TEXT

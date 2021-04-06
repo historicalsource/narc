@@ -1,0 +1,42 @@
+The following information was obtained from the Version 
+1.91 test games on Saturday afternoon  1/21/89:
+
+
+Chicago Game Co.                 527 Plays......0 Dumps of any kind
+         No Mr. Big Kills
+         Only 2 trips to the silver safe.
+
+----------------------------------------------------------------------------------
+
+
+Times Square                     876 Plays......2 "Survived Lockup"
+
+         No Mr. Big Kills
+         Continuous Buy-in observed in the Silver safe and beyond.
+
+     A0        A1    A2           A3      A4      A5       A6       A7       A8
+1070C90  FFA46560    20     FFE71760  8B006D   22000  2D02000  104C0F0  10709F0
+
+10709F0  FF926120    20     FF914230  8B006D   22000     2000  104C0F0  10709F0
+
+----------------------------------------------------------------------------------
+Alladin's Castle                 704 Plays.......1 Watchdog
+
+         Mr. big killed twice.
+         Report that helicoptor can be made to disappear by violent
+         car action.
+
+     A0        A1      A2         A3      A4      A5       A6       A7       A8
+     21         0   20030   FFE6E210  720000    7070  AAA0707  1023470        5
+
+----------------------------------------------------------------------------------
+Galaxy Game Center               617 Plays......1 Lockup
+
+         No Mr. Big Kills.
+         Players not able to find blue card in drug lab witnessed.
+
+     A0        A1      A2         A3      A4      A5       A6       A7       A8
+106FCD0  FFE75550   10010   FF908B30  600A46   70E15 CCCC062F        0   B80000
+
+----------------------------------------------------------------------------------
+

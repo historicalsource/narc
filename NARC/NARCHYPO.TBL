@@ -1,0 +1,116 @@
+	.DATA
+JRD1:
+	.word	41,89,28,-52
+	.long	>2ACA740,JRwalk
+JRD2:
+	.word	63,79,55,-55
+	.long	>2AD21A0,JRwalk
+JRD3:
+	.word	66,83,73,-55
+	.long	>2ADBFA0,JRwalk
+JRD4:
+	.word	56,84,88,-61
+	.long	>2AE7000,JRwalk
+JRD5:
+	.word	67,57,105,-90
+	.long	>2AF0300,JRwalk
+JRD6:
+	.word	74,37,123,-109
+	.long	>2AF7C20,JRwalk
+JRD7:
+	.word	93,29,137,-117
+	.long	>2AFD400,JRwalk
+JRD8:
+	.word	96,25,143,-125
+	.long	>2B02B00,JRwalk
+JRD9:
+	.word	103,19,148,-132
+	.long	>2B07600,JRwalk
+JRW1:
+	.word	28,92,18,-52
+	.long	>2B0B3C0,JRwalk
+JRW2:
+	.word	40,91,19,-53
+	.long	>2B10440,JRwalk
+JRW3:
+	.word	56,88,31,-56
+	.long	>2B17600,JRwalk
+JRW4:
+	.word	41,87,26,-57
+	.long	>2B21000,JRwalk
+JRW5:
+	.word	29,89,13,-55
+	.long	>2B287A0,JRwalk
+JRW6:
+	.word	46,88,19,-56
+	.long	>2B2E0A0,JRwalk
+JRW7:
+	.word	54,86,25,-58
+	.long	>2B364A0,JRwalk
+JRW8:
+	.word	38,88,27,-56
+	.long	>2B3FB20,JRwalk
+JRTH1:
+	.word	71,74,34,-71
+	.long	>2B46920,JRwalk
+JRTH2:
+	.word	79,61,33,-86
+	.long	>2B50FA0,JRwalk
+JRTH3:
+	.word	77,58,35,-89
+	.long	>2B5A820,JRwalk
+JRTH4:
+	.word	74,57,34,-89
+	.long	>2B63920,JRwalk
+JRTH5:
+	.word	75,57,34,-89
+	.long	>2B6C080,JRwalk
+JRTH6:
+	.word	85,53,33,-95
+	.long	>2B747E0,JRwalk
+JRTH7:
+	.word	87,69,27,-76
+	.long	>2B7D9A0,JRwalk
+JRBUST1:
+	.word	52,102,23,-41
+	.long	>2B89760,JRwalk
+JRBUST2:
+	.word	71,90,33,-53
+	.long	>2B93D20,JRwalk
+JRBUST3:
+	.word	32,91,13,-52
+	.long	>2BA07A0,JRwalk
+JRBUST4:
+	.word	25,90,8,-53
+	.long	>2BA62A0,JRwalk
+JMPTH1:
+	.word	47,94,24,-49
+	.long	>2BAB160,JRwalk
+JMPTH2:
+	.word	75,93,40,-50
+	.long	>2BB3E60,JRwalk
+JMPTH3:
+	.word	48,81,19,-52
+	.long	>2BC1B40,JRwalk
+JMPTH4:
+	.word	44,60,17,-51
+	.long	>2BC94C0,JRwalk
+JMPTH5:
+	.word	44,59,16,-52
+	.long	>2BCE740,JRwalk
+JMPTH6:
+	.word	44,87,19,-52
+	.long	>2BD3860,JRwalk
+JRBODY:
+	.word	44,76,21,-71
+	.long	>2BDB000,JRwalk
+JRHEAD1:
+	.word	22,19,11,-52
+	.long	>2BE1880,JRwalk
+JRHEAD2:
+	.word	23,21,11,-51
+	.long	>2BE26C0,JRwalk
+JRHEAD3:
+	.word	23,20,11,-51
+	.long	>2BE3680,JRwalk
+	.TEXT

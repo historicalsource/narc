@@ -1,0 +1,101 @@
+ROM_WDTH .SET 000H                ; OFFSETS INTO ROM CHIP RECORD
+ROM_ITLV .SET 010H
+ROM_NMBR .SET 020H
+ROM_CKSM .SET 030H
+ROM_SADR .SET 040H
+ROM_EADR .SET 060H
+ROM_LINK .SET 080H
+ROM_SIZE .SET 0A0H
+
+;****************************************************************************
+;* ROM_CHIP: MACRO DEFINES A ROM CHIP RECORD.                               *
+;*                                                                          *
+;*       CHIP_NO    -- CHIP NUMBER                                          *
+;*       WIDTH      -- CHIP CELL SIZE IN BITS (MUST BE > 0)                 *
+;*       INTERLEAVE -- DISTANCE BETWEEN ADJACENT CELLS ON CHIP (IN BITS)    *
+;*       START_ADDR -- ADDRESS OF FIRST CELL ON CHIP                        *
+;*       END_ADDR   -- ADDRESS OF LAST CELL ON CHIP                         *
+;*       CHECK_SUM  -- DATAIO CHECK SUM FOR CHIP                            *
+;****************************************************************************
+
+ROM_CHIP $MACRO CHIP_NO, WIDTH, INTERLEAVE, START_ADDR, END_ADDR, CHECK_SUM
+
+         .SECT  "CHIPS"
+
+         .WORD  :WIDTH:
+         .WORD  :INTERLEAVE:
+         .WORD  :CHIP_NO:H                ; BCD CHIP NUMBER
+         .WORD  :CHECK_SUM:
+         .LONG  :START_ADDR:
+         .LONG  :END_ADDR:
+
+         .GLOBL ROM:CHIP_NO:              ; SYMBOL SHOULD LABEL A RECTANGLE
+         .LONG  ROM:CHIP_NO:              ; RECORD CORRESPONDING TO A ROM
+                                          ; CHIP ICON
+
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO MARKS THE END OF ANY ROM CHIP TABLE.                 *
+;****************************************************************************
+
+END_CHIP $MACRO
+
+         .SECT "CHIPS"
+         .WORD  0
+
+         $END
+
+        .PAGE
+
+;****************************************************************************
+;* THE FOLLOWING MACROS EXTRACT INDIVIDUAL FIELDS FROM A CHIP RECORD AND    *
+;* PLACE THEM IN A REGISTER. THE MACROS ACCEPT AS INPUT ANY REGISTER POINT- *
+;* ING TO THE BEGINNING OF A CHIP RECORD.                                   *
+;****************************************************************************
+
+ROMSADDR $MACRO SRC, DST
+         MOVE *:SRC:(ROM_SADR), :DST:, 1
+         $END
+
+ROMEADDR $MACRO SRC, DST
+         MOVE *:SRC:(ROM_EADR), :DST:, 1
+         $END
+
+ROMRLINK $MACRO SRC, DST
+         MOVE *:SRC:(ROM_LINK), :DST:, 1
+         $END
+
+ROMNUMBR $MACRO SRC, DST
+         MOVE *:SRC:(ROM_NMBR), :DST:
+         $END
+
+ROMINTLV $MACRO SRC, DST
+         MOVE *:SRC:(ROM_ITLV), :DST:
+         $END
+
+ROMWIDTH $MACRO SRC, DST
+         MOVE *:SRC:(ROM_WDTH), :DST:
+         $END
+
+ROMCHKSM $MACRO SRC, DST
+         MOVE *:SRC:(ROM_CKSM), :DST:
+         $END
+
+;****************************************************************************
+;* THE FOLLOWING MACRO JUMPS TO "LOCATION" IFF THE NEXT CHIP RECORD IS NOT  *
+;* EMPTY; OTHERWISE, THE CODE FOLLOWING THE MACRO CALL IS EXECUTED. THE     *
+;* MACRO ACCEPTS AS INPUT ANY REGISTER POINTING TO THE BEGINNING OF A CHIP  *
+;* RECORD.                                                                  *
+;*                                                                          *
+;* THE STACK IS USED AS A SCRATCH REGISTER AND THE INPUT REGISTER IS ALWAYS *
+;* INCREMENTED TO POINT TO THE BEGINNING OF THE NEXT RECORD.                *
+;****************************************************************************
+
+ROMEND  $MACRO SRC, LOCATION
+        ADDI ROM_SIZE, :SRC:
+        MOVE *:SRC:, SP
+        JRNZ :LOCATION:
+        $END
+
+

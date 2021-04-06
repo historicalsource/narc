@@ -1,0 +1,202 @@
+SKY1BMOD:
+	.word	1766,94,7	;x size, y size, #blocks
+SKY2BMOD:
+	.word	1632,85,5	;x size, y size, #blocks
+FASSGRLBMOD:
+	.word	240,438,61	;x size, y size, #blocks
+THERATBMOD:
+	.word	180,349,20	;x size, y size, #blocks
+CHECKSBMOD:
+	.word	180,369,35	;x size, y size, #blocks
+TAPESBMOD:
+	.word	240,361,32	;x size, y size, #blocks
+PINKYBMOD:
+	.word	300,376,54	;x size, y size, #blocks
+WARE2BMOD:
+	.word	540,377,66	;x size, y size, #blocks
+LIQBMOD:
+	.word	240,348,37	;x size, y size, #blocks
+BOOK1BMOD:
+	.word	180,348,24	;x size, y size, #blocks
+HOTEL1BMOD:
+	.word	120,438,15	;x size, y size, #blocks
+WARE1BMOD:
+	.word	540,380,88	;x size, y size, #blocks
+RENTBMOD:
+	.word	420,335,56	;x size, y size, #blocks
+EUGBMOD:
+	.word	420,359,42	;x size, y size, #blocks
+HQBMOD:
+	.word	480,352,95	;x size, y size, #blocks
+VOIDBMOD:
+	.word	240,398,32	;x size, y size, #blocks
+PAWNBMOD:
+	.word	300,366,49	;x size, y size, #blocks
+HOLEBMOD:
+	.word	240,396,34	;x size, y size, #blocks
+HOTEL2BMOD:
+	.word	240,437,64	;x size, y size, #blocks
+WALKUPBMOD:
+	.word	120,425,38	;x size, y size, #blocks
+ALLEYBMOD:
+	.word	60,340,17	;x size, y size, #blocks
+PIPELINEBMOD:
+	.word	180,361,28	;x size, y size, #blocks
+ALLEY2BMOD:
+	.word	120,350,21	;x size, y size, #blocks
+DOORSBMOD:
+	.word	240,328,30	;x size, y size, #blocks
+HOTEL3BMOD:
+	.word	240,437,63	;x size, y size, #blocks
+ALLEY3BMOD:
+	.word	120,379,24	;x size, y size, #blocks
+BRIDGENDBMOD:
+	.word	240,520,39	;x size, y size, #blocks
+ALLEY2ABMOD:
+	.word	120,341,20	;x size, y size, #blocks
+BRIDGE2BMOD:
+	.word	240,516,25	;x size, y size, #blocks
+BRIDGEBMOD:
+	.word	240,516,25	;x size, y size, #blocks
+ROOM1BMOD:
+	.word	1292,383,198	;x size, y size, #blocks
+BIGFLR4SBMOD:
+	.word	124,338,10	;x size, y size, #blocks
+BIGFLR1SBMOD:
+	.word	124,338,9	;x size, y size, #blocks
+BIGFLR10SBMOD:
+	.word	124,338,9	;x size, y size, #blocks
+BIGFLR9SBMOD:
+	.word	124,338,9	;x size, y size, #blocks
+BIGFLR8SBMOD:
+	.word	124,338,9	;x size, y size, #blocks
+SAFEFBBMOD:
+	.word	124,136,1	;x size, y size, #blocks
+SAFEFGRBMOD:
+	.word	124,136,1	;x size, y size, #blocks
+SAFEFSBMOD:
+	.word	124,136,1	;x size, y size, #blocks
+SAFEFGBMOD:
+	.word	124,136,1	;x size, y size, #blocks
+SAFEFRBMOD:
+	.word	124,136,1	;x size, y size, #blocks
+BIGFLR9BMOD:
+	.word	124,338,9	;x size, y size, #blocks
+BIGFLR8BMOD:
+	.word	124,338,9	;x size, y size, #blocks
+BIGFLR7BMOD:
+	.word	124,338,18	;x size, y size, #blocks
+BIGFLR6BMOD:
+	.word	124,345,13	;x size, y size, #blocks
+BIGFLR5BMOD:
+	.word	124,345,15	;x size, y size, #blocks
+BIGFLR4BMOD:
+	.word	124,338,10	;x size, y size, #blocks
+BIGFLR3BMOD:
+	.word	124,345,11	;x size, y size, #blocks
+BIGFLRBMOD:
+	.word	124,339,16	;x size, y size, #blocks
+BIGFLR1BMOD:
+	.word	124,338,9	;x size, y size, #blocks
+BIGROOFRBMOD:
+	.word	420,56,23	;x size, y size, #blocks
+SNOBWINBMOD:
+	.word	240,408,58	;x size, y size, #blocks
+SNOBDORBMOD:
+	.word	180,408,28	;x size, y size, #blocks
+FANNYCOBMOD:
+	.word	360,430,76	;x size, y size, #blocks
+OFFICE1BMOD:
+	.word	360,444,82	;x size, y size, #blocks
+BIGBANKBMOD:
+	.word	540,444,82	;x size, y size, #blocks
+BANKTOPBMOD:
+	.word	540,132,26	;x size, y size, #blocks
+BIGBLDRBMOD:
+	.word	420,452,66	;x size, y size, #blocks
+BIGBLDLBMOD:
+	.word	420,452,66	;x size, y size, #blocks
+BIGEL1BMOD:
+	.word	120,452,30	;x size, y size, #blocks
+BIGEL2BMOD:
+	.word	120,181,14	;x size, y size, #blocks
+BIGEL3BMOD:
+	.word	120,181,20	;x size, y size, #blocks
+BIGELRF1BMOD:
+	.word	120,56,9	;x size, y size, #blocks
+BIGELRF2BMOD:
+	.word	120,55,5	;x size, y size, #blocks
+BIGROOFLBMOD:
+	.word	420,56,22	;x size, y size, #blocks
+BIGWINRBMOD:
+	.word	420,181,25	;x size, y size, #blocks
+BIGWINLBMOD:
+	.word	420,181,26	;x size, y size, #blocks
+BIGEL4BMOD:
+	.word	60,452,16	;x size, y size, #blocks
+BIGEL5BMOD:
+	.word	60,181,9	;x size, y size, #blocks
+BIGELRF3BMOD:
+	.word	60,56,3	;x size, y size, #blocks
+BIGFLR10BMOD:
+	.word	124,338,9	;x size, y size, #blocks
+SFINT1BMOD:
+	.word	124,192,26	;x size, y size, #blocks
+SFINT2BMOD:
+	.word	124,184,10	;x size, y size, #blocks
+SFINWALBBMOD:
+	.word	124,342,12	;x size, y size, #blocks
+SFINWALSBMOD:
+	.word	124,342,12	;x size, y size, #blocks
+SFINWALGBMOD:
+	.word	124,342,12	;x size, y size, #blocks
+SFINWAGRBMOD:
+	.word	124,342,12	;x size, y size, #blocks
+SFINWALRBMOD:
+	.word	124,342,12	;x size, y size, #blocks
+SFINFLRBBMOD:
+	.word	124,158,2	;x size, y size, #blocks
+SFINFLRSBMOD:
+	.word	124,158,2	;x size, y size, #blocks
+SFINFLRGBMOD:
+	.word	124,158,2	;x size, y size, #blocks
+SFINFLGRBMOD:
+	.word	124,158,2	;x size, y size, #blocks
+SFINFLRRBMOD:
+	.word	124,158,2	;x size, y size, #blocks
+SFINT1ABMOD:
+	.word	124,192,27	;x size, y size, #blocks
+SFINT1BBMOD:
+	.word	124,192,28	;x size, y size, #blocks
+SFINT1CBMOD:
+	.word	124,192,26	;x size, y size, #blocks
+dashBMOD:
+	.word	281,89,32	;x size, y size, #blocks
+handBMOD:
+	.word	124,95,3	;x size, y size, #blocks
+ledsBMOD:
+	.word	490,282,12	;x size, y size, #blocks
+mainBMOD:
+	.word	511,404,240	;x size, y size, #blocks
+SUBWAYBMOD:
+	.word	2190,312,83	;x size, y size, #blocks
+WAREINT1BMOD:
+	.word	168,322,25	;x size, y size, #blocks
+WAREINT2BMOD:
+	.word	279,322,38	;x size, y size, #blocks
+WAREINT3BMOD:
+	.word	1559,349,212	;x size, y size, #blocks
+rmanBMOD:
+	.word	161,142,14	;x size, y size, #blocks
+bmanBMOD:
+	.word	197,299,32	;x size, y size, #blocks
+porsBMOD:
+	.word	326,172,20	;x size, y size, #blocks
+GRNHSBMOD:
+	.word	596,297,65	;x size, y size, #blocks
+GRNHSDRBMOD:
+	.word	60,251,6	;x size, y size, #blocks
+GHSINTBMOD:
+	.word	1652,326,86	;x size, y size, #blocks
+GHSINTDRBMOD:
+	.word	92,216,3	;x size, y size, #blocks

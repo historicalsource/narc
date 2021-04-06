@@ -1,0 +1,24 @@
+D:
+DS NE /S
+CD \VIDEO
+FA *.* /A+
+CD NARC
+FA *.* /A+
+CD \
+FA *.OBJ /A- /S
+FA *.LST /A- /S
+E:
+DS NE /S
+CD \VIDEO\IMG
+FA *.* /A-
+FA NARC*.IMG /A+
+FA NARC*.BD* /A+
+FA NARC*.LOD /A+
+FA NARC*.0* /A-
+C:
+CD \EZTAPE
+EZTAPE BACKUP /w 1 /v /m 1 /b rhs /n "NARC PROGRAM BACKUP" /f C:\EZTAPE\NARCPBAK.BPF
+EZTAPE BACKUP /w 1 /v /m 1 /b rhs /n "NARC IMAGE BACKUP" /f C:\EZTAPE\NARCIBAK.BPF
+NARC
+
+

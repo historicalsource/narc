@@ -1,0 +1,8069 @@
+**************************************************************************
+*								         *
+* 			 NARC NOTE LISTS				 *
+*								         *
+**************************************************************************
+**************************************************************************
+*                                                                        *
+* 	COPYRIGHT (C) 1988 WILLIAMS ELECTRONICS GAMES, INC. 		 *
+* 	ALL RIGHTS RESERVED.						 *
+*                                                                        *
+**************************************************************************
+		
+*	LIST	ON
+*
+*	ONEMEL:
+*
+*	ASSEMBLER SOURCE FILE FOR ASSEMBLING A SINGLE BACKGROUND TUNE
+*
+
+* 	INCLUDE		nvox.vnm
+NPOWERB	EQU	0
+NSOFT_G	EQU	1
+NSBASH1	EQU	2
+NBUZZ__	EQU	3
+NFLYCRY	EQU	4
+NMUD___	EQU	5
+NMUDPAC	EQU	6
+NPNBASH	EQU	7
+NPZNG2	EQU	8
+NPZNGH	EQU	9
+NTTY___	EQU	10
+NTHUD	EQU	11
+NZING12	EQU	12
+NZING2	EQU	13
+NSHMTLK	EQU	14
+NCanExpl	EQU	15
+Nding	EQU	16
+Nsizzle	EQU	17
+Ncarhrn	EQU	18
+Nclank	EQU	19
+Nbdcage	EQU	20
+Ncar1	EQU	21
+NNFLYBEL	EQU	22
+Ngoofy	EQU	23
+Nhelcop	EQU	24
+Nmpact	EQU	25
+Nrip4	EQU	26
+Nrip6	EQU	27
+Nrubber3	EQU	28
+NNRULET1	EQU	29
+Nsiren1	EQU	30
+Nsiren2	EQU	31
+Nsiren3	EQU	32
+Nsway2	EQU	33
+Nsway3	EQU	34
+NNTINCAN	EQU	35
+NSMARTB	EQU	36
+NSHOOP	EQU	37
+NGCAN	EQU	38
+Nswoosh	EQU	39
+NROACH	EQU	40
+Nsin	EQU	41
+NBBELL	EQU	42
+Ncar	EQU	43
+Ncaddy	EQU	44
+Nbuzzer	EQU	45
+NAGOGO	EQU	46
+Nspaint	EQU	47
+NNBASS	EQU	48
+NTUBASS	EQU	49
+Nbass5	EQU	50
+NBass.1	EQU	51
+NAnglBass2a	EQU	52
+NBASSDR	EQU	53
+NBDRUM	EQU	54
+NHAT88	EQU	55
+NHAT8B	EQU	56
+NHAT8D	EQU	57
+NHIHATC	EQU	58
+NHIHATO	EQU	59
+NWBLOCK	EQU	60
+NMARIMB	EQU	61
+NLOGDRM	EQU	62
+NWINDBE	EQU	63
+NHEAVYS	EQU	64
+NSYNPI2	EQU	65
+NSYNPIP	EQU	66
+NSYNTH3	EQU	67
+NNHSYNBR	EQU	68
+NELECGU	EQU	69
+NFUZZGU	EQU	70
+NLGUIT	EQU	71
+Njazzgut2	EQU	72
+NBUZZGU	EQU	73
+NNASTGU	EQU	74
+NRhodes...2	EQU	75
+NBORG	EQU	76
+NTRMPET	EQU	77
+NORCHES	EQU	78
+NNORCHES	EQU	79
+NLEADGT	EQU	80
+NSLEAD6	EQU	81
+NBLEAD	EQU	82
+Ntlead6a	EQU	83
+NMBLead1	EQU	84
+NMultiMoog2	EQU	85
+NSAX	EQU	86
+NCLARINET	EQU	87
+* 	include		gamedep.equ
+*
+*	THIS IS THE BACKGROUND YAMTIK CLOCK VALUE FOR narc.
+*
+
+CLOCK	EQU	$18
+
+*
+*	FIRQ TICK VALUE FOR narc: 14k
+*
+
+FIRQTM	EQU	$3FC
+
+*
+*	GLISSANDO TIME DELTA CONSTANT (FOR narc: EMPIRICAL VALUE)
+*
+
+GLTIME	EQU	$18
+
+
+PRIME_MAP equ	5
+
+	GLOBAL		STRTAB
+
+PSNDRM	EQU	0
+Psnare	EQU	0
+PTMTM	EQU	5
+PLTOM	EQU	$0A
+Pkick	EQU	$0a
+PJING	EQU	$0F
+PPFFT	EQU	$14
+PSMASH	EQU	$19
+PHTOM	EQU	$1e
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	INCLUDE		Z:\YAM\SYS\EVENT\PARAM.EQU			 *
+*                                                                        *
+**************************************************************************
+* 	include		/yam/sys/event/param.equ
+
+BEAT	EQU	1
+CLKCNT	EQU	60
+
+*************************************************************************
+*									*
+*	FUNCTION EQUATES						*
+*									*
+*************************************************************************
+
+* NON YAMAHA FUNCTIONS (CVSD & DAC FUNCTIONS)
+
+FSPEEC	EQU	$0000	SET UP SPEECH POINTERS FOR FIRQ SPEECH DRIVER
+FCOMB	EQU	$0001	COMB FILTERED DAC OUTPUT (FLANGE)
+
+*   YAMAHA FUNCTIONS  $8 =>
+
+FDRUMS	EQU	$0008	DIGITIZED DRUMS PLAY
+FDREST	EQU	$0009	DIGITIZED DRUMS REST
+FNOTE	EQU	$000A	KEY ON/OFF
+FREST	EQU	$000B	PLAY REST
+FVOIC	EQU	$000C	LOAD INSTRUMENT VOICE DATA
+FBSEC	EQU	$000D	MARK BEGINNING OF SECTION
+FESEC	EQU	$000E	MARK END OF SECTION
+FVOLUM	EQU	$000F	SET VOLUME LEVEL
+FMARK	EQU	$0010	MARK MELODY DETOUR POINT
+FTMARK	EQU	$0011	TRANSITION MELODY DETOUR POINT
+FGOTO	EQU	$0012	JUMP TO NEW LIST
+FMUX	EQU	$0013	BSR TO NEW LIST
+FDEMUX	EQU	$0014	RETURN TO PREVIOUS LIST 
+FEFECT	EQU	$0015	TERMINATE FOREGROUND SOUND EFECT LIST 
+FNOISE	EQU	$0016	NOISE ENABLED NOTE
+FPLOAD	EQU	$0017	PARAMETER LOAD
+FPINC	EQU	$0018	PARAMETER INCREMENT
+FPDEC	EQU	$0019	PARAMETER DECREMENT
+FPSEG	EQU	$001A	PARAMETER SEGMENT
+FRING	EQU	$001B	NOTE RING 
+FDBSEC	EQU	$001C	DIGITIZED BSEC
+FDESEC	EQU	$001D	DIGITIZED ESEC
+FSLUR	EQU	$001E	SLUR
+FGLISS	EQU	$001F	GLISSANDO
+FCMARK	EQU	$0020	MARK CHANNEL ON/OFF
+FDFECT	EQU	$0021	DRUM EFFECT TERMINATER
+FDVOL	EQU	$0022	DRUM VOLUME FUNCTION
+FSIG	EQU	$0023	SEND SIGNAL TO GAME PROC
+FDSET	EQU	$0024	SET NOTE DURATION
+FDURNOTE EQU	$0025	PLAY NOTE W/SET DURATION
+FDINC	EQU	$0026	INCREMENT NOTE DURATION
+FBXPOSE	EQU	$0027	BACKGROUND TRANSPOSE
+FFXPOSE	EQU	$0028	FORGROUND TRANSPOSE
+FBXSET	EQU	$0029	BACKGROUND TRANS SET
+FFXSET	EQU	$002A	FORGROUND TRANS SET
+FBGXPOSE EQU	$002B	BACKGROUND GLOBAL XPOSE
+FFGXPOSE EQU	$002c	FORGROUND GLOBAL XPOSE
+FBGXSET EQU	$002d	BACKGROUND GLOBAL XPOSE	SET
+FFGXSET EQU	$002e	FORGROUND GLOBAL XPOSE	SET
+FCRESC	EQU	$002f	CRESCENDO
+FFGXON	EQU	$0030	ENABLE GLOBAL FOREGROUND XPOSE
+FFGXOFF	EQU	$0031	DISABLE GLOBAL FOREGROUND XPOSE
+FJUMP	EQU	$0032	NON-REFUNDABLE MUX
+FSNDCALL	EQU	$0033		NEW NAME FOR GOTO
+FDIG	EQU	$0034	send sound call to secondary 6809
+FSREST	EQU	$35	short dur rest
+FFMARK	equ	$36	forground mark
+FSECSET	equ	$37	set ret address for esec
+FEND	EQU	FSECSET	LAST VALID FUNCTION
+	
+*
+*	EQUATES FOR PARAM MACROS
+*
+
+CHEN	EQU	$00
+SM	EQU	$01
+NFRQ	EQU	$02
+NEN	EQU	$03
+CLKA1	EQU	$04
+CLKA2	EQU	$05
+CLKB	EQU	$06
+LOAD	EQU	$07
+IRQEN	EQU	$08
+FRSET	EQU	$09
+CSM	EQU	$0A
+LFRQ	EQU	$0B
+PAMD	EQU	$0C
+LFOW	EQU	$0D
+CTOUT	EQU	$0E
+CONAL	EQU	$0F
+FBACK	EQU	$10
+RLOUT	EQU	$11
+KCODE	EQU	$12
+KFRAC	EQU	$13
+AMS	EQU	$14
+PMS	EQU	$15
+MULM1	EQU	$16
+MULM2	EQU	$17
+MULC1	EQU	$18
+MULC2	EQU	$19
+DT1M1	EQU	$1A
+DT1M2	EQU	$1B
+DT1C1	EQU	$1C
+DT1C2	EQU	$1D
+TLM1	EQU	$1E
+TLM2	EQU	$1F
+TLC1	EQU	$20
+TLC2	EQU	$21
+ARM1	EQU	$22
+ARM2	EQU	$23
+ARC1	EQU	$24
+ARC2	EQU	$25
+KSM1	EQU	$26
+KSM2	EQU	$27
+KSC1	EQU	$28
+KSC2	EQU	$29
+D1RM1	EQU	$2A
+D1RM2	EQU	$2B
+D1RC1	EQU	$2C
+D1RC2	EQU	$2D
+AENM1	EQU	$2E
+AENM2	EQU	$2F
+AENC1	EQU	$30
+AENC2	EQU	$31
+D2RM1	EQU	$32
+D2RM2	EQU	$33
+D2RC1	EQU	$34
+D2RC2	EQU	$35
+DT2M1	EQU	$36
+DT2M2	EQU	$37
+DT2C1	EQU	$38
+DT2C2	EQU	$39
+RRM1	EQU	$3A
+RRM2	EQU	$3B
+RRC1	EQU	$3C
+RRC2	EQU	$3D
+D1LM1	EQU	$3E
+D1LM2	EQU	$3F
+D1LC1	EQU	$40
+D1LC2	EQU	$41
+LFORS	EQU	$42
+TSTM	equ	$43
+*
+*	EQUATES FOR PARAM OFFSETS
+*
+
+SCHEN	EQU	$01
+SSM	EQU	$08
+SNFRQ	EQU	$01
+SNEN	EQU	$80
+SCLKA1	EQU	$01
+SCLKA2	EQU	$01
+SCLKB	EQU	$01
+SLOAD	EQU	$01
+SIRQEN	EQU	$04
+SFRSET	EQU	$10
+SCSM	EQU	$80
+SLFRQ	EQU	$01
+SPAMD	EQU	$01
+SLFOW	EQU	$01
+SCTOUT	EQU	$40
+SCONAL	EQU	$01
+SFBACK	EQU	$08
+SRLOUT	EQU	$40
+SKCODE	EQU	$01
+SKFRAC	EQU	$04
+SAMS	EQU	$01
+SPMS	EQU	$10
+SMULM1	EQU	$01
+SMULM2	EQU	$01
+SMULC1	EQU	$01
+SMULC2	EQU	$01
+SDT1M1	EQU	$10
+SDT1M2	EQU	$10
+SDT1C1	EQU	$10
+SDT1C2	EQU	$10
+STLM1	EQU	$01
+STLM2	EQU	$01
+STLC1	EQU	$01
+STLC2	EQU	$01
+SARM1	EQU	$01
+SARM2	EQU	$01
+SARC1	EQU	$01
+SARC2	EQU	$01
+SKSM1	EQU	$40
+SKSM2	EQU	$40
+SKSC1	EQU	$40
+SKSC2	EQU	$40
+SD1RM1	EQU	$01
+SD1RM2	EQU	$01
+SD1RC1	EQU	$01
+SD1RC2	EQU	$01
+SAENM1	EQU	$80
+SAENM2	EQU	$80
+SAENC1	EQU	$80
+SAENC2	EQU	$80
+SD2RM1	EQU	$01
+SD2RM2	EQU	$01
+SD2RC1	EQU	$01
+SD2RC2	EQU	$01
+SDT2M1	EQU	$40
+SDT2M2	EQU	$40
+SDT2C1	EQU	$40
+SDT2C2	EQU	$40
+SRRM1	EQU	$01
+SRRM2	EQU	$01
+SRRC1	EQU	$01
+SRRC2	EQU	$01
+SD1LM1	EQU	$10
+SD1LM2	EQU	$10
+SD1LC1	EQU	$10
+SD1LC2	EQU	$10
+
+SLFORS	EQU	$02
+STSTM	EQU	$04
+
+	
+****************************
+
+STRTAB	
+	fdb	eug1,mrb1,rok1,rap,die,spy,bonus1,bonus2,n1,n2,n3
+* $0b
+	fdb	spyts,narc1bonus,n1ts,n2ts,n3ts,spybi,n1bi,n2bi,n3bi
+* $14
+	fdb	mrbts,mrbbi,rokts,rokbi,n3tv2,n3tsolo
+
+
+eug1
+mrb1	fdb	mrb01,mrb02,mrb03,mrb04,mrb05,mrb06,mrb07,mrb08,mrb09
+rok1	fdb	rok01,rok02,rok03,rok04,rok05,rok06,rok07,rok08,rok09
+rap	fdb	rap01,rap02,rap03,rap04,rap05,rap06,rap07,rap08,rap09
+bonus1	fdb	bon01,bon02,bon03,bon04,bon01,bon02,bon03,bon04,bon09
+bonus2	fdb	bon11,bon12,bon13,bon14,bon11,bon12,bon13,bon14,bon09
+die	fdb	die01,die02,die03,die04,die05,die06,die07,die08,die09
+
+spy	fdb	spys7,spys6,spys5,spys0,spys3,spys2,spys1,spys4,spys8
+n1	fdb	n17,n16,n15,n10,n13,n12,n11,n14,n18
+n2	fdb	n27,n26,n25,n20,n23,n22,n21,n24,n28
+n3	fdb	n37,n36,n35,n30,n33,n32,n31,n34,n38
+spyts	fdb	spyts7,spyts6,spyts5,spyts0,spyts3,spyts2,spyts1,spyts4,spyts8
+narc1bonus fdb	narc1bonus7,narc1bonus6,narc1bonus5,narc1bonus0,narc1bonus3,narc1bonus2,narc1bonus1,narc1bonus4,narc1bonus8
+n1ts	fdb	n1ts7,n1ts6,n1ts5,n1ts0,n1ts3,n1ts2,n1ts1,n1ts4,n1ts8
+n2ts	fdb	n2ts7,n2ts6,n2ts5,n2ts0,n2ts3,n2ts2,n2ts1,n2ts4,n2ts8
+n3ts	fdb	n3ts7,n3ts6,n3ts5,n3ts0,n3ts3,n3ts2,n3ts1,n3ts4,n3ts8
+n3tv2	fdb	n3tv27,n3tv26,n3tv25,n3tv20,n3tv23,n3tv22,n3tv21,n3tv24,n3tv28
+n3tsolo	fdb	n3tsolo7,n3tsolo6,n3tsolo5,n3tsolo0,n3tsolo3,n3tsolo2,n3tsolo1,n3tsolo4,n3tsolo8
+
+spybi	fdb	spybi7,spybi6,spybi5,spybi0,spybi3,spybi2,spybi1,spybi4,spybi8
+n1bi	fdb	n1bi7,n1bi6,n1bi5,n1bi0,n1bi3,n1bi2,n1bi1,n1bi4,n1bi8
+n2bi	fdb	n2bi7,n2bi6,n2bi5,n2bi0,n2bi3,n2bi2,n2bi1,n2bi4,n2bi8
+n3bi	fdb	n3bi7,n3bi6,n3bi5,n3bi0,n3bi3,n3bi2,n3bi1,n3bi4,n3bi8
+
+mrbts	fdb	mrbe1,mrbe2,mrbe3,mrbe4,mrbe5,mrbe6,mrbe7,mrbe8,mrbe9
+mrbbi	fdb	mrbx1,mrbx2,mrbx3,mrbx4,mrbx5,mrbx6,mrbx7,mrbx8,mrbx9
+rokbi	fdb	rokbi1,rokbi2,rokbi3,rokbi4,rokbi5,rokbi6,rokbi7,rokbi8,rokbi9
+rokts	fdb	rokts1,rokts2,rokts3,rokts4,rokts5,rokts6,rokts7,rokts8,rokts9
+
+
+* 	include		mrbig.mel
+
+
+**************************************************************************
+*                                                                        *
+* 	mr big is tune # 0												  *
+*                                                                        *
+**************************************************************************
+
+*  a tune for Mr Big...
+
+mrb01
+	voice	HEAVYS
+	volume	6
+
+	note	fs1,4
+	note	ds1,4
+	note	a1,16
+	note	fs1,16
+	note	ds1,4
+	note	a1,4
+	note	fs1,4
+	note	gs1,4
+	mark	1,0
+
+	bsec	4
+		note	ds1,4
+	esec
+	mark	1,0
+
+mrbs1
+	bsec	0
+
+	voice	HEAVYS
+	volume	6
+	cresc	0,12,8
+	bsec	8
+		note	ds1,4
+	esec
+	mark	1,0
+
+	volume	-12
+	note	fs1,4
+	note	ds1,4
+	note	a1,16
+	note	fs1,16
+	note	ds1,4
+	note	a1,4
+	note	fs1,4
+	note	gs1,4
+	mark	1,0
+
+	bsec	4
+		note	ds1,4
+	esec
+	mark	1,0
+
+	cresc	0,5,8
+	bsec	6
+		note	ds1,4
+	esec
+	volume	-5
+	note	fs1,4
+	note	a1,4
+	mark	1,0
+
+	bsec	4
+		note	ds1,4
+	esec
+	mark	1,0
+
+	cresc	0,12,8
+	bsec	12
+		note	ds1,4
+	esec
+	mark	1,0
+
+	volume	-6
+		bsec	4
+			note	ds1,4
+			note	e1,4
+			note	cs1,4
+			note	ds1,4
+			mark	1,0
+		esec
+
+		bsec	2
+			note	e1,4
+			note	fs1,4
+			note	cs1,4
+			note	ds1,4
+			mark	1,0
+		esec
+
+		bsec	4
+			note	ds1,4
+		esec
+		mark	1,0
+
+	volume	-6
+
+	note	fs1,4
+	note	ds1,4
+	note	a1,16
+	note	fs1,16
+	note	ds1,4
+	note	a1,4
+	note	fs1,4
+	note	gs1,4
+	mark	1,0
+
+	bsec	4
+		note	ds1,4
+	esec
+	mark	1,0
+
+	esec
+
+mrb02
+	voice	TUBASS
+	volume	7
+
+	bxset	12,0
+	rest	1/2
+	note	fs1,4
+	note	ds1,4
+	note	a1,63/4
+	note	fs1,16
+	note	ds1,4
+	note	a1,4
+	note	fs1,4
+	note	gs1,15/4
+	bxset	0,0
+	bsec	8
+		note	ds1,2
+	esec
+
+mrbs2
+	bsec	0
+	voice	TUBASS
+	volume	7
+
+	bsec	16
+		note	ds1,2
+	esec
+	rest	1/2
+	note	fs1,4
+	note	ds1,4
+	note	a1,63/4
+	note	fs1,16
+	note	ds1,4
+	note	a1,4
+	note	fs1,4
+	note	gs1,15/4
+	bxset	0,0
+	volume	-5
+		note	ds1,2
+		note	ds1,2
+	volume	6
+	rest	28
+	note	ds1,2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	4
+	volume	5
+	bsec	4
+		bsec	4
+		note	ds1,2
+		volume	2
+		note	ds1,2
+		volume	-2
+		esec
+	esec
+
+	rest	32
+	bsec	4
+		note	ds1,2
+		note	cs1,2
+		note	e1,2
+		note	cs1,2
+	esec
+	bsec	4
+		note	e1,2
+		note	cs1,2
+		note	fs1,2
+		note	cs1,2
+	esec
+
+	note	ds1,2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+
+	bxset	12,0
+	rest	1/2
+	note	fs1,4
+	note	ds1,4
+	note	a1,63/4
+	note	fs1,16
+	note	ds1,4
+	note	a1,4
+	note	fs1,4
+	note	gs1,15/4
+	bxset	0,0
+	bsec	8
+		note	ds1,2
+	esec
+	esec
+	
+mrb03
+	voice	NBASS
+	volume	5
+	rest	8
+	rest	48
+	bxset	12,0
+	bsec	8
+		note	ds1,2
+	esec
+
+mrbs3
+	bsec	0
+	voice	NBASS
+	volume	5
+   	bxset	12,0
+
+	bsec	16
+		note	ds1,2
+	esec
+	rest	8
+	rest	48
+	volume	-5
+		note	ds1,2
+		note	ds1,2
+	volume	6
+	rest	28
+	note	ds1,2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	4
+	volume	5
+	bsec	4
+		bsec	4
+		note	ds1,2
+		volume	2
+		note	ds1,2
+		volume	-2
+		esec
+	esec
+
+	rest	32
+	bsec	4
+		note	ds1,2
+		note	cs1,2
+		note	e1,2
+		note	cs1,2
+	esec
+	bsec	4
+		note	e1,2
+		note	cs1,2
+		note	fs1,2
+		note	cs1,2
+	esec
+
+	note	ds1,2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+
+	cresc	0,12,8
+	note	ds1,56
+	volume	-12
+
+	bsec	8
+		note	ds1,2
+	esec
+	esec
+
+mrb04
+	voice	NASTGU
+nastmel	volume	4
+	note	ds3,4
+	note	fs3,1
+	slur	ds3,1
+	bsec	21
+		slur	fs3,1
+		slur	ds3,1
+	esec
+	slur	fs3,24
+
+mrbs4
+	bsec	0
+
+	voice	LGUIT
+	volume	12
+	cresc	12,8,32
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,2
+		note	f3,2
+		note	f3,4
+	voice	NASTGU
+	volume	2
+	note	ds3,4
+	note	fs3,1
+	slur	ds3,1
+	bsec	21
+		slur	fs3,1
+		slur	ds3,1
+	esec
+	slur	fs3,8
+	volume	-2
+		note	ds3,2
+		note	ds3,2
+	volume	6
+	rest	28
+	note	ds3,2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	4
+	volume	6
+	bsec	6
+		rest	16
+	esec
+		bsec	16
+			note	cs5,1
+			slur	as4,1
+		esec
+	slur	cs5,32
+
+	volume	-4
+	note	ds3,2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+
+	voice	NASTGU
+	volume	4
+	note	ds3,4
+	note	fs3,1
+	slur	ds3,1
+	bsec	21
+		slur	fs3,1
+		slur	ds3,1
+	esec
+	slur	fs3,24
+
+	esec
+
+mrb05
+	rest	72
+
+mrbs5
+	bsec	0
+
+	voice	POWERB
+	volume	0
+	rest	88
+	note	g2,2
+	note	g2,2
+	rest	28
+	volume	6
+	note	g2,2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	4
+	volume	3
+
+			note	ds4,2
+			note	f4,2
+			note	fs4,2
+			note	f4,2
+			note	ds4,1
+			volume	4		
+			note	ds4,1
+			volume	-4
+			note	f4,2
+			note	fs4,2
+			note	f4,2
+			note	ds4,2
+			note	f4,2
+			note	fs4,2
+			note	f4,2
+			note	gs4,2
+			note	f4,2
+			note	as4,2
+			note	fs4,2
+
+			note	ds4,2
+			note	f4,2
+			note	fs4,2
+			note	f4,2
+			note	ds4,1
+			volume	4		
+			note	ds4,1
+			volume	-4
+			note	f4,2
+			note	fs4,2
+			note	f4,2
+			note	ds4,2
+			note	f4,2
+			note	fs4,2
+			note	ds4,2
+			note	b3,2
+			note	cs4,2
+			note	as3,4
+
+		voice	SAX
+		volume	2
+		bsec	2
+			note	ds1,4
+			note	e1,4
+			note	cs1,4
+			note	ds1,4
+		esec
+	volume	2
+		bsec	2
+			note	ds1,4
+			note	e1,4
+			note	cs1,4
+			note	ds1,4
+		esec
+
+	bsec	2
+		note	e1,4
+		note	fs1,4
+		note	cs1,4
+		note	ds1,4
+	esec
+
+	volume	-2
+	note	g2,2
+	note	g2,2
+	rest	2
+	note	g2,2
+	rest	2
+	note	g2,2
+	rest	2
+	note	g2,2
+
+	cresc	0,12,8
+	note	a2,40
+	volume	-12
+
+	rest	32   
+	esec
+
+mrb06
+	voice	POWERB
+	volume	0
+	rest	72
+
+mrbs6
+	bsec	0
+	rest	88
+	note	cs4,2
+	note	cs4,2
+	rest	28
+	volume	6
+	note	cs4,2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	4
+	bsec	10
+		rest	16
+	esec
+  
+
+	note	cs4,2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+
+	cresc	0,12,8
+	note	a4,40
+	volume	-12
+
+	rest	32
+
+	esec
+
+mrb07
+	voice	POWERB
+	volume	0
+	rest	72
+
+mrbs7
+	bsec	0
+	rest	88
+	note	fs5,2
+	note	fs5,2
+	rest	28
+	volume	6
+	note	fs5,2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	4
+	bsec	10
+		rest	16
+	esec
+
+	note	fs5,2
+	note	fs5,2
+	rest	2
+	note	fs5,2
+	rest	2
+	note	fs5,2
+	rest	2
+	note	fs5,2
+
+	cresc	0,12,8
+	note	fs5,40
+	volume	-12
+
+	rest	32
+	
+	esec
+
+mrb08
+	voice	BLEAD
+	volume	4
+	bxset	12,0
+	rest	1/2
+	note	ds3,4
+	note	fs3,1
+	slur	ds3,1
+	bsec	21
+		slur	fs3,1
+		slur	ds3,1
+	esec
+	slur	fs3,24
+mrbs8
+	bsec	0
+
+	voice	BLEAD
+	volume	4
+	bxset	12,0
+	cresc	6,2,16
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,4
+		note	f3,2
+		note	f3,2
+		note	f3,4
+	note	ds3,4
+	note	fs3,1
+	slur	ds3,1
+	bsec	21
+		slur	fs3,1
+		slur	ds3,1
+	esec
+	slur	fs3,8
+	volume	-2
+		note	ds3,2
+		note	ds3,2
+  	volume	6
+	rest	28
+	note	ds3,2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	2
+	cresc	0,2,2
+	ring	2
+	volume	-4
+	ring	4
+
+	bsec	6
+		rest	16
+	esec
+
+	voice	CLARINET
+	volume	2
+	bxset	0,0
+
+		bsec	16
+			note	cs5,1
+			slur	as4,1
+		esec
+		slur	cs5,32
+
+	voice	BLEAD
+	volume	2
+	bxset	12,0
+
+	note	ds3,2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+
+	note	ds3,4
+	note	fs3,1
+	slur	ds3,1
+	bsec	21
+		slur	fs3,1
+		slur	ds3,1
+	esec
+	slur	fs3,24
+
+	esec
+mrb09
+	drest	8
+	drest	48
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	LTOM,2
+	drums	LTOM,4
+	drums	LTOM,4
+	drums	LTOM,2
+
+mrbs9	dvol	5
+	dbsec	0
+
+		drums	LTOM,2
+  		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		dvol	2
+		drums	SNDRM,2
+		dvol	-2
+
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		dvol	2  
+		drums	SNDRM,1
+		dvol	-1
+		drums	SNDRM,1
+		dvol	-1
+		dvol	-2
+
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	LTOM,2
+		dvol	-1
+		drums	SNDRM,2
+		dvol	1
+		drums	LTOM,2
+		dvol	-2
+
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		dvol	2  
+		drums	SNDRM,1
+		dvol	-1
+		drums	SNDRM,1
+		dvol	-1
+		dvol	-2
+
+* drum break on D#-7#9
+
+		dvol	-4
+
+		drums	LTOM,2
+		drums	LTOM,1
+		drums	LTOM,1
+		drums	SNDRM,4
+		drums	TMTM,1/3
+		drums	TMTM,1
+		drums	TMTM,4/3 		
+		drums	TMTM,4/3 
+		drums	SNDRM,1/2
+		drums	SNDRM,7/2
+	     
+		drums	LTOM,2
+		drums	TMTM,1
+		drums	TMTM,1
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	TMTM,1
+		drums	TMTM,1
+	dvol	6
+	dbsec	6
+		drums	SNDRM,2/3
+		dvol	-1
+	desec
+
+		drums	SNDRM,1/2
+		drums	SNDRM,7/2
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	2
+		dbsec	2
+			dvol	-1
+			drums	SNDRM,1
+			dvol	3
+			drums	SNDRM,1
+			dvol	-1
+			drums	SNDRM,1
+			dvol	2
+			drums	SNDRM,1
+			dvol	-5
+		desec
+
+		dvol	4
+
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		drums	TMTM,2
+		drums	LTOM,2
+		dvol	1
+		drums	LTOM,1
+		dvol	1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	SNDRM,1
+		dvol	-1
+		drums	SNDRM,1
+		dvol	-1
+
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		dvol	2
+		drums	TMTM,2
+		dvol	-2
+		drums	LTOM,2
+		dvol	2
+		drums	LTOM,1
+		drums	LTOM,1
+		dvol	-2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+
+		drums	LTOM,2
+		drums	LTOM,2
+		drums	SNDRM,2
+		dvol	2
+		drums	LTOM,2
+		dvol	-2
+		drums	LTOM,2
+		drums	TMTM,1
+		dvol	2
+		drums	LTOM,1
+		dvol	-2
+			drums	SNDRM,1
+			dvol	3
+			drums	SNDRM,1
+			dvol	-1
+			drums	SNDRM,1
+			dvol	2
+			drums	SNDRM,1
+			dvol	-4
+
+	drums	LTOM,4
+	drums	LTOM,2
+	drums	TMTM,1
+	drums	TMTM,1
+	drums	LTOM,4
+	drums	LTOM,2
+	drums	TMTM,1
+	drums	TMTM,1
+	drums	LTOM,4
+	drums	TMTM,4/3
+	drums	TMTM,4/3
+	drums	TMTM,4/3
+	drums	TMTM,4
+	dvol	12
+	dbsec	6
+		drums	SNDRM,4/6
+		dvol	-2
+	desec
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	LTOM,2
+	drums	LTOM,4
+	drums	LTOM,4
+	drums	LTOM,2
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	SNDRM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	SNDRM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	SNDRM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	TMTM,1
+	drums	LTOM,1
+
+*  second D#-7#9 break
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,1
+	drums	SNDRM,1
+	drums	LTOM,2
+		dvol	2
+		dbsec	2
+			dvol	-1
+			drums	SNDRM,1
+			dvol	3
+			drums	SNDRM,1
+			dvol	-1
+			drums	SNDRM,1
+			dvol	2
+			drums	SNDRM,1
+			dvol	-4
+		desec
+
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	SNDRM,2
+	drums	LTOM,2
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+		dvol	1
+		drums	SNDRM,1
+		dvol	3
+		drums	SNDRM,1
+		dvol	-1
+		drums	SNDRM,1
+		dvol	2
+		drums	SNDRM,1
+		dvol	-5
+	drums	LTOM,4
+		dvol	1
+		drums	SNDRM,1
+		dvol	3
+		drums	SNDRM,1
+		dvol	-1
+		drums	SNDRM,1
+		dvol	2
+		drums	SNDRM,1
+		dvol	-5
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	dvol	1
+	drums	SNDRM,1
+	dvol	3
+	drums	SNDRM,1
+	dvol	-1
+	drums	SNDRM,1
+	dvol	2
+	drums	SNDRM,1
+	dvol	-5
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums 	LTOM,2
+	drums	SNDRM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+
+	desec
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	mr big buy in music												  *
+*                                                                        *
+**************************************************************************
+
+
+
+mrbx1
+	voice	HEAVYS
+	volume	6
+	bxset	12,0
+
+	bsec	0
+ 		bsec	2
+			note	ds1,4
+			note	e1,4
+			note	cs1,4
+			note	ds1,4
+			mark	9,0
+		esec
+
+		bsec	2
+			note	e1,4
+			note	fs1,4
+			note	cs1,4
+			note	ds1,4
+			mark	9,0
+		esec
+	esec
+
+mrbx2
+	voice	TUBASS
+	volume	8
+
+	bsec	0
+	bsec	4
+		note	ds1,2
+		note	cs1,2
+		note	e1,2
+		note	cs1,2
+	esec
+	bsec	4
+		note	e1,2
+		note	cs1,2
+		note	fs1,2
+		note	cs1,2
+	esec
+
+	note	ds1,2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+
+	note	ds1,2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+
+	note	fs1,2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+
+	note	fs1,2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+
+	esec
+
+mrbx3
+	voice	NBASS
+	volume	5
+	bxset	12,0
+
+	bsec	0
+	bsec	4
+		note	ds1,2
+		note	cs1,2
+		note	e1,2
+		note	cs1,2
+	esec
+	bsec	4
+		note	e1,2
+		note	cs1,2
+		note	fs1,2
+		note	cs1,2
+	esec
+
+	note	ds1,2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+
+ 	note	ds1,2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+
+	note	fs1,2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+
+ 	note	fs1,2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+	rest	2
+	note	fs1,2
+
+	esec
+
+mrbx4
+	voice	NASTGU
+	volume	4
+
+	rest	64
+
+	bsec	0
+
+	volume	-4
+	note	ds3,2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+
+	note	ds3,2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+	rest	2
+	note	ds3,2
+
+	note	fs3,2
+	note	fs3,2
+	rest	2
+	note	fs3,2
+	rest	2
+	note	fs3,2
+	rest	2
+	note	fs3,2
+
+	note	fs3,2
+	note	fs3,2
+	rest	2
+	note	fs3,2
+	rest	2
+	note	fs3,2
+	rest	2
+	note	fs3,2
+
+	volume	4
+
+	bsec	16
+		note	cs5,1
+		slur	as4,1
+	esec
+	slur	cs5,32
+
+	esec
+
+mrbx5
+	voice	SAX
+	volume	2
+
+	bsec	0
+		bsec	2
+			note	ds1,4
+			note	e1,4
+			note	cs1,4
+			note	ds1,4
+		esec
+
+		bsec	2
+			note	e1,4
+			note	fs1,4
+			note	cs1,4
+			note	ds1,4
+		esec
+
+	esec
+
+mrbx6
+	voice	POWERB
+	volume	0
+
+	rest	64
+
+	bsec	0
+
+	note	cs4,2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+
+	note	cs4,2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+
+	note	cs4,2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+
+	note	cs4,2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+
+	ring	64
+
+	esec
+
+mrbx7
+	voice	POWERB
+
+	rest	64
+
+	bsec	0
+
+	note	fs5,2
+	note	fs5,2
+	rest	2
+	note	fs5,2
+	rest	2
+	note	fs5,2
+	rest	2
+	note	fs5,2
+
+	note	a5,2
+	note	a5,2
+	rest	2
+	note	a5,2
+	rest	2
+	note	a5,2
+	rest	2
+	note	a5,2
+
+	note	c5,2
+	note	c5,2
+	rest	2
+	note	c5,2
+	rest	2
+	note	c5,2
+	rest	2
+	note	c5,2
+
+	note	ds6,2
+	note	ds6,2
+	rest	2
+	note	ds6,2
+	rest	2
+	note	ds6,2
+	rest	2
+	note	ds6,2
+
+	ring	64
+
+	esec
+
+mrbx8
+
+	rest	64
+
+	bsec	0
+
+	voice	BLEAD
+	volume	2
+
+	note	ds4,2
+	note	ds4,2
+	rest	2
+	note	ds4,2
+	rest	2
+	note	ds4,2
+	rest	2
+	note	ds4,2
+
+	note	ds4,2
+	note	ds4,2
+	rest	2
+	note	ds4,2
+	rest	2
+	note	ds4,2
+	rest	2
+	note	ds4,2
+
+	note	fs4,2
+	note	fs4,2
+	rest	2
+	note	fs4,2
+	rest	2
+	note	fs4,2
+	rest	2
+	note	fs4,2
+
+	note	fs4,2
+	note	fs4,2
+	rest	2
+	note	fs4,2
+	rest	2
+	note	fs4,2
+	rest	2
+	note	fs4,2
+
+	voice	CLARINET
+	volume	2
+
+	bsec	16
+		note	cs5,1
+		slur	as4,1
+	esec
+	slur	cs5,32
+
+	esec
+
+mrbx9
+	dvol	5
+
+	dvol	8
+		dbsec	4
+			dvol	-1
+			drums	SNDRM,2/3
+			dvol	3
+			drums	SNDRM,2/3
+			dvol	-1
+			drums	SNDRM,2/3
+			dvol	-2
+			drums	SNDRM,2/3
+			dvol	1
+			drums	SNDRM,2/3
+			dvol	-2
+			drums	SNDRM,2/3
+		desec
+
+	dbsec	3
+		drums	LTOM,2
+		drest	2
+		drums	LTOM,2
+		drest	2
+		drums	LTOM,2
+		drest	2
+		drums	LTOM,2
+		drest	2
+	desec	
+
+	dbsec	0
+
+	dbsec	2
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,1
+	drums	SNDRM,1
+	drums	LTOM,2
+		dvol	2
+		dbsec	2
+			dvol	-1
+			drums	SNDRM,1
+			dvol	3
+			drums	SNDRM,1
+			dvol	-1
+			drums	SNDRM,1
+			dvol	2
+			drums	SNDRM,1
+			dvol	-4
+		desec
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,1
+	drums	SNDRM,1
+	drums	LTOM,2
+		dvol	2
+		dbsec	2
+			dvol	-1
+			drums	SNDRM,2/3
+			dvol	3
+			drums	SNDRM,2/3
+			dvol	-1
+			drums	SNDRM,2/3
+			dvol	-1
+			drums	SNDRM,2/3
+			dvol	1
+			drums	SNDRM,2/3
+			dvol	-2
+			drums	SNDRM,2/3
+		desec
+
+	desec
+
+	dbsec	2
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	SNDRM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+
+	drums	LTOM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+	drums	LTOM,2
+	drums	LTOM,2
+	drums	SNDRM,2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,2
+
+	desec
+
+	desec
+
+
+
+**************************************************************************
+*                                                                        *
+* 	mr big to silence												  *
+*                                                                        *
+**************************************************************************
+
+
+mrbe1
+	voice	HEAVYS
+	volume	4
+	rest	8
+	mux	sting
+mrbe2
+	voice	TUBASS
+	volume	5
+	rest	8
+
+sting	note	ds1,2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	rest	2
+	note	ds1,2
+	bsec	0
+		rest	120
+	esec
+mrbe3
+	voice	NBASS
+	volume	3
+	bxset	12,0
+	rest	8
+	mux	sting
+mrbe4
+	voice	NASTGU
+	volume	2
+	rest	8
+	note	a3,2
+	note	a3,2
+	rest	2
+	note	a3,2
+	rest	2
+	note	a3,2
+	bsec	0
+		rest	120
+	esec
+
+mrbe5
+	voice	SAX
+	volume	2
+	rest	8
+	mux	sting
+mrbe6
+	voice	POWERB
+	rest	8
+	note	cs4,2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	rest	2
+	note	cs4,2
+	bsec	0
+		rest	120
+	esec
+
+mrbe7
+	voice	POWERB
+	rest	8
+	note	c4,2
+	note	c4,2
+	rest	2
+	note	c4,2
+	rest	2
+	note	c4,2
+	bsec	0
+		rest	120
+	esec
+
+mrbe8
+	voice	BLEAD
+	volume	1
+	bxpose	36,0
+	rest	8
+	mux	sting
+
+mrbe9
+	dvol	4
+		dbsec	2
+			dvol	-1
+			drums	SNDRM,2/3
+			dvol	3
+			drums	SNDRM,2/3
+			dvol	-1
+			drums	SNDRM,2/3
+			dvol	-2
+			drums	SNDRM,2/3
+			dvol	1
+			drums	SNDRM,2/3
+			dvol	-2
+			drums	SNDRM,2/3
+		desec
+
+	drums	SNDRM,1/4
+	drums	SNDRM,7/4
+	drest	2
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,1/4
+	drums	SNDRM,7/4
+	drums	LTOM,1
+	drums	LTOM,1
+	drums	SNDRM,1/4
+	drums	SNDRM,2
+
+	dbsec	0
+		drest	100
+	desec
+
+
+* 	include		rock.mel
+
+*   written 1/4 = 6, but timewarp by 3/5
+
+rok01
+	voice	TUBASS
+	volume	2
+groove	bsec	0
+
+	bsec	2
+
+		bsec	7
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+		esec		
+		note	d1,12/5
+		note	ds1,6/5
+
+		bsec	7
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+		esec		
+		note	d1,12/5
+		note	ds1,6/5
+
+		rest	72/5
+
+		rest	72/5
+
+		bxpose	2,0
+
+		bsec	2
+
+			note	d1,6/5
+			slur	e1,6/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	d1,6/5
+			slur	e1,6/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	g1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+
+			note	d1,6/5
+			slur	e1,6/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	b1,6/5
+			slur	a1,6/5
+			note	g1,6/5
+			note	a1,6/5
+			note	g1,6/5
+			note	fs1,6/5
+
+			note	d1,6/5
+			slur	e1,6/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	d1,6/5
+			slur	e1,6/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	g1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+
+			note	d1,6/5
+			slur	e1,6/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+			note	e1,12/5
+			volume	2
+			note	d1,6/5
+			volume	-2
+			note	e1,6/5
+			note	as1,6/5
+			note	e1,6/5
+			note	b1,6/5
+			note	e1,6/5
+			note	d2,6/5
+		esec
+		rest	72/5
+		rest	72/5
+		bxpose	-2,0
+	esec
+
+* chorus?
+
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+		
+	note	d1,12/5
+	volume	5
+	note	d1,6/5
+	volume	-5
+	note	d1,12/5
+	volume	5
+	note	d1,6/5
+	volume	-5
+	note	e1,12/5
+	volume	5
+	note	e1,6/5
+	volume	-5
+	note	e1,12/5
+	volume	5
+	note	e1,6/5
+	volume	-5
+
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+
+* chorus'
+
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+	note	g1,12/5
+	volume	5
+	note	g1,6/5
+	volume	-5
+
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+	note	fs1,12/5
+	volume	5
+	note	fs1,6/5
+	volume	-5
+		
+	note	d1,12/5
+	volume	5
+	note	d1,6/5
+	volume	-5
+	note	d1,12/5
+	volume	5
+	note	d1,6/5
+	volume	-5
+	note	e1,12/5
+	volume	5
+	note	e1,6/5
+	volume	-5
+	note	e1,12/5
+	volume	5
+	note	e1,6/5
+	volume	-5
+
+	note	cs1,18/5
+	note	cs1,18/5
+	note	cs1,18/5
+	note	cs1,18/5
+
+	note	cs1,18/5
+	note	cs1,18/5
+	note	cs1,18/5
+	note	cs1,18/5
+
+	note	d1,36/5
+	note	ds1,36/5
+
+	esec
+
+rok02
+	voice	FUZZGU
+	volume	5
+	bxpose	24,0
+	mux	groove
+rok07
+	bsec	0
+
+	bsec	2
+
+	bsec	4	
+		voice	HAT8B
+		volume	2
+	note	g3,6/5
+		volume	2
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		voice	HAT88
+	note	g3,18/5
+		voice	HAT8B
+		volume	2
+	note	g3,6/5
+		volume	2
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		voice	HAT88
+	note	g3,18/5
+		mark	2,0
+	esec
+
+	ring	18/5
+	note	g3,36/5
+	note	g3,36/5
+	note	g3,36/5
+	note	g3,18/5
+	mark	2,0
+
+	bsec	8
+		voice	HAT8B
+		volume	2
+	note	g3,6/5
+		volume	2
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		voice	HAT88
+	note	g3,6/5
+		voice	HAT8B
+		volume	4
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		volume	-4
+	note	g3,6/5
+		volume	2
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		voice	HAT88
+	note	g3,6/5
+		voice	HAT8B
+		volume	4
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		volume	-4
+		mark	2,0
+	esec
+
+	ring	18/5
+	voice	HAT88
+	note	g3,36/5
+	note	g3,36/5
+	note	g3,36/5
+	note	g3,18/5
+	mark	2,0
+
+	esec
+
+	bsec	8
+		voice	HAT8B
+		volume	2
+	note	g3,12/5
+		volume	2
+	note	c3,6/5
+		voice	HAT88
+	note	g3,12/5
+		voice	HAT8B
+		volume	4
+	note	as3,6/5
+		volume	-2
+	note	g3,6/5
+		volume	2
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		voice	HAT88
+	note	g3,12/5
+		voice	HAT8B
+		volume	4
+	note	as3,6/5
+		volume	-2
+		mark	2,0
+	esec
+
+	bsec	2
+		voice	HAT8B
+		volume	2
+	note	g3,6/5
+		volume	2
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		voice	HAT88
+	note	g3,12/5
+		volume	2
+	note	fs3,6/5
+		voice	HAT8B
+		volume	2
+	note	g3,6/5
+		volume	2
+	note	c3,6/5
+		volume	2
+	note	as3,6/5
+		voice	HAT88
+	note	g3,12/5
+		volume	2
+	note	f3,6/5
+		mark	2,0
+	esec
+
+	esec
+
+rok04
+	voice	MBLead1
+	volume	7
+*	volume	3
+tune	bsec	0
+*	volume	4
+		bsec	3
+	rest	18/5
+	note	e3,18/5
+	rest	18/5
+	note	e3,18/5
+		esec			
+	rest	18/5
+	note	e3,18/5
+	rest	18/5
+	note	d3,18/5
+
+		bsec	2
+	rest	72/5
+		esec
+
+	bsec	2
+		bsec	3
+	rest	18/5
+	note	fs3,18/5
+	rest	18/5
+	note	fs3,18/5
+		esec			
+	rest	18/5
+	note	fs3,18/5
+	rest	18/5
+	note	g3,18/5
+	esec
+
+		bsec	2
+	rest	72/5
+		esec
+
+	volume	-4
+
+	note	b3,54/5
+	note	d4,6/5
+	note	b3,6/5
+	note	d4,6/5
+
+	note	d4,3/5
+	slur	e4,15/5
+	ring	18/5
+	note	d4,18/5
+	note	b3,18/5
+
+	note	b3,3/5
+	slur	c3,15/5
+	ring	18/5
+	note	a3,36/5
+
+	note	e3,6/5
+	note	c3,6/5
+	note	b3,6/5
+	note	g3,6/5
+	note	a3,6/5
+	note	d4,6/5
+	ring	18/5
+	note	d4,6/5
+	slur	e4,6/5
+	note	a4,6/5
+
+* drum break
+
+		bsec	6
+	note	d5,3/5
+	gliss	d5,e5,3/5
+	ring	6/5
+		esec
+
+	note	d5,6/5
+	slur	e5,6/5
+	slur	d5,6/5
+	note	b4,6/5
+	note	c4,6/5
+	note	b4,6/5
+	note	g4,18/5
+	note	cs5,18/5
+
+	ring	54/5
+	slur	d5,18/5
+
+	note	cs5,3/5
+	slur	d5,3/5
+		bsec	11
+	slur	cs5,3/5
+	slur	d5,3/5
+		esec
+
+*  next section
+
+	note	b4,3/5
+	gliss	b4,cs5,3/5
+	ring	3/5
+	gliss	cs5,b4,3/5
+	ring	6/5
+	note	a4,18/5
+	note	fs4,6/5
+	slur	e4,6/5
+	note	cs4,6/5
+	note	a4,18/5
+
+	ring	72/5
+
+	note	c3,12/5
+	slur	cs4,6/5
+	note	e4,12/5
+	note	cs4,6/5
+	note	e4,12/5
+	note	e4,6/5
+	slur	fs4,6/5
+	slur	gs4,6/5
+	note	a4,6/5
+
+	ring	36/5
+	rest	9/5
+	note	e4,27/5
+
+	note	c3,6/5
+	slur	cs4,6/5
+	rest	6/5
+	note	c3,6/5
+	slur	cs4,6/5
+	rest	6/5
+	note	e4,12/5
+	note	cs4,6/5
+	ring	18/5
+
+	note	b4,6/5
+	slur	cs5,6/5
+	slur	b4,6/5
+	note	a4,54/5
+
+*  drum break #2
+
+	ring	72/5
+	ring	72/5
+		
+*  chorus
+
+	note	d5,72/5
+	note	cs5,72/5
+	note	a4,36/5
+	note	b4,36/5
+	note	cs5,36/5
+	note	fs4,6/5
+	note	b4,6/5
+	note	cs5,6/5
+	note	fs5,3/5
+	slur	g5,3/5
+	slur	fs5,3/5
+	slur	g5,3/5
+	slur	fs5,3/5
+	slur	g5,3/5
+	note	d5,72/5
+	note	cs5,72/5
+	note	a4,36/5
+	note	b4,36/5
+	note	gs4,6/5
+	slur	a4,6/5
+	bsec	11
+	slur	gs4,6/5
+	slur	a4,6/5
+	esec
+
+	volume	1
+	
+	note	a4,3/5
+	gliss	a4,d5,3/5
+	ring	6/5
+	note	b4,3/5
+	gliss	b4,d5,3/5
+	ring	6/5
+	note	c4,3/5
+	gliss	c4,d5,3/5
+	ring	6/5
+
+	note	as4,3/5
+	gliss	as4,ds5,3/5
+	ring	6/5
+	note	c4,3/5
+	gliss	c4,ds5,3/5
+	ring	6/5
+	note	cs5,3/5
+	gliss	cs5,ds5,3/5
+	ring	6/5
+
+	volume	3
+
+	esec	
+	    
+	
+rok05
+	voice	FUZZGU
+	volume	7
+	rest	3/20
+
+	bsec	0
+	bsec	2
+		bsec	3
+			rest	18/5
+			note	b3,18/5
+			rest	18/5
+			note	b3,18/5
+		esec			
+	rest	18/5
+	note	b3,18/5
+	rest	18/5
+	note	a3,18/5
+
+		bsec	2
+	rest	72/5
+		esec
+
+	bsec	2
+		bsec	3
+	rest	18/5
+	note	e4,18/5
+	rest	18/5
+	note	e4,18/5
+		esec			
+	rest	18/5
+	note	e4,18/5
+	rest	18/5
+	note	f4,18/5
+	esec
+
+		bsec	2
+	rest	72/5
+		esec
+	esec
+
+	note	d4,72/5
+	note	cs4,72/5
+	note	a3,36/5
+	note	b3,36/5
+	note	cs4,54/5
+	note	cs4,18/5
+	note	d4,72/5
+	note	cs4,72/5
+	note	a3,36/5
+	note	b3,36/5
+	note	gs3,144/5
+
+	rest	18/5
+	note	a3,18/5
+	rest	18/5
+	note	as3,18/5
+
+	esec
+
+rok06
+	voice	FUZZGU
+	volume	7
+	rest	3/10
+
+	bsec	0
+
+	bsec	2
+
+		bsec	3
+	rest	18/5
+	note	e4,18/5
+	rest	18/5
+	note	e4,18/5
+		esec			
+	rest	18/5
+	note	e4,18/5
+	rest	18/5
+	note	d4,18/5
+
+		bsec	2
+	rest	72/5
+		esec
+
+	bsec	2
+		bsec	3
+	rest	18/5
+	note	a4,18/5
+	rest	18/5
+	note	a4,18/5
+		esec			
+	rest	18/5
+	note	a4,18/5
+	rest	18/5
+	note	as4,18/5
+	esec
+
+		bsec	2
+	rest	72/5
+		esec
+	esec
+
+	note	g4,72/5
+	note	fs4,72/5
+	note	d4,36/5
+	note	e4,36/5
+	note	fs4,54/5
+	note	fs4,18/5
+	note	g4,72/5
+	note	fs4,72/5
+	note	d4,36/5
+	note	e4,36/5
+	note	cs4,144/5
+
+	rest	18/5
+	note	d4,18/5
+	rest	18/5
+	note	ds4,18/5
+
+	esec
+rok03
+	voice	BLEAD
+*	volume	2
+	volume	6
+	mux	tune
+rok08
+	bsec	0
+	rest	360/5
+	esec
+
+rok09
+	dvol	3
+	dbsec	0
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	3
+	drums	SNDRM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	-2
+
+	bsec	2
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	esec
+
+	drums	SNDRM,6/5
+		dvol	5
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	-3
+	drums	TMTM,6/5
+		dvol	4
+	drums	TMTM,6/5
+		dvol	-1
+	drums	TMTM,6/5
+		dvol	-3
+	drums	SNDRM,6/5
+		dvol	4
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	LTOM,6/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-2
+	drums	LTOM,6/5
+		dvol	-2
+	
+		dvol	-1
+
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	4
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-1
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-3
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	4
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-2
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-1
+
+
+	bsec	2
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	3
+	drums	SNDRM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	-2
+
+	bsec	2
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	esec
+	esec
+
+	dvol	12
+	dbsec	12
+	drums	SNDRM,3/5
+		dvol	5
+	drums	SNDRM,3/5
+		dvol	-6
+	desec
+
+		dvol	-1
+
+	drums	SNDRM,3/10
+	drums	SNDRM,33/10
+
+	drest	18/5
+
+		dvol	-2
+
+	drums	TMTM,6/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-2
+	drums	TMTM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	4
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	-1
+
+		dvol	2
+
+* to top
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	3
+	drums	SNDRM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	-2
+
+	bsec	2
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	esec
+
+	drums	SNDRM,6/5
+		dvol	5
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	-3
+	drums	TMTM,6/5
+		dvol	4
+	drums	TMTM,6/5
+		dvol	-1
+	drums	TMTM,6/5
+		dvol	-3
+	drums	SNDRM,6/5
+		dvol	5
+	drums	SNDRM,6/5
+		dvol	-3
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	LTOM,6/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-2
+	drums	LTOM,6/5
+		dvol	-2
+	
+		dvol	-1
+
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	4
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-1
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-3
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	4
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-2
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+		dvol	-1
+
+
+	bsec	2
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	3
+	drums	SNDRM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	-2
+
+	bsec	2
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	esec
+	esec
+
+	dvol	12
+	dbsec	12
+	drums	SNDRM,3/5
+		dvol	5
+	drums	SNDRM,3/5
+		dvol	-6
+	desec
+
+		dvol	-1
+
+	drums	SNDRM,3/10
+	drums	SNDRM,33/10
+
+	drest	18/5
+
+		dvol	-2
+
+	drums	TMTM,6/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-2
+	drums	TMTM,6/5
+		dvol	-2
+	drums	LTOM,12/5
+	drums	SNDRM,3/20
+	drums	SNDRM,21/20
+
+		dvol	3
+
+* chorus?
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	3
+	drums	SNDRM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	-2
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	SNDRM,6/5
+		dvol	3
+	drums	SNDRM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	TMTM,6/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-2
+	drums	TMTM,6/5
+		dvol	-2
+
+* chorus'
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	3
+	drums	SNDRM,6/5
+		dvol	-1
+	drums	SNDRM,6/5
+		dvol	-2
+
+	drums	LTOM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+	drums	SNDRM,12/5
+		dvol	5
+	drums	LTOM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	-1
+	drums	LTOM,6/5
+		dvol	-1
+	drums	SNDRM,12/5
+		dvol	4
+	drums	LTOM,6/5
+		dvol	-4
+
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	3
+	drums	TMTM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	3
+	drums	TMTM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	3
+	drums	TMTM,6/5
+		dvol	-5
+	drums	LTOM,6/5
+		dvol	2
+	drums	TMTM,6/5
+		dvol	3
+	drums	TMTM,6/5
+		dvol	-5
+
+	drums	SNDRM,6/5
+		dvol	5
+	drums	SNDRM,6/5
+		dvol	-3
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	5
+	drums	SNDRM,6/5
+		dvol	-3
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	5
+	drums	SNDRM,6/5
+		dvol	-3
+	drums	SNDRM,6/5
+		dvol	-2
+	drums	SNDRM,6/5
+		dvol	5
+	drums	SNDRM,6/5
+		dvol	-3
+	drums	SNDRM,6/5
+		dvol	-2
+
+	drums	LTOM,6/5
+		dvol	4
+	drums	TMTM,6/5
+		dvol	-2
+	drums	LTOM,6/5
+		dvol	-2
+	drums	SNDRM,3/5
+		dvol	8
+	drums	SNDRM,3/5
+		dvol	-4
+	drums	SNDRM,3/5
+		dvol	5
+	drums	SNDRM,3/5
+		dvol	-4
+	drums	SNDRM,3/5
+		dvol	6
+	drums	SNDRM,3/5
+		dvol	-11
+	drums	LTOM,6/5
+		dvol	4
+	drums	TMTM,6/5
+		dvol	-2
+	drums	LTOM,6/5
+		dvol	-2
+	drums	SNDRM,3/5
+		dvol	8
+	drums	SNDRM,3/5
+		dvol	-3
+	drums	SNDRM,3/5
+		dvol	-4
+	drums	SNDRM,9/10
+		dvol	3
+	drums	SNDRM,9/10
+		dvol	-4
+
+	desec
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	rok buy in music						 *
+*                                                                        *
+**************************************************************************
+*   written 1/4 = 6, but timewarp by 3/5
+
+rokbi1
+	voice	TUBASS
+	volume	2
+rokbi1n	
+	rest	144/5
+	bsec	0
+		bsec	7
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+		esec		
+		note	d1,12/5
+		note	ds1,6/5
+		mark	10,0
+		bxpose	2,0
+		bsec	7
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+		esec		
+		note	d1,12/5
+		note	ds1,6/5
+		mark	10,0
+		bxpose	1,0
+		bsec	7
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+		esec		
+		note	d1,12/5
+		note	ds1,6/5
+		mark	10,0
+
+		bxpose	2,0
+		bsec	7
+			note	e1,12/5
+			volume	5
+			note	e1,6/5
+			volume	-5
+		esec		
+		note	d1,12/5
+		note	ds1,6/5
+		mark	10,0
+		bxpose	-5,0
+
+	esec
+rokbi2
+	voice	FUZZGU
+	volume	5
+	bxpose	24,0
+	mux	rokbi1n
+rokbi3
+rokbi4
+	mux	rst0
+rokbi5
+	rest	144/5
+	bsec	0
+		mux	rokbi5riff
+		bxpose	2,0
+		mux	rokbi5riff
+		bxpose	1,0
+		mux	rokbi5riff
+		bxpose	2,0
+		mux	rokbi5riff
+		bxpose	-5,0
+	esec
+
+rokbi5riff
+	bsec	3
+		rest	18/5
+		note	b3,18/5
+	esec			
+	rest	18/5
+	note	a3,18/5
+	demux
+rokbi6
+	rest	144/5
+	bsec	0
+		mux	rokbi6riff
+		bxpose	2,0
+		mux	rokbi6riff
+		bxpose	1,0
+		mux	rokbi6riff
+		bxpose	2,0
+		mux	rokbi6riff
+		bxpose	-5,0
+	esec
+
+
+rokbi6riff
+	bsec	3
+		rest	18/5
+		note	e4,18/5
+	esec			
+	rest	18/5
+	note	d4,18/5
+	demux
+rokbi7
+rokbi8
+	bsec	0
+		rest	120
+	esec
+rokbi9
+	mux	rokdrmfill
+	dbsec	0
+		drums	LTOM,12/5
+		dvol	4
+		drums	LTOM,6/5
+		dvol	-4
+		drums	SNDRM,12/5
+		dvol	5
+		drums	LTOM,6/5
+		dvol	-5
+		drums	LTOM,6/5
+		dvol	2
+		drums	TMTM,6/5
+		dvol	-1
+		drums	LTOM,6/5
+		dvol	-1
+		drums	SNDRM,12/5
+		dvol	4
+		drums	LTOM,6/5
+		dvol	-4
+	desec
+
+
+**************************************************************************
+*                                                                        *
+* 	rok trans to silence						 *
+*                                                                        *
+**************************************************************************
+
+rokts1	mux	rokts2n
+rokts2
+	bxpose	24,0
+rokts2n
+	rest	144/5
+	
+	bsec	7
+		note	e1,12/5
+		volume	5
+		note	e1,6/5
+		volume	-5
+	esec		
+	note	d1,12/5
+	note	ds1,6/5
+	note	e1,10
+	cresc	0,50,10
+	ring	80
+	mux	rst0
+rokts3
+rokts4
+	mux	rst0
+rokts5
+	rest	144/5
+	bsec	3
+		rest	18/5
+		note	b3,18/5
+	esec			
+	rest	18/5
+	note	b3,18/5
+	note	b3,10
+	cresc	0,50,10
+	ring	80
+	mux	rst0
+		
+rokts6
+	rest	144/5
+	bsec	3
+		rest	18/5
+		note	e4,18/5
+	esec			
+	rest	18/5
+	note	d4,18/5
+	note	e4,10
+	cresc	0,50,10
+	ring	80
+	mux	rst0
+
+rokts7
+rokts8
+
+	mux	rst0
+rokts9
+	mux	rokdrmfill
+	drums	LTOM,12/5
+	drums	LTOM,6/5
+	drums	SNDRM,12/5
+	drums	LTOM,6/5
+	drums	LTOM,6/5
+	drums	TMTM,6/5
+	drums	LTOM,6/5
+	drums	SNDRM,12/5
+	drums	LTOM,6/5
+
+	drums	LTOM,12/5
+	drums	LTOM,6/5
+	drums	SNDRM,12/5
+	drums	kick,6/5
+	dvol	12
+	bsec	6
+		dvol	-2
+		drums	SNDRM,6/5
+	esec
+	drums	snare,18/5
+	mux	rst8
+
+
+
+
+rokdrmfill
+
+	drums	SNDRM,6/5
+	drums	SNDRM,6/5
+	drums	SNDRM,6/5
+	drums	TMTM,6/5
+	drums	TMTM,6/5
+	drums	TMTM,6/5
+	drums	SNDRM,6/5
+	drums	SNDRM,6/5
+	drums	SNDRM,6/5
+	drums	LTOM,6/5
+	drums	LTOM,6/5
+	drums	LTOM,6/5
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+	drums	SNDRM,3/10
+	drums	SNDRM,21/10
+	demux
+* 	include		rap.mel
+rap01
+	voice	GCAN
+	volume	0
+
+	bsec	4
+		dig	$2e
+		rest	1
+		dig	$2e
+		rest	1
+	esec
+	rest	6
+	dig	$20
+	rest	2
+	dig	$20
+	rest	12
+	dig	$3a
+	rest	4
+	bsec	8
+		dig	$49
+		rest	1
+	esec
+	dig	$49
+	rest	8
+
+	bsec	4
+		dig	$2e
+		rest	1
+		dig	$2e
+		rest	1
+	esec
+	rest	6
+	dig	$20
+	rest	2
+	dig	$20
+	rest	16
+	bsec	8
+		dig	$49
+		rest	1
+	esec
+	dig	$49
+	rest	8
+	
+	dig	$29
+	rest	1
+	dig	$29
+	rest	1
+	dig	$29
+	rest	6
+	dig	$24
+	rest	1
+	dig	$24
+	rest	1
+	dig	$24
+	rest	1
+	dig	$24
+	rest	1
+	dig	$24
+	rest	4
+
+	dig	$4
+	rest	1/2
+	dig	$5
+	rest	1/2
+	dig	$4
+	rest	1/2
+	dig	$5
+	rest	1/2
+	dig	$4
+	rest	1/2
+	dig	$5
+	rest	1/2
+	dig	$4
+	rest	1/2
+	dig	$5
+	rest	1/2
+
+	dig	$15
+	rest	6
+	dig	$15
+	rest	6
+
+	dig	$4c
+	rest	16
+
+	bsec	4
+		dig	$2e
+		rest	1
+		dig	$2e
+		rest	1
+	esec
+	rest	6
+	dig	$20
+	rest	2
+	dig	$20
+	rest	16
+	bsec	8
+		dig	$49
+		rest	1
+	esec
+	dig	$49
+	rest	8
+
+	bsec	4
+		dig	$2e
+		rest	1
+		dig	$2e
+		rest	1
+	esec
+	rest	6
+	dig	$20
+	rest	2
+	dig	$20
+	rest	12
+	dig	$3a
+	rest	4
+	bsec	8
+		dig	$49
+		rest	1
+	esec
+	dig	$49
+	rest	8
+
+	dig	$1e
+	rest	16
+
+	dig	$45
+	rest	4
+	dig	$45
+	rest	4
+	dig	$45
+	rest	4
+	dig	$1e
+	rest	4
+
+	rest	16
+
+	bsec	4
+		dig	$2e
+		rest	1
+		dig	$2e
+		rest	1
+	esec
+	rest	8
+
+	dig	$20
+	rest	4
+	bsec	6
+		dig	$35
+		rest	4/3
+	esec
+	dig	$35
+	rest	4
+
+	dig	$4f
+	rest	16
+
+	bsec	0
+		rest	120
+	esec
+rap02		   
+chord	voice	POWERB
+	rest	28
+	note	e1,1
+	gliss	e1,e2,1
+	ring	2
+	bsec	10
+		rest	16	
+	esec
+	rest	28
+	note	e1,1
+	gliss	e1,e2,1
+	ring	2
+	bsec	0
+		rest	100
+	esec
+rap03
+	bxset	12,0
+	mux	chord
+rap04
+	bxset	16,0
+	rest	1/12
+	mux	chord
+rap05
+	bxset	22,0
+	rest	1/6
+	mux	chord
+rap06
+	bxset	26,0
+	rest	1/4
+	mux	chord
+rap07
+chord2	voice	BUZZGU
+	rest	28
+	note	e3,2
+	rest	2
+	bsec	10
+		rest	16	
+	esec
+	rest	28
+	note	e3,2
+	rest	2
+	bsec	0
+		rest	100
+	esec
+rap08
+	bxset	14,0
+	mux	chord2
+rap09
+	dvol	0
+	dbsec	7
+		drest	4
+		sig
+	desec
+	drums	SNDRM,4
+	sig
+	drest	4
+	sig
+	drest	4
+	sig
+	dvol	8
+	dbsec	4
+		drums	SNDRM,1
+		dvol	-1
+	desec
+	sig
+	dbsec	4
+		drums	SNDRM,1
+		dvol	-1
+	desec
+	sig
+	dbsec	5
+		drums	LTOM,4
+		sig
+		drums	SNDRM,4
+		sig
+		drums	LTOM,1
+		drums	LTOM,2
+		drums	LTOM,1
+		sig
+		drums	SNDRM,2
+		dvol	2
+		drums	TMTM,1
+		dvol	2
+		drums	TMTM,1
+		dvol	-4
+		sig
+
+		drums	LTOM,4
+		sig
+		drums	SNDRM,2
+		drums	LTOM,2
+		sig
+		drums	LTOM,1
+		drums	LTOM,2
+		drums	LTOM,1
+		sig
+		drums	SNDRM,2
+		dvol	4
+		drums	SNDRM,1
+		drums	SNDRM,1
+		dvol	-4
+		sig
+
+		drums	LTOM,4
+		sig
+		drums	SNDRM,2
+		dvol	2
+		drums	TMTM,1
+		dvol	2
+		drums	TMTM,1
+		sig
+		dvol	-4
+		drums	LTOM,1
+		drums	LTOM,2
+		drums	LTOM,1
+		sig
+		drums	SNDRM,1
+		dvol	4
+		drums	SNDRM,1
+		dvol	-2
+		drums	SNDRM,1
+		dvol	3
+		drums	SNDRM,1
+		dvol	-5
+		sig
+
+	desec
+
+	drums	LTOM,4
+	sig
+	drums	SNDRM,4
+	sig
+	drums	LTOM,1
+	drums	LTOM,2
+	drums	LTOM,1
+	sig
+	drums	SNDRM,2
+	dvol	2
+	drums	TMTM,1
+	dvol	2
+	drums	TMTM,1
+	dvol	-4
+	sig
+
+	drums	LTOM,4
+	sig
+	dvol	8
+	dbsec	4
+		drums	SNDRM,1
+		dvol	-1
+	desec
+	sig
+	dbsec	4
+		drums	SNDRM,1
+		dvol	-1
+	desec
+	sig
+	drums	SNDRM,4
+	sig
+
+	dbsec	0
+		drest	120
+	desec
+
+* 	include		bonus.mel
+*** bonus countdown (now in background)
+
+bon01	VOICE	BDRUM
+	NOTE	E2,53/60
+	PMSEG	TLC1,$34,105/2,15
+	GLISS	E2,E1,63
+	PMSEG	TLC1,15,105/2,$34
+	GLISS	E1,E2,119/2
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+bon11	VOICE	BDRUM
+	NOTE	E2,53/60
+	PMSEG	TLC1,$34,105/2,15
+	GLISS	E2,E1,63
+	PMSEG	TLC1,15,105/2,$34
+	GLISS	E1,E2,519/2
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+
+bon02	VOICE	WINDBE
+	NOTE	E1,53/60
+	GLISS	E1,E4,245/2
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+bon12	VOICE	WINDBE
+	NOTE	E1,53/60
+	GLISS	E1,E4,645/2
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+
+bon03	VOICE	BUZZ__
+	NOTE	E1,53/60
+	PMSEG	TLC1,$34,105/2,15
+	GLISS	E1,E6,245/2
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+bon13	VOICE	BUZZ__
+	NOTE	E1,53/60
+	PMSEG	TLC1,$34,105/2,15
+	GLISS	E1,E6,645/2
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+
+bon04	VOICE	SYNPIP
+	PMSEG	TLM1,18,63,7
+	PMSEG	TLM2,14,63,27
+	BSEC	105
+		NOTE	E1,7/6
+	ESEC
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+bon14	VOICE	SYNPIP
+	PMSEG	TLM1,18,63,7
+	PMSEG	TLM2,14,63,27
+	BSEC	138
+		NOTE	E1,7/6
+		NOTE	E1,7/6
+	ESEC
+	pmload	RLOUT,0
+	bsec	0
+		rest	120
+	esec
+
+bon09
+	dbsec	0
+		drest	120
+	desec
+
+
+
+* 	include		dying.wrp
+*  tune for immenent (sp?) death, 1/4 = 4, warp by 4/5?
+
+die01
+	voice	HAT8B
+	bsec	0
+	note	d4,4/5
+	note	g3,4/5
+	note	a3,4/5
+	note	g3,4/5
+	esec	
+die02
+	voice	TUBASS
+	volume	1
+	bsec	0
+	note	e1,16/5
+		volume	2
+	note	e1,16/5
+	note	e1,16/5
+	note	e1,16/5
+		volume	-2
+	esec
+die03
+	voice	BUZZGU
+	volume	6
+*	rest	64
+	rest	128/5
+
+	bsec	0
+	note	e2,12/5
+	rest	4/5
+	note	e2,12/5
+	rest	4/5
+	note	e2,12/5
+	rest	4/5
+	note	e2,12/5
+	rest	4/5
+
+	note	e2,12/10
+	rest	4/10
+		volume	3
+	note	e2,12/10
+	rest	4/10
+		volume	-3
+	note	e2,12/5
+	rest	4/5
+	note	e2,12/5
+	rest	4/5
+	note	e2,12/5
+	rest	4/5
+	esec
+die04
+	voice	BUZZGU
+	volume	6
+	rest	4/20
+*	rest	64
+	rest	128/5
+
+	bsec	0
+	note	b2,12/5
+	rest	4/5
+	note	b2,12/5
+	rest	4/5
+	note	b2,12/5
+	rest	4/5
+	note	b2,12/5
+	rest	4/5
+
+	note	b2,12/10
+	rest	4/10
+		volume	3
+	note	b2,12/10
+	rest	4/10
+		volume	-3
+	note	b2,12/5
+	rest	4/5
+	note	b2,12/5
+	rest	4/5
+	note	b2,12/5
+	rest	4/5
+	esec
+die05
+	voice	BORG
+	volume	5
+*	rest	128
+	rest	256/5
+
+dosti	bsec	0
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,4/5
+	rest	4/15
+		volume	2
+	note	g4,4/5
+	rest	4/15
+		volume	-2
+	note	g4,4/5
+	rest	4/15
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	note	g4,12/10
+	rest	4/10
+	esec
+die06
+	voice	TUBASS
+	volume	24
+	bxset	11,0
+	rest	384/5
+
+	cresc	24,8,128/5
+	mux	dosti
+die07
+	voice	SAX
+	volume	24
+	bxset	24,0
+	rest	512/5
+
+	cresc	24,4,128/5
+	mux	dosti
+die08
+	voice	SAX
+	bsec	0
+	rest	480/5
+	esec
+die09
+	dvol	3
+
+	dbsec	0
+
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,16/5
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,8/5
+		dvol	2
+	drums	TMTM,8/5
+		dvol	-2
+
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,16/5
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,8/5
+		dvol	3
+	drums	SNDRM,8/5
+		dvol	-3
+
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,16/5
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,8/5
+		dvol	2
+	drums	TMTM,8/5
+		dvol	-2
+
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,16/5
+	drums	LTOM,8/5
+		dvol	2
+	drums	LTOM,8/5
+		dvol	-2
+	drums	SNDRM,4/5
+		dvol	3
+	drums	SNDRM,4/5
+		dvol	-1
+	drums	SNDRM,4/5
+		dvol	3
+	drums	SNDRM,4/5
+		dvol	-5
+
+	desec
+	
+* 	include		spys.mel
+
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	spy type music for narc						 *
+*	quarter note = 4 ticks
+*	this is tune # 4 for marks sake
+*                                                                        *
+**************************************************************************
+
+**************************************************************************
+*                                                                        *
+* 	track 0 hihat							 *
+*  	track 1	marimba
+*	track 2
+*		  3	 chords					 *
+*            4        
+*	track 5,6 lead
+*	track 7 bass                                                       *
+**************************************************************************
+
+
+
+spys0	voice	hat8d
+	volume	8
+	bsec	0
+	  mark	4,0
+	  bsec	7
+		note	a2,3/2
+	  esec
+	  pmload	D2RC2,9
+	  note	a2,3/2
+	  pmload	D2RC2,$d
+	esec
+**********************************************	    
+spys1	voice	marimb
+	volume	0
+	bsec	0
+		mux	sp1intro
+		mux	sp1intro
+	  	bsec	2
+			bsec	5
+				mux	sp14bar
+			esec
+			mux	sp14barwfill
+	  	esec
+		bsec	2
+			mux	sp1bridge
+	 	esec
+	esec
+
+
+sp1intro
+	rest	24
+	demux
+
+
+sp1bridge
+	rest	48
+	demux
+
+sp14barwfill
+sp14bar
+	bsec	4
+		note 	e3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	fs3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	g3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	a3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	b3,3/4
+		note	e3,3/4
+		note	d4,3/4
+		note	e3,3/4
+	esec
+	demux
+***********************************************										   
+
+spys2	voice	multimoog2
+	pmload	PMS,0
+	volume	5
+	bsec	0
+		mux	sp2intro
+		mux	sp2intro
+	  	bsec	2
+			rest	48
+			bsec	2
+				mux	sp24bar
+			esec
+			volume	5
+			bsec	2
+				mux	sp24bar
+			esec
+			volume	-5
+			volume	-2
+			mux	sp24barwfill
+			volume	2
+	  	esec
+		bsec	2
+			mux	sp2bridge
+	 	esec
+	esec
+
+sp2intro
+	bsec	2
+		note	d4,3/2
+		rest	3
+		note	d4,3/2
+		rest	3
+		note	d4,3/2
+		rest	3/2
+	esec
+	demux
+
+
+sp24bar
+	bsec 	2
+		note	d4,3/2
+		note	d4,3/2
+		bsec	5
+			rest	3/2
+			note	d4,3/2
+		esec
+		rest	3/2
+		note	cs4,9/2
+	esec
+	demux
+
+sp24barwfill
+	note	e4,12
+	note	d4,6
+	note	d4,6
+	note	d4,3/2
+	note	d4,3/2
+	rest	3/2
+	note	d4,6
+	ring	3/2
+
+*	bxpose	12,0
+	rest	3/2
+	note	d5,3/2
+	note	d5,3/2
+	rest	3/2
+	note	d5,3/2
+	rest	3/2
+	note	d5,3/2
+	note	d5,3/2
+*	bxpose	-12,0
+	demux
+
+
+sp2bridge
+	note	d4,9
+	ring	3/2
+	note	d4,3/2
+	ring	12
+	bsec	2
+		note	d4,3/2
+		note	d4,3/2
+		rest	3/2
+		note	d4,3/2
+		ring	6
+	esec
+	demux
+
+
+
+
+*****************************************											
+
+spys3	voice	multimoog2
+	pmload	PMS,0
+	volume	4
+	bsec	0
+		mux	sp3intro
+		mux	sp3intro
+	  	bsec	2
+			rest	48
+			bsec	2
+				mux	sp34bar
+			esec
+			volume	5
+			bsec	2
+				mux	sp34bar
+			esec
+			volume	-5
+			volume	-2
+			mux	sp34barwfill
+			volume	2
+	  	esec
+		bsec	2
+			mux	sp3bridge
+	 	esec
+	esec
+
+sp3intro
+	bsec	2
+		note	b3,3/2
+		rest	3
+		note	b3,3/2
+		rest	3
+		note	b3,3/2
+		rest	3/2
+	esec
+	demux
+sp34bar
+	bsec 	2
+		note	b3,3/2
+		note	b3,3/2
+		bsec	5
+			rest	3/2
+			note	b3,3/2
+		esec
+		rest	3/2
+		note	b3,9/2
+	esec
+	demux
+
+
+
+sp34barwfill
+	note	cs4,12
+	note	b3,6
+	note	b3,6
+	note	b3,3/2
+	note	b3,3/2
+	rest	3/2
+	note	b3,6
+	ring	3/2
+
+*	bxpose	12,0
+	rest	3/2
+	note	a4,3/2
+	note	a4,3/2
+	rest	3/2
+	note	a4,3/2
+	rest	3/2
+	note	a4,3/2
+	note	a4,3/2
+*	bxpose	-12,0
+	demux
+
+
+
+sp3bridge
+	note	b3,9
+	ring	3/2
+	note	a3,3/2
+	ring	12
+	bsec	2
+		note	as3,3/2
+		note	as3,3/2
+		rest	3/2
+		note	as3,3/2
+		ring	6
+	esec
+	demux
+
+*****************************************************
+
+spys4	voice	multimoog2
+	pmload	PMS,0
+	volume	4
+	bsec	0
+		mux	sp4intro
+		mux	sp4intro
+	  	bsec	2
+			rest	48
+			bsec	2
+				mux	sp44bar
+			esec
+			volume	4
+			bsec	2
+				mux	sp44bar
+			esec
+			volume	-4
+			volume	-3
+			mux	sp44barwfill
+			volume	3
+	  	esec
+		bsec	2
+			mux	sp4bridge
+	 	esec
+	esec
+
+
+
+sp4intro
+	bsec	2
+		note	a3,3/2
+		rest	3
+		note	a3,3/2
+		rest	3
+		note	a3,3/2
+		rest	3/2
+	esec
+	demux
+
+sp44bar
+	bsec 	2
+		note	a3,3/2
+		note	a3,3/2
+		bsec	5
+			rest	3/2
+			note	a3,3/2
+		esec
+		rest	3/2
+		note	g3,9/2
+	esec
+	demux
+
+
+
+sp44barwfill
+	note	a3,12
+	note	g3,6
+	note	fs3,6
+	note	a3,3/2
+	note	a3,3/2
+	rest	3/2
+	note	a3,6
+	ring	3/2
+
+*	bxpose	12,0
+	rest	3/2
+	note	ds4,3/2
+	note	ds4,3/2
+	rest	3/2
+	note	ds4,3/2
+	rest	3/2
+	note	ds4,3/2
+	note	ds4,3/2
+*	bxpose	-12,0
+	demux
+
+
+
+
+
+sp4bridge
+	note	g3,9
+	ring	3/2
+	note	fs3,3/2
+	ring	12
+	bsec	2
+		note	e3,3/2
+		note	e3,3/2
+		rest	3/2
+		note	e3,3/2
+		ring	6
+	esec
+	demux
+***************************************************
+
+
+
+spys5
+	voice	powerb
+	volume	0
+	pmload	PMS,0
+	bxpose	-12,0
+	pmload	lfow,0
+	pmload	lfrq,210
+	pmload	PAMD,0
+	pmload	PAMD,$88
+spys5n	bsec	0
+		mux	sp5intro
+		mux	sp5intro
+		volume	0
+		rest	48
+		rest	48
+		rest	48
+		mux	sp5mel1
+		mux	sp54barwfill
+		rest	48
+		rest	48
+		rest	48
+		mux	sp5mel2
+		mux	sp54barwfill
+		bsec	2
+			mux	sp5bridge
+	 	esec
+	esec
+
+
+sp5intro	
+	rest	24
+	demux
+
+
+
+sp5mel1
+	note	e4,1/2
+	volume	15
+	cresc	15,0,15
+	ring	19
+	slur	b3,3/2
+	slur	b4,3/2
+	note	as4,3/2
+	pmseg	PAMD,$88,15,$a8
+	ring	21
+	rest	3
+	pmload	PAMD,$88
+
+	volume	15
+	note	e4,1/2
+	cresc	15,0,15
+	ring	19
+	slur	b3,3/2
+	slur	b4,3/2
+	note	d5,3/2
+	pmseg	PAMD,$88,15,$a8
+	ring	21
+	pmload	PAMD,$88
+	rest	3
+	demux
+	
+
+sp5mel2
+	note	e4,1
+	volume	12
+	cresc	12,0,14
+	ring	14
+	slur	d4,3/2
+	slur	b3,3/2
+	slur	d4,3/2
+	slur	b3,3/2
+	gliss	b3,b4,2/2
+	ring	1/2
+	gliss	b4,as4,1
+	ring	1/2
+	volume	12
+	cresc	12,0,20
+	ring	24
+
+	note	e4,3/2
+	slur	fs4,3/2
+	note	b3,3/2
+	note	d4,3/2
+	ring	6
+	ring	3/2
+	note	e4,3/2
+	note	fs4,3/2
+	note	b3,3/2
+	note	d4,3/2
+	note	b3,3/2
+	gliss	b3,b4,1
+	ring	1/2
+	gliss	b4,as4,1
+	ring	5
+	gliss	as4,d5,1
+	ring	1/2
+	ring	10
+	cresc	0,20,8
+	gliss	d5,d3,8
+	volume	-20
+	demux
+
+sp54barwfill
+	note	e5,3/2
+	slur	d5,3/2
+	note	b4,3/2
+	note	e5,6
+	note	fs5,6
+	note	g5,3
+	note	fs5,3/2
+	note	b4,3/2
+	slur	d5,3/2
+	ring	12
+	rest	12
+	demux
+
+sp5bridge
+	note	b4,1/2
+	gliss	b4,d5,1/2
+	ring	8
+	note	e5,3/2
+	note	b4,3/2
+	ring	12
+	note	a4,1/2
+	gliss	a4,as4,1/2
+	ring	1/2
+	slur	a4,3/2
+	note	g4,3/2
+	note	e4,3/2
+	ring	3
+	note	a4,1/2
+	gliss	a4,as4,1/2
+	ring	1/2
+	slur	a4,3/2
+	note	g4,3/2
+	note	e4,3/2
+	ring	9
+	demux
+
+spys6 	voice	powerb
+	pmload	PMS,0
+	volume	0
+	mux	spys5n
+
+spys7	voice	tubass
+	bxpose	-12,0
+	volume	3
+	pmload	PMS,0
+spys7n	bsec	0
+		mux	sp7intro
+		mux	sp7intro
+	  	bsec	2
+			bsec	5
+				mux	sp74bar
+			esec
+			mux	sp74barwfill
+	  	esec
+		bsec	2
+			mux	sp7bridge
+	 	esec
+	esec
+
+sp7intro
+	bsec	2
+		rest	3/2
+		note	e2,3/2
+		note	e2,3/2
+		rest	3/2
+		note	e2,3/2
+		note	e2,3/2
+		rest	3
+	esec
+	demux
+
+
+sp74bar
+	note	e2,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	a2,3/2
+	note	g2,3/2
+	note	d2,3/2
+	note	e2,3/2
+	ring	3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	a2,3/2
+	note	g2,3/2
+	note	d2,3
+	
+	note	e2,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	a2,3/2
+	note	g2,3/2
+	note	d2,3/2
+	note	e2,3
+	note	e2,3/2
+	note	g2,3/2
+	note	a2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	d2,3/2
+	note	b1,3/2
+	demux
+
+sp74barwfill
+	note	a2,3/2
+	note	a2,3/2
+	note	a3,3/2
+	note	a2,3/2
+	note	g3,3/2
+	note	a2,3/2
+	note	g3,3/2
+	note	a3,3/2
+	note	g2,3/2
+	note	g2,3/2
+	note	g3,3/2
+	note	g2,3/2
+	note	d2,3/2
+	note	d3,3/2
+	note	ds2,3/2
+	note	ds3,3/2
+	
+	note	e2,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	a2,3/2
+	note	b2,3/2
+	note	d3,3/2
+	note	a2,3/2
+	note	b2,3/2
+	rest	3
+	note	b2,3/2
+	rest	3/2
+	note	b2,3/2
+	note	b2,3/2
+	note	b2,3/2
+	demux
+
+sp7bridge
+	note	g2,3/2
+	note	g2,3/2
+	note	a2,3/2
+	note	g2,3/2
+	note	b2,3/2
+	note	a2,3/2
+	note	g2,3/2
+	note	fs2,3
+	note	fs2,3/2
+	note	a2,3/2
+	note	fs2,3/2
+	note	b2,3/2
+	note	a2,3/2
+	note	g2,3/2
+	note	fs2,3/2
+
+	bsec	2
+		note	c1,3/2
+		note	c1,3/2
+		note	c2,3/2
+		note	c1,3/2
+		note	as2,3/2
+		note	c1,3/2
+		note	as2,3/2
+		note	c2,3/2
+	esec
+	demux
+		
+
+
+
+
+spys8
+	dvol	0
+	bsec	0
+		mux	sp8intro
+		mux	sp8intro
+	  	bsec	2
+			bsec	2
+				mux	sp84bar
+			esec
+			mux	sp84barwfill1
+			mux	sp84bar
+			mux	sp84barwfill1
+			mux	sp84barwfill
+	  	esec
+
+		mux	sp8bridge
+		mux	sp84barwfill1
+	esec
+
+
+**************************************************************************
+*                                                                        *
+* 	intro is 2 bars long											  *
+*                                                                        *
+**************************************************************************
+
+sp8intro
+	drums	SNDRM,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	SNDRM,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	SNDRM,3/2
+	drums	SNDRM,3/2
+	drums	SNDRM,3/2
+
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	SNDRM,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	SNDRM,3/4
+	drums	SNDRM,3/4
+	drums	SNDRM,3/2
+	demux
+
+
+**************************************************************************
+*                                                                        *
+* 	4 bar drum pattern												  *
+*                                                                        *
+**************************************************************************
+
+
+sp8bridge
+sp84bar
+	bsec	2
+		drums	kick,3
+		drums	SNDRM,3
+		drums	kick,3/2
+		drums	kick,3/2
+		drums	SNDRM,3/2
+		drums	kick,3
+		drums	kick,3/2
+		drums	SNDRM,3
+		drums	kick,3/2
+		drums	kick,3/2
+		drums	SNDRM,3/2
+		drums	SNDRM,3/2
+	esec
+	demux
+
+
+**************************************************************************
+*                                                                        *
+* 	3 bars of beat w 1 bar of fill									  *
+*                                                                        *
+**************************************************************************
+
+		
+sp84barwfill
+	bsec	3
+	  bsec	2
+		drums	kick,3
+		drums	SNDRM,3	
+	  esec
+	esec
+	drums	kick,3/2
+	drums	SNDRM,3/2
+	drums	SNDRM,3/2
+	drums	kick,3/2
+	drums	SNDRM,3/2
+	drums	kick,3/2
+	drums	SNDRM,3/2
+	drums	SNDRM,3/2
+	demux
+
+
+
+sp84barwfill1
+		drums	kick,3
+		drums	SNDRM,3
+		drums	kick,3/2
+		drums	kick,3/2
+		drums	SNDRM,3/2
+		drums	kick,3
+		drums	kick,3/2
+		drums	SNDRM,3
+		drums	kick,3/2
+		drums	kick,3/2
+		drums	SNDRM,3/2
+		drums	SNDRM,3/2
+		drums	kick,3
+		drums	SNDRM,3
+		drums	kick,3/2
+		drums	kick,3/2
+		drums	SNDRM,3/2
+		drums	kick,3
+		drums	kick,3/2
+
+		drums	SNDRM,3
+
+*		dvol	-5
+		dvol	16
+		bsec	8
+			drums	SNDRM,3/4
+			dvol	-2
+		esec
+*		dvol	5
+	demux
+					  
+
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	buy-in music for spy theme										  *
+*                                                                        *
+**************************************************************************
+
+
+spybi0
+	voice	hat8d
+	volume	8
+	bsec	0
+	  mark	12,0
+	  bsec	7
+		note	a2,3/2
+	  esec
+	  pmload	D2RC2,9
+	  note	a2,3/2
+	  pmload	D2RC2,$d
+	esec
+
+spybi1
+	bsec	0
+		mux	sp14bar
+	esec
+spybi2
+	bsec	0
+		mux	sp24bar
+	esec
+spybi3
+	bsec	0
+		mux	sp34bar
+	esec
+spybi4
+	bsec	0
+		mux	sp34bar
+	esec
+spybi5
+spybi6
+	bsec	0
+		bsec	3
+			note	e2,9/2
+			note	fs2,15/2
+			note	g2,9/2
+			note	a2,15/2
+			note	b2,9/2
+			note	cs3,15/2
+			note	d3,9/2
+			note	fs3,15/2
+			bxpose	12,0
+		esec
+		note	e3,48
+		bxpose	-36,0
+	esec
+spybi7
+	bxpose	-12,0
+	bsec	0
+		mux	sp74bar
+	esec
+spybi8
+	bsec	0
+		mux	sp84bar
+	esec
+* 	include		narc1.mel
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	narc tune														  *
+*                                                                        *
+**************************************************************************
+
+**************************************************************************
+*                                                                        *
+* 	track 0 hihat	
+*  	track 1	dup of mel
+*	track 2	chords
+*		  3	 chords	
+*            4  chords      
+*	track 5	melody
+*	track 6 bass
+*	track 7 bass   
+*	track 8 drums	                                                  *
+**************************************************************************
+
+
+
+n10	voice	hihatc
+	volume	6
+	bsec	0
+		mark	5,0
+		mux	n10n
+	esec
+
+n10n
+	bsec	7
+		note	a2,3/2
+		volume	3
+		note	a2,3/2
+		volume	-3
+	esec
+	note	a2,3/2
+	voice	hihato
+	volume	5
+	note	a2,3/2
+	voice	hihatc
+	volume	6
+    	demux
+
+n11 	voice	slead6
+	bxpose	-12,0
+	volume	5
+n11n	rest	48
+	bsec	0
+		rest	288
+		voice	orches
+		volume	8
+		mux		stra1
+		mux		stra1
+		mux		strc1
+		mux		stra1
+		mux		strf1
+		voice	slead6
+		volume	7
+		mux 	melodya
+		mux		melodyc
+		mux		melodya2
+		mux		melodyf
+	esec
+	
+stra1
+	note	e4,48
+	demux
+strc1
+	note	g4,96
+	demux
+strf1
+	note	ds4,12
+	note	d4,12
+	note	e4,12
+	note	d4,12
+	demux
+
+
+
+n12	
+	voice	Rhodes...2
+	volume	8
+	rest	48
+	bsec	0
+		bsec	4
+			mux	ch2ariff
+		esec
+		bsec	4
+			mux	ch2criff
+		esec
+		bsec	2
+			mux	ch2ariff
+		esec
+		mux	ch2friff
+	esec
+
+ch2ariff
+	note	a3,9/2
+	note	a3,3/2
+	rest	6
+	note	a3,9/2
+	note	a3,3/2
+	rest	3/2
+	note	g3,9/2
+	demux	
+
+ch2criff
+	note	c3,9/2
+	note	c3,3/2
+	rest	6
+	note	c3,9/2
+	note	c3,3/2
+	rest	3/2
+	note	as3,9/2
+	demux
+
+ch2friff
+	note	c3,9/2
+	note	c3,9/2
+	rest	3
+	note	d4,9/2
+	note	d4,9/2
+	rest	3
+	note	a3,9/2
+	note	a3,9/2
+	rest	3
+	note	d4,9/2
+	note	d4,9/2
+	rest	3
+	demux
+
+
+n13
+	voice	Rhodes...2
+	volume	8
+	rest	48
+	bsec	0
+		bsec	4
+			mux	ch3ariff
+		esec
+		bsec	4
+			mux	ch3criff
+		esec
+		bsec	2
+			mux	ch3ariff
+		esec
+		mux	ch3friff
+	esec
+
+ch3ariff
+	note	d4,9/2
+	note	d4,3/2
+	rest	6
+	note	d4,9/2
+	note	d4,3/2
+	rest	3/2
+	note	c3,9/2
+	demux	
+ch3criff
+	note	f4,9/2
+	note	f4,3/2
+	rest	6
+	note	f4,9/2
+	note	f4,3/2
+	rest	3/2
+	note	ds4,9/2
+	demux
+ch3friff
+	note	ds4,9/2
+	note	ds4,9/2
+	rest	3
+	note	f4,9/2
+	note	f4,9/2
+	rest	3
+	note	d4,9/2
+	note	d4,9/2
+	rest	3
+	note	e4,9/2
+	note	e4,9/2
+	rest	3
+	demux
+
+
+n14
+	voice	Rhodes...2
+	volume	8	
+	rest	48
+	bsec	0
+		bsec	4
+			mux	ch4ariff
+		esec
+		bsec	4
+			mux	ch4criff
+		esec
+		bsec	2
+			mux	ch4ariff
+		esec
+		mux	ch4friff
+	esec
+
+ch4ariff
+	note	e4,9/2
+	note	e4,3/2
+	rest	6
+	note	e4,9/2
+	note	e4,3/2
+	rest	3/2
+	note	d4,9/2
+	demux	
+ch4criff
+	note	g4,9/2
+	note	g4,3/2
+	rest	6
+	note	g4,9/2
+	note	g4,3/2
+	rest	3/2
+	note	f4,9/2
+	demux
+ch4friff
+	note	f4,9/2
+	note	f4,9/2
+	rest	3
+	note	g4,9/2
+	note	g4,9/2
+	rest	3
+	note	e4,9/2
+	note	e4,9/2
+	rest	3
+	note	g4,9/2
+	note	g4,9/2
+	rest	3
+	demux
+
+
+n15 	voice	LEADGT
+	bxpose	-12,0
+	volume	0
+n15n	rest	48
+	bsec	0
+		rest	288
+		voice	orches
+		volume	8
+		mux		stra5
+		mux		stra5
+		mux		strc5
+		mux		stra5
+		mux		strf5
+		voice	leadgt
+		volume	2
+		mux 	melodya
+		mux		melodyc
+		mux		melodya2
+		mux		melodyf
+	esec
+
+
+stra5
+	note	a4,18
+	note	g4,6
+	note	e4,24
+	demux
+
+strc5
+	note	c4,12
+	note	d5,6
+	note	ds5,6
+	note	as4,6
+	note	d5,12
+	note	as4,6
+	note	c4,12
+	note	as4,12
+	note	f4,24
+	demux
+
+strf5
+	note	g4,24
+	note	a4,12
+	note	g4,12
+	demux	
+
+melodya
+	note	g3,1/2
+	gliss	g3,a3,1/2
+	ring	2
+	note	b3,3/2
+	note	a3,3/2
+	note	b3,1/2
+	gliss	b3,c3,1/2
+	ring	1/2
+	slur	b3,3/2
+	note	g3,3/2
+	slur	a3,9/2
+	note	b3,3/2
+	note	a3,3/2
+	note	ds4,3/2
+	slur	e4,3/2
+	note	g3,3/2
+	note	a3,3
+	note	g3,3/2
+	note	e3,3/2
+	note	a3,3/2
+	ring	6
+	gliss	a3,a2,6
+	rest	9/2
+	note	g3,3/2
+	note	a3,3/2
+	note	a3,3/2
+	note	b3,3/2
+	note	a3,3/2
+	note	ds4,3/2
+	slur	e4,3/2
+	note	g4,3/2
+	note	e4,9/2
+	note	d4,3/2
+	note	e4,3/2
+	note	g4,3/2
+	note	e4,3/2
+	note	d4,3/2
+	note	e4,3/2
+	ring	12
+	cresc	0,10,6
+	ring	6
+	rest	6
+	volume	-10
+	demux
+
+melodyc
+	note	c3,3
+	note	d4,3/2
+	note	c3,3/2
+	note	d4,1/2
+	gliss	d4,ds4,1/2
+	ring	1/2
+	note	d4,3/2
+	note	as3,3/2
+	note	c3,9/2
+	note	d4,3/2
+	note	c3,3/2
+	note	fs4,3/2
+	slur	g4,3/2
+	note	ds4,3/2
+	note	c3,3
+	note	as3,3/2
+	note	g3,3/2
+	note	ds4,3
+	note	d4,3/2
+	note	as3,3/2
+	note	c3,3/2
+	ring	9
+	rest	3
+
+	note	c3,3/2
+	note	c3,3/2
+	note	d4,3/2
+	note	c3,3/2
+	note	fs4,3/2
+	slur	g4,3/2
+	note	as4,3/2
+	note	g4,3/2
+	note	f4,3/2
+	note	g4,3/2
+	note	as4,3/2
+	note	f4,3/2
+	note	g4,3/2
+	note	as4,3/2
+	note	g4,3/2
+	note	f4,3/2
+	note	ds4,3/2
+	slur	d4,3/2
+	note	as3,3/2
+	note	c3,3/2
+	note	as3,3/2
+	note	g3,3/2
+	note	as3,3/2
+	note	f3,3/2
+	ring	9
+	rest	3
+	demux
+
+melodya2
+	note	a3,3
+	note	b3,3/2
+	note	a3,3/2
+	note	c3,3/2
+	slur	b3,3/2
+	note	g3,3/2
+	note	a3,9/2
+	note	b3,3/2
+	note	a3,3/2
+	note	ds4,3/2
+	slur	e4,3/2
+	note	g3,3/2
+	note	a3,3
+	note	g3,3/2
+	note	e3,3/2
+	note	a3,3/2
+	ring	6
+	rest	3/2
+	note	e3,3/2
+	note	f3,3/2
+	note	g3,3/2
+	note	a3,3/2
+	note	b3,3/2
+	note	c3,3/2
+	note	d4,3/2
+	demux
+
+
+melodyf
+	note	ds4,3/2
+	note	d4,3/2
+	note	c3,3/2
+	note	f4,3/2
+	ring	3/2
+	note	ds4,3/2
+	note	d4,3/2
+	note	c3,3
+	note	as3,3/2
+	note	a3,3/2
+	note	d4,3/2
+	ring	3/2
+	note	c3,3/2
+	note	as3,3/2
+	note	g3,3/2
+	slur	a3,3/4
+	note	e3,3/4
+	note	f3,3/4
+	note	g3,3/4
+	note	a3,3/4
+	note	g3,3/4
+	note	a3,3/4
+	note	c3,3/4
+	note	a3,3/4
+	note	b3,3/4
+	note	c3,3/4
+	note	d4,3/4
+	note	ds4,3/4
+	slur	e4,3/4
+	note	g4,3/4
+	note	e4,3/4
+	note	a4,1
+	bsec	11
+		ring	1/4
+		pmload	KFRAC,30
+		ring	1/4
+		pmload	KFRAC,60
+		ring	1/4
+		pmload	KFRAC,30
+		ring	1/4
+		pmload	KFRAC,0
+	esec	    
+	demux
+		
+	
+
+
+n16	voice	Bass.1
+	volume	0
+	rest	1/10
+	mux	n17n
+
+
+n17	voice	AnglBass2a
+	volume	2
+n17n	bsec	2
+	    mux	bassariff
+	esec
+	bsec	0
+		bsec	4
+			mux	bassariff
+		esec
+		bsec	4
+			mux	basscriff
+		esec
+		bsec	2
+			mux	bassariff
+		esec
+		mux	bassfriff
+	esec
+
+
+
+
+bassariff
+	note	a1,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	a2,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	b2,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	ds3,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	e3,3/2
+	note	ds3,3/2
+	demux
+
+
+basscriff
+	note	c1,3/2
+	note	g2,3/2
+	note	as2,3/2
+	note	c1,3/2
+	note	g2,3/2
+	note	c2,3/2
+	note	c1,3/2
+	note	g2,3/2
+	note	d3,3/2
+	note	c1,3/2
+	note	g2,3/2
+	note	ds3,3/2
+	note	c1,3/2
+	note	g2,3/2
+	note	d3,3/2
+	note	as2,3/2
+	demux
+
+bassfriff
+	bxpose	12,0
+	note	f1,3/2	
+	note	c1,3/2
+	note	ds2,3/2
+	note	f1,3/2
+	note	c1,3/2
+	note	ds2,3/2
+	note	c1,3/2
+	note	d1,3
+	note	a1,3/2
+	note	c1,3/2
+	note	d1,3/2
+	note	a1,3/2
+	note	c1,3/2
+	note	a1,3/2
+	note	d1,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	c1,3/2
+	note	d2,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	d2,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	d2,3/2
+	bxpose	-12,0
+	demux
+
+n18	dvol	0
+	bsec	6
+		drums	kick,3
+		drest	3
+	esec
+	mux	drumfill1
+	dvol	4
+	bsec	0
+		mux	drum2barbeat
+	esec
+
+	
+drum2barbeat
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3
+
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	demux
+
+
+drumfill1
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	demux
+
+
+**************************************************************************
+*                                                                        *
+* 	bonus countdown version starts w/ melody						  *
+*                                                                        *
+**************************************************************************
+
+narc1bonus0
+	mux	n10
+narc1bonus1
+	voice	slead6
+	volume	7
+	rest	12
+	bsec	0
+		mux 	melodya
+		mux		melodyc
+		mux		melodya2
+		mux		melodyf
+	esec
+narc1bonus2
+	voice	Rhodes...2
+	volume	8
+	rest	12
+	bsec	0
+		bsec	4
+			mux	ch2ariff
+		esec
+		bsec	4
+			mux	ch2criff
+		esec
+		bsec	2
+			mux	ch2ariff
+		esec
+		mux	ch2friff
+	esec
+
+narc1bonus3
+	rest	12
+	voice	Rhodes...2
+	volume	8
+	bsec	0
+		bsec	4
+			mux	ch3ariff
+		esec
+		bsec	4
+			mux	ch3criff
+		esec
+		bsec	2
+			mux	ch3ariff
+		esec
+		mux	ch3friff
+	esec
+
+narc1bonus4
+	voice	Rhodes...2
+	volume	8 
+	rest	12	
+	bsec	0
+		bsec	4
+			mux	ch4ariff
+		esec
+		bsec	4
+			mux	ch4criff
+		esec
+		bsec	2
+			mux	ch4ariff
+		esec
+		mux	ch4friff
+	esec
+
+narc1bonus5
+ 	voice	LEADGT
+	volume	2
+	rest	12
+	bxpose	-12,0
+	bsec	0
+		mux 	melodya
+		mux		melodyc
+		mux		melodya2
+		mux		melodyf
+	esec
+
+narc1bonus6
+	voice	Bass.1
+	volume	0
+	rest	1/10
+	mux	narc1bonus7n
+
+narc1bonus7
+	voice	AnglBass2a
+	volume	2
+narc1bonus7n
+	rest	12
+	bsec	0
+		bsec	4
+			mux	bassariff
+		esec
+		bsec	4
+			mux	basscriff
+		esec
+		bsec	2
+			mux	bassariff
+		esec
+		mux	bassfriff
+	esec
+
+narc1bonus8
+	bsec	2
+		drums	snare,3/4
+		drums	snare,3/4
+		drums	snare,3/2
+	esec
+	bsec	4
+		drums	htom,3/4
+	esec
+	bsec	4
+		drums	tmtm,3/4
+	esec
+	dvol	4
+	bsec	0
+		mux	drum2barbeat
+	esec
+
+
+
+n1bi0
+	voice	hihatc
+	volume	6
+	bsec	0
+		mark	13,0
+		mux	n10n
+	esec
+n1bi1
+n1bi2
+n1bi3
+n1bi4
+n1bi5
+	mux	rst0
+
+n1bi6	rest	1/10
+n1bi7
+	bsec	0
+	  bsec	36
+		mux	bassariff
+		bxpose	1,0
+	  esec
+	  bxpose	-36,0
+	esec
+n1bi8
+	bsec	0
+		mux	drum2barbeat
+	esec
+* 	include		narc2.mel
+
+
+
+**************************************************************************
+*                                                                        *
+* 	another narc tune												  *
+*	this is tune 6 for mark's sake
+*                                                                        *
+**************************************************************************
+	
+
+
+**************************************************************************
+*                                                                        *
+* 	track 0 hihat	
+*  	track 1	dup of mel
+*	track 2	bass
+*		  3	
+*            4 
+*	track 5	melody
+*	track 6 bass
+*	track 7 bass   
+*	track 8 drums	                                                  *
+**************************************************************************
+
+
+n20
+	voice	hihatc
+	volume	3
+	bsec	0
+		mark	6,0
+		bsec	7
+			note	a2,3/2
+		esec
+		voice	hihato
+		note	a2,3/2
+		voice	hihatc
+		volume	3
+		mark	6,0
+		bsec	5
+			note	a2,3/2
+		esec
+		voice	hihato
+		note	a2,3/2
+		voice	hihatc
+		volume	3
+		note	a2,3/2
+		voice	hihato
+		note	a2,3/2
+		voice	hihatc
+		volume	3
+	esec
+
+n21	voice	slead6
+	bxpose	-12,0
+	volume	3
+	mux	n25n
+
+n22
+	voice	FUZZGU
+	volume	5
+	pmload	kfrac,15
+	mux	n27n
+
+n23	pmload	kfrac,22
+	rest	4/30	
+	mux	n21
+
+
+n24	voice	leadgt
+	volume	4
+	bxpose	-5,0
+	bsec	0
+		cresc	0,20,15
+	    ring	10
+	    gliss	e6,b5,5
+		volume	-20
+		rest	225
+		rest	144
+		rest	144
+		bsec	1
+		  mux	n25a
+		  mux	n25b
+		  mux	n25c
+		esec
+		volume	2
+		bxpose	5,0
+		mux	n25d
+		mux	n25e
+		bxpose	-5,0
+		volume	-2
+	esec
+
+n25	voice	leadgt
+	volume	2
+	bxpose	-12,0
+n25n	bsec	0
+		cresc	0,20,15
+	    ring	10
+	    gliss	e6,b5,5
+		volume	-20
+		rest	225
+		rest	144
+		bsec	2
+		  mux	n25a
+		  mux	n25b
+		  mux	n25c
+		esec
+		volume	2
+		mux	n25d
+		mux	n25e
+		volume	-2
+	esec
+	
+n25intro
+	cresc	0,20,15
+	ring	10
+	gliss	e6,b5,5
+	volume	-20
+	rest	81
+	demux
+
+n25a
+	note	a3,1
+	gliss	a3,b3,1
+	ring	1
+	note	d4,3/2
+	note	a3,1
+	gliss	a3,b3,1
+	ring	5/2
+	note	d4,3/2
+	note	b3,3/2
+	ring	3
+	
+	note	d4,3/2
+	note	e4,3/2
+	rest	3/2
+	note	e4,3/2
+	note	d4,3/2
+	note	b3,3/2
+
+	note	a3,3/2
+	note	g3,3/2
+	note	e3,3/2
+	note	d4,1/2
+	gliss	d4,e4,3/2
+	ring	1
+
+	bsec	5
+		note	a4,1/2
+		gliss	a4,b4,1/2
+		ring	1/2
+	esec
+	note	a4,3/2
+	note	g4,3/2
+	note	e4,3/4
+	note	d4,3/4
+	note	b3,3/4
+	note	d4,3/4
+	note	b3,3/4
+	note	d4,3/4
+	note	e4,3/4
+	note	d4,3/4
+	demux
+
+n25b
+	bsec	2
+	  note	d4,1/2
+	  gliss	d4,e4,1/2
+	  ring	1/2
+	esec
+	note	g4,3/2
+	note	a4,3/2
+	note	as4,3/2
+	note	b4,3/2
+	note	d5,3/2
+	note	b4,3/2
+
+	note	g4,3/4
+	slur	fs4,3/4
+	slur	g4,3/2
+	note	e4,3/2
+	note	fs4,1
+	gliss	fs4,g4,1
+	ring	1/2
+	rest	1/2
+	note	g4,3/2
+	note	fs4,3/2
+	note	d4,3/2
+
+	note	c3,3/2
+	note	b3,3/2
+	note	g3,3/2
+	note	fs4,1
+	gliss	fs4,g4,1
+	ring	1/2
+	rest	1/2
+	note	g3,3/2
+	note	b3,3/2
+	note	d4,3/2
+
+	note	c3,3/4
+	note	d4,3/4
+	note	e4,3/4
+	note	fs4,3/4
+	note	d4,3/4
+	note	e4,3/4
+	note	fs4,3/4
+	note	g4,3/4
+	note	e4,3/4
+	note	fs4,3/4
+	note	g4,3/4
+	note	a4,3/4
+	note	fs4,3/4
+	note	g4,3/4
+	note	a4,3/4
+	note	b4,3/4
+	demux
+
+n25c
+	note	b4,1/2
+	gliss	b4,c4,1/2
+	ring	1/2
+	note	e5,3/2
+	note	c4,3/2
+	note	c4,1
+	gliss	c4,d5,1
+	ring	1
+	note	c4,3/2
+	note	b4,3/4
+	note	a4,3/4
+	note	g4,3/2
+	
+	note	a4,3/2
+	note	c4,3/2
+	note	a4,3/2
+	note	c4,1
+	gliss	c4,d5,1
+	ring	1
+	note	c4,3/2
+	note	b4,3/4
+	note	a4,3/4
+	note	g4,3/2
+
+	note	c3,3/4
+	note	d4,3/4
+	note	e4,3/4
+	note	fs4,3/4
+	note	d4,3/4
+	note	e4,3/4
+	note	fs4,3/4
+	note	d4,3/4
+	note	e4,3/4
+	note	c3,3/4
+	note	a3,3/4
+	note	g4,3/4
+	note	e4,3/4
+	note	c3,3/4
+	note	a4,3/4
+	note	g4,3/4
+	note	e5,3/4
+	note	d5,3/4
+	note	b4,3/4
+	note	g5,3/4
+	note	a5,1/2
+	gliss	a5,b5,1/2
+	ring	1/2
+	note	a5,1
+	gliss	a5,b5,2
+	ring	5/2
+	gliss	b5,e5,2
+	demux
+
+	
+n25d
+	bxpose	12,0
+	note	d4,1
+	gliss	d4,e4,2
+	ring	9/2
+	note	d4,3/2
+	note	e4,3/2
+
+	note	fs4,6
+	ring	3/2	
+	note	fs4,1/2
+	gliss	fs4,g4,1/2
+	ring	1/2
+	note	fs4,3/2
+	note	d4,3/2
+	note	d4,1/2
+	gliss	d4,e4,1
+	ring	9
+	rest	3/2
+	note	fs4,1
+	gliss	fs4,g4,1
+	ring	1
+
+	note	fs4,3/2
+	note	g4,3/2
+	note	g4,1
+	gliss	g4,a4,1
+	ring	1
+	note	g4,3/2
+	note	a4,3/2
+	note	c4,3/2
+	bxpose	-12,0
+	demux
+
+n25e			   
+	bxpose	12,0
+	note	a4,1
+	gliss	a4,b4,1
+	ring	4
+	note	b4,3/2
+	note	g5,3/2
+	note	e5,3/2
+
+	note	c4,1
+	gliss	c4,d5,1
+	ring	10
+	ring	3/2
+
+	note	a4,1/2
+	gliss	a4,b4,1/2
+	ring	1/2
+	note	g5,3/2
+	note	e5,3/2
+	note	d5,3/2
+	note	g5,3/2
+	note	e5,3/2
+	note	d5,3/2
+	note	b4,3/2
+
+	volume	10
+	cresc	10,0,15
+	bsec	2
+	note	a4,3/4
+	note	b4,3/4
+	note	d5,3/4
+	note	b4,3/4
+	note	d5,3/4
+	note	e5,3/4
+	note	g5,3/4
+	note	e5,3/4
+	note	d5,3/4
+	note	e5,3/4
+	note	g5,3/4
+	note	a5,3/4
+	note	d6,3/4
+	note	b5,3/4
+	note	a5,3/4
+	note	e6,3/4
+	esec
+	bxpose	-12,0
+	demux
+	
+
+	
+
+n26	voice	elecgu
+	volume	2
+	mux	n27n
+
+n27	
+	voice	bass5
+	volume	0
+n27n	
+	bsec	0
+		mux	n27intro
+		mux	n27a
+		mux	n27b
+		mux	n27c
+		bsec	3
+		  mux	n27a
+		  mux	n27b
+		  mux	n27c
+		esec
+		mux	n27d
+		mux	n27e
+	esec
+
+n27intro
+	bsec	2
+		note	e2,18
+		rest	3/2
+		note	d2,3/2
+		rest	3/2
+		note	d2,3/2
+		note	e2,24
+	esec
+	demux
+
+n27a
+	note	e2,15
+	rest	3/2
+	note	e2,3/2
+	rest	3/2
+	note	e2,3/2
+	note	d2,3/2
+	note	b1,3/2
+	note	a1,3/2
+	note	g1,3/2
+	note	e1,3/2
+	note	e2,39/2
+	demux
+
+n27b
+	note	e2,15
+	rest	3/2
+	note	e2,3/2
+	rest	3/2
+	note	e2,3/2
+	note	d2,3/2
+	note	b1,3/2
+	note	a1,3/2
+	note	g1,3/2
+	note	e1,3/2
+	note	e2,15/2
+	ring	6
+	rest	3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	demux
+	
+
+n27c
+	note	a2,3/2
+	note	e2,3/2
+	note	a2,3/2
+	note	g2,6
+	note	d2,3
+	note	a1,3/2
+	note	d2,3/2
+	note	c1,15/2
+	bsec	7
+		note	a1,3/2
+	esec
+	note	g1,3
+	note	a1,3/2
+	note	as1,3/2
+	note	b1,3
+	note	b1,3/2
+	note	d2,3/2
+	note	b1,3/2
+	demux
+
+n27d
+	bsec	5
+		note	e2,3/2
+	esec
+	note	g2,3/2
+	note	e2,3/2
+	note	d2,3
+	bsec	4
+		note 	d2,3/2
+	esec
+	note	g2,3/2
+	note	d2,3/2
+	note	c1,3
+	note	c1,3/2
+	note	c1,3/2
+	note	c1,3/2
+	note	c1,3/2
+	note	b1,3/2
+	note	fs1,3/2
+	note	g1,3
+	note	g1,3/2
+	note	g1,3/2
+	note	fs1,3
+	note	fs1,3/2
+	note	fs1,3/2
+	note	fs1,3/2
+	demux
+
+n27e
+	bsec	5
+		note	e2,3/2
+	esec
+	note	g2,3/2
+	note	e2,3/2
+	note	fs2,3
+	bsec	4
+		note	fs2,3/2
+	esec
+	note	a2,3/2
+	note	fs2,3/2
+	note	g2,3
+	note	d2,3/2
+	note	g2,3/2
+	note	fs2,3
+	note	d2,3/2
+	note	fs2,3/2
+	note	f2,3
+	volume	15
+	bsec	7
+		note	f2,3/2
+		volume	-1
+	esec
+	bsec	8
+		note	f2,3/2
+		volume	-1
+	esec
+	demux
+	
+
+n28	
+	dvol	1
+	bsec	0
+		mux	n28intro
+		mux	n28a
+		mux	n28b
+		mux	n28c
+		bsec	3
+		  mux	n28a
+		  mux	n28b
+		  mux	n28c
+		esec
+		mux	n28d
+		mux	n28e
+	esec
+	
+
+
+
+n28intro
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2	
+	drums	snare,3
+	
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3
+	
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+	drums	snare,3/2	
+	
+
+
+
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2	
+	drums	snare,3
+	
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+
+	bsec	4
+		drums	snare,3/2
+		drums	kick,3/2
+	esec
+	dvol	16
+	bsec	4
+		dvol	-3
+		drums	snare,3/4
+		dvol	3
+		drums	snare,3/4
+		drums	snare,3/4
+		drums	snare,3/4
+		dvol	-4
+	esec
+	demux
+
+n28a
+n28c
+n28d
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+	
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+	drums	snare,3/2
+	demux
+n28b
+
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+	
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+	drums	snare,3/2
+	demux
+
+n28e	
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+	
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3/2
+	dvol	21
+	bsec	7
+		drums	snare,3/2
+		dvol	-3
+	esec
+	bsec	8
+		drums	snare,3/2
+	esec
+	demux
+
+
+
+
+n2bi0
+	bsec	0
+		mark	14,0
+		bsec	7
+			note	a2,3/2
+		esec
+		voice	hihato
+		note	a2,3/2
+		voice	hihatc
+		volume	3
+		mark	14,0
+		bsec	5
+			note	a2,3/2
+		esec
+		voice	hihato
+		note	a2,3/2
+		voice	hihatc
+		volume	3
+		note	a2,3/2
+		voice	hihato
+		note	a2,3/2
+		voice	hihatc
+		volume	3
+	esec
+n2bi1
+n2bi2	
+n2bi3	mux	rst0
+n2bi4
+n2bi5
+n2bi6
+n2bi7
+	bsec	0
+		bsec	36
+			note	e2,6
+			rest	3/2
+			note	d2,3
+			note	d2,3/2
+			note	e2,6
+			rest	3/2
+			note	d2,3
+			note	d2,3/2
+		    bxpose	1,0
+		esec
+		bxpose	-36,0
+	esec	
+n2bi8
+	bsec	0
+		mux	n28a
+	esec
+
+* 	include		narc3.mel
+
+
+
+**************************************************************************
+*                                                                        *
+* 	yet another narc tune												  *
+*	tune 7 for mark's sake
+*                                                                        *
+**************************************************************************
+	
+
+
+**************************************************************************
+*                                                                        *
+* 	track 0 hihat	
+*  	track 1	dup of mel
+*	track 2	bass
+*		  3	
+*            4 
+*	track 5	melody
+*	track 6 bass
+*	track 7 bass   
+*	track 8 drums	                                                  *
+**************************************************************************
+
+
+n30	rest	3/60
+	pmload	kfrac,20
+n31
+	mark	7,0
+	bsec	0	
+	  mark	7,$ff
+	  bsec	8
+		voice	hihato
+		note	a2,3/4
+		voice	hihatc
+		volume	7
+		bsec	3
+			note	a2,3/4
+		esec
+	  esec
+	esec
+
+
+n32 	voice	jazzgut2
+	volume	3
+	mux	n37n
+
+
+n33 	voice	slead6
+	volume	3
+	bxpose	12,0
+	mux	n35n
+	
+
+n34   	voice	tlead6a
+	volume	2
+n34n	mux	n34introa
+	bsec	0
+n34m0
+		mux	n34introb
+		bsec	4
+			rest	48
+		esec
+		mux	n34d
+		mux	n34d
+n34m1
+		mux	n34a
+		mux	n34b
+		mux	n34c
+n34m2
+		mux	n34e
+	esec
+      
+
+n34introa
+	rest	48
+	demux
+n34introb
+	rest	96
+	demux
+n34a
+	note	g2,9/2
+	note	a2,9/2
+	note	g2,3/2
+	rest	3/2
+	note	g2,9/2
+	note	b2,9/2
+	note	a2,3/2
+	note	fs2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	rest	9
+	rest	12
+		
+	note	g2,9/2
+	note	a2,9/2
+	note	g2,3/2
+	rest	3/2
+	note	g2,9/2
+	note	b2,9/2
+	note	a2,3/2
+	note	g2,3/2
+	note	b2,3/2
+	note	a2,3/2
+	ring	21
+	demux
+n34b
+	note	d3,12
+	note	cs3,6
+	note	c2,6
+	note	b2,3/2
+	note	g2,3/2
+	rest	9
+	rest	12
+	demux
+n34c				
+	note	a2,24
+	note	g2,3/2
+	note	e2,3/2
+	rest	9
+	rest	12
+	demux
+
+n34d
+	note	e2,3/2
+	note	e2,3/2
+	rest	6
+	note	e2,3/2
+	note	e2,3/2
+	rest	12
+	note	e2,3/2
+	note	e2,3/2
+	rest	6
+	note	e2,3/2
+	note	e2,3/2
+	rest	12
+	demux
+n34e	
+	bsec	2
+		rest	312
+	esec
+	demux
+
+
+n35	voice	tlead6a
+	bxpose	0,0
+	volume	5
+n35n	mux	n35introa
+	bsec	0
+n35m0		
+		mux	n35introb
+		mux	n35a
+		mux	n35b
+		mux	n35c
+		mux	n35d
+		mux	n35d
+n35m1
+		mux	n35a
+		mux	n35b
+		mux	n35c
+n35m2
+		mux	n35e
+	esec
+
+n35introa
+	rest	48
+	demux
+
+n35introb
+	rest	96
+	demux
+n35a
+	note	e2,9/2
+	note	fs2,9/2
+	note	e2,3/2
+	note	d2,3/2
+	note	e2,9/2
+	note	g2,9/2
+	note	fs2,3/2
+	note	d2,3/2
+	note	e2,3/2
+	note	e1,3/2
+	rest	9
+	rest	12
+ 
+	note	e2,9/2		
+	note	fs2,9/2
+	note	e2,3/2
+	rest	3/2
+	note	e2,9/2
+	note	g2,9/2
+	note	fs2,3/2
+	note	e2,3/2
+	note	d3,3/2
+	note	cs3,3/2
+	bsec	21
+		pmload	kfrac,30
+		ring	1/2
+		pmload	kfrac,0
+		ring	1/2
+	esec
+	demux
+n35b
+	note	b2,12
+	note	as2,6
+	note	a2,6
+	note	g2,3/2
+	note	e2,3/2
+	ring	3
+	rest	6
+	rest	12
+	demux
+n35c
+	note	e3,9
+	note	d3,3/2
+	note	b2,3/2
+	note	a2,3/2
+	note	b2,3/2
+	note	d3,3/2
+	note	e3,3/2
+	note	d3,3/2
+	note	b2,3/2
+	note	a2,3/2
+	note	b2,3/2
+	note	g2,3/2
+	note	fs2,3/2
+	note	d2,3/2
+	note	e2,3/2
+	ring	6
+	rest	12
+	demux
+
+n35d
+	note	b2,3/2
+	note	b2,3/2
+	rest	6
+	note	b2,3/2
+	note	b2,3/2
+	rest	12
+	note	b2,3/2
+	note	b2,3/2
+	rest	6
+	note	b2,3/2
+	note	b2,3/2
+	rest	12
+	demux
+n35e
+	rest	144
+	bsec	2
+		note	e2,3/2
+		note	fs2,3/2
+		note	g2,3/2
+		note	e2,3/2
+		note	b2,3/2
+		rest	3
+		note	as2,3/2
+		rest	9/2
+		note	b2,3/2	
+		rest	3/2
+		note	as2,3/2
+		note	a2,3/2
+		note	d2,3/2
+	esec
+	ring	48
+	note	e2,3/2	
+	note	e2,3/2
+	
+	rest	285
+	rest	48
+	bsec	2
+		note	e2,3/2
+		note	fs2,3/2
+		note	g2,3/2
+		note	e2,3/2
+		note	b2,3/2
+		rest	3
+		note	as2,3/2
+		rest	9/2
+		note	b2,3/2	
+		rest	3/2
+		note	as2,3/2
+		note	a2,3/2
+		note	d2,3/2
+	esec
+	demux
+	
+	
+
+
+n36	voice	jazzgut2
+	pmload	ams,1
+	pmload	aenc2,1
+	bxpose	12,0
+	volume	1
+	mux	n35n
+
+n37	voice	tubass
+	bxpose	-12,0
+	volume	2
+n37n	mux	n37introa
+	bsec	0
+n37m0		mark	7,0
+		mux	n37introb
+		mux	n37a
+		mux	n37b
+		mux	n37c
+		mux	n37d
+		mux	n37d
+n37m1		mark	7,1
+		mux	n37a
+		mux	n37b
+		mux	n37c
+n37m2		mark	7,2
+		mux	n37e
+	esec
+
+
+n37introa
+	rest	48
+	demux
+n37introb
+	bsec	64
+		note	e2,3/2
+	esec
+	demux
+
+n37a
+	bsec	64
+		note	e2,3/2
+	esec
+	demux
+n37b
+	bsec	8
+		note	g2,3/2
+	esec
+	bsec	4
+		note	fs2,3/2
+	esec
+	bsec	4
+		note	f2,3/2
+	esec
+	bsec	16
+		note	e2,3/2
+	esec
+	demux
+
+n37c
+	bsec	16
+		note	a2,3/2
+	esec
+	bsec	16
+		note	e2,3/2
+	esec
+	demux
+
+n37d
+	note	e2,3/2
+	note	e2,3/2
+	rest	6
+	note	e2,3/2
+	note	e2,3/2
+	rest	12
+	note	e2,3/2
+	note	e2,3/2
+	rest	6
+	note	g2,3/2
+	note	e2,3/2
+	rest	12
+	demux
+
+n37e
+	bsec	2
+		note	e2,3/2
+		note	fs2,3/2
+		note	g2,3/2
+		note	e2,3/2
+		note	b2,3/2
+		rest	3
+		note	as2,3/2
+		rest	9/2
+		note	b2,3/2	
+		rest	3/2
+		note	as2,3/2
+		note	a2,3/2
+		note	d2,3/2
+		note	e2,6
+		rest	18
+	esec
+	bsec	4
+		note	e2,3/2
+		note	fs2,3/2
+		note	g2,3/2
+		note	e2,3/2
+		note	b2,3/2
+		rest	3
+		note	as2,3/2
+		rest	9/2
+		note	b2,3/2	
+		rest	3/2
+		note	as2,3/2
+		note	a2,3/2
+		note	d2,3/2
+	esec
+	ring	48
+
+* solo starts
+	
+	note	e2,3/2
+	note	e2,3/2
+	rest	6
+	note	g2,3/2
+	note	e2,3/2
+
+	note	b2,3/2
+	slur	d3,3/2
+	note	d2,3/2
+	note	b2,3/2
+	note	g3,3/2
+	note	fs3,3/2
+	note	f3,3/2
+	note	ds3,3/2
+
+	note	e3,3/2
+	note	d3,3/2
+	note	b2,3/2
+	note	d3,3/2
+	rest	3/2
+	note	b2,3/2
+	note	a2,3/2
+	note	b2,3/2
+
+	rest	9/2
+	note	b2,3/2
+	rest	3/2
+	note	b2,3/2
+	note	b3,3/2
+	note	d3,3/2
+
+	note	d3,3/2
+	slur	e3,3/2
+	note	e3,3/2
+	note	e3,3/2
+	note	e3,3/2	
+	note	d3,3/2
+	note	b2,3/2
+	note	g3,3
+
+	slur	a3,3/2
+	note	a3,3/2
+	note	a3,3/2
+	note	a3,3/2
+	note	g3,3/2
+	note	d3,3/2
+	note	b2,3/2
+
+	note	as3,3/2
+	slur	b3,3/2
+	note	b3,3/2
+	note	g3,3/2
+	slur	a3,3/2
+	note	a3,3/2
+	note	fs3,3/2
+	slur	g3,3/2
+
+	note	g3,3/2
+	note	d3,3/2
+	slur	e3,3/2
+	note	e3,3/2
+	note	d3,3/2
+	note	b2,3/2
+	note	a2,3/2
+	note	g2,3/2
+
+	note	d2,9
+	rest	3/2
+	note	e3,3/2
+
+	rest	9/2
+	note	e3,3/2
+	rest	3/2
+	note	e3,3/2
+	note	b2,3/2
+	note	b1,3/2
+
+	note	e2,3/2
+	note	e2,3/2
+	note	e3,3/2
+	note	e2,3/2
+	rest	9/2
+	note	e3,3/2
+
+	rest	9/2
+	note	a3,3/2
+	rest	3/2
+	note	g3,3/2
+	note	fs3,3/2
+	note	e3,3/2
+
+	note	e2,3/2
+	note	e2,3/2
+	note	e3,3/2
+	note	e2,3/2
+	rest	9/2
+	note	a3,3/2
+
+	rest	9/2
+	note	b3,3/2
+	rest	3/2
+	note	as3,3/2
+	note	a3,3/2
+	note	d3,3/2
+
+	note	e2,3/2
+	note	e2,3/2
+	note	e3,3/2
+	note	e2,3/2
+	note	c3,3/2
+	note	b3,3/2
+	note	g3,3/2
+	note	e4,3/2
+			   
+	note	e2,3/2
+	note	d3,3/2
+	note	b2,3/2
+	note	e4,3/2
+      	note	e2,3/2
+	note	d4,3/2
+	note	b3,3/2
+	note	a3,3/2
+
+	bxpose	-12,0
+	note	b3,3/2
+	note	b3,3/2
+	note	as3,3/2
+	note	as3,3/2
+	note	a3,3/2
+	note	a3,3/2
+	note	gs3,3/2
+	note	gs3,3/2
+	
+	note	a3,3/2
+	note	a3,3/2
+	note	g3,3/2
+	note	g3,3/2
+	note	fs3,3/2
+	note	fs3,3/2	
+	note	d3,3/2
+	note	d3,3/2
+	
+	note	e3,3/2
+	note	b2,3/2
+	note	d3,3/2
+	note	f3,3/2
+	note	c2,3/2
+	note	ds3,3/2
+	note	fs3,3/2
+	note	cs3,3/2
+
+	note	ds3,3/2
+	note	g3,3/2
+	note	d3,3/2
+	note	e3,3/2
+	note	gs3,3/2
+	note	ds3,3/2
+	note	fs3,3/2
+	note	a3,3/2
+
+	note	b3,3/2
+	note	a3,3/2
+	note	fs3,3/2
+	note	b2,3/2
+	rest	3/2
+	note	a3,3/2
+	note	fs3,3/2
+	note	b3,3/2
+
+	rest	9/2
+	bxpose	12,0
+	note	b2,3/2
+	rest	3/2
+	note	b2,3/2
+	note	a2,3/2
+
+	note	d2,3/2
+	ring	12
+	note	d2,12
+	bsec	4
+		note	e2,3/2
+		note	fs2,3/2
+		note	g2,3/2
+		note	e2,3/2
+		note	b2,3/2
+		rest	3
+		note	as2,3/2
+		rest	9/2
+		note	b2,3/2	
+		rest	3/2
+		note	as2,3/2
+		note	a2,3/2
+		note	d2,3/2
+	esec
+	demux	
+
+
+n38	dvol	0
+	mux	n38introa
+	bsec	0
+n38m0		mux	n38introb
+		mux	n38a
+		mux	n38b
+		mux	n38c
+		mux	n38d1
+		mux	n38d2
+n38m1
+		mux	n38a
+		mux	n38b
+		mux	n38c
+n38m2
+		mux	n38e
+	esec
+
+
+n38introa
+	bsec	8
+		drums	kick,3
+	esec
+	bsec	4
+		drums	snare,3/2
+		drums	kick,3/2
+	esec
+
+	dvol	16
+	bsec	4
+	  drums	snare,3/4
+	  dvol	2
+	  bsec	3
+		drums	snare,3/4
+		dvol	-2
+	  esec
+	esec
+	demux
+
+n38introb
+	bsec	3
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	snare,3
+	drums	snare,3/2
+	esec
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+	drums	snare,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+	drums	snare,3/2
+	demux
+
+n38a
+	bsec	4
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	snare,3
+	drums	snare,3/2
+	esec
+   	demux
+n38b
+n38c
+	bsec	2
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	snare,3
+	drums	snare,3/2
+	esec
+   	demux
+
+n38d1
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+
+	bsec	8
+		drums	kick,3/2
+	esec
+
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	bsec	2
+		drums	snare,3/4
+		drums	snare,3/4
+		drums	snare,3/2
+	esec
+
+	demux
+
+n38d2
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+	drums	snare,3/2
+	drums	snare,3/2
+	drums	kick,3/4
+	drums	kick,3/4
+	drums	snare,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+
+	dvol	16
+	bsec	4
+	  drums	snare,3/4
+	  dvol	2
+	  bsec	3
+		drums	snare,3/4
+		dvol	-2
+	  esec
+	esec
+	demux
+
+
+
+n38e
+* a
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,9/2
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+	
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,9/2
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+	
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	snare,3/2	
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+
+	drums	htom,3/4
+	drums	htom,3/4
+	drums	snare,3/2
+	drums	tmtm,3/4
+	drums	tmtm,3/4
+	drums	snare,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+
+* b
+	bsec	4
+		drums	kick,3
+		drums	snare,3
+		drums	kick,3
+		drums	snare,3/2
+		drums	kick,9/2
+		drums	snare,3/2
+		drums	kick,3
+		drums	kick,3/2
+		drums	snare,3
+	esec
+* c	
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	htom,3
+	drums	htom,3/2
+	drums	tmtm,3
+	drums	tmtm,3/2
+	drums	tmtm,3/4
+	drums	tmtm,3/4
+	drums	tmtm,3/2
+
+
+	dvol	16
+	bsec	4
+	  drums	snare,3/4
+	  dvol	2
+	  bsec	3
+		drums	snare,3/4
+		dvol	-2
+	  esec
+	esec
+
+
+* d
+	bsec	10
+		drums	kick,3
+		drums	snare,3
+		drums	kick,3
+		drums	snare,3/2
+		drums	kick,9/2
+		drums	snare,3/2
+		drums	kick,3
+		drums	kick,3/2
+		drums	snare,3
+	esec	
+
+* e
+
+	bsec	6
+		drums	kick,3
+		drums	snare,3
+		drums	kick,3
+		drums	snare,3/2
+		drums	kick,9/2
+		drums	snare,3/2
+		drums	kick,3
+		drums	kick,3/2
+		drums	snare,3
+	esec	
+	demux
+	
+
+
+
+
+
+n3bi0
+	rest	3/60
+	pmload	kfrac,20
+n3bi1
+	bsec	0	
+	  mark	7,$ff
+	  bsec	8
+		voice	hihato
+		note	a2,3/4
+		voice	hihatc
+		volume	7
+		bsec	3
+			note	a2,3/4
+		esec
+	  esec
+	esec
+
+n3bi2
+	mux	n3bi7
+n3bi3
+n3bi4
+n3bi5
+n3bi6
+	mux	rst0
+n3bi7
+	bxpose	-12,0
+	bsec	0
+	  bsec	18
+		note	e2,3/2
+		note	fs2,3/2
+		note	g2,3/2
+		note	e2,3/2
+		note	b2,3/2
+		rest	3
+		note	as2,3/2
+		rest	9/2
+		note	b2,3/2	
+		rest	3/2
+		note	as2,3/2
+		note	a2,3/2
+		note	d2,3/2
+	    bxpose	2,0
+	  esec
+	  bxpose	-36,0
+	esec
+n3bi8
+	bsec	0
+		drums	kick,3
+		drums	snare,3
+		drums	kick,3
+		drums	snare,3/2
+		drums	kick,9/2
+		drums	snare,3/2
+		drums	kick,3
+		drums	kick,3/2
+		drums	snare,3
+	esec
+* 	include		trans.mel
+
+
+**************************************************************************
+*                                                                        *
+* 	transition to silence for spy (driving) theme					  *
+*                                                                        *
+**************************************************************************
+
+spyts0
+	bsec	2
+	  bsec	7
+		note	a2,3/2
+	  esec
+	  pmload	D2RC2,9
+	  note	a2,3/2
+	  pmload	D2RC2,$d
+	esec
+	mux	rst0
+
+
+spyts1	
+	bsec	2
+		note 	e3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	fs3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	g3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	a3,3/4
+		note	e3,3/4
+		note	e3,3/4
+		note	b3,3/4
+		note	e3,3/4
+		note	d4,3/4
+		note	e3,3/4
+	esec
+	mux	rst0
+
+spyts2
+	rest	45/2
+	volume	4
+	note	cs4,3/2
+	ring	2
+	cresc	4,24,15
+	ring	40
+	mux	rst0
+spyts3
+	rest	45/2
+	note	g3,3/2
+	ring	2
+	cresc	0,20,15
+	ring	40
+	mux	rst0
+spyts4
+	note	e4,3
+	note	d4,3/2
+	note	b3,3/2
+	note	d4,3
+	note	b3,3/2
+	note	a3,3/2
+
+	note	b3,3/2
+	note	b3,3/2
+	note	as3,3/2
+	note	b3,3/2
+	note	a3,3/2
+	note	g3,3/2
+	note	d3,3/2
+	note	fs4,3/2
+	ring	2
+	cresc	0,20,15
+	ring	40
+	mux	rst0
+spyts5
+	mux	spyts2
+spyts6
+
+	
+spyts7
+	note	e2,3
+	note	d2,3/2
+	note	b1,3/2
+	note	d2,3
+	note	b1,3/2
+	note	a1,3/2
+
+	note	b1,3/2
+	note	b1,3/2
+	note	as1,3/2
+	note	b1,3/2
+	note	a1,3/2
+	note	g1,3/2
+	note	d1,3/2
+	note	e1,3/2
+	cresc	0,20,20
+	ring	40
+	mux	rst0
+
+
+spyts8
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3
+
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	mux	rst8
+	
+
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	trans to silence for narc theme									  *
+*                                                                        *
+**************************************************************************
+
+
+
+n1ts0	voice	hihatc
+	volume	6
+	bsec	7
+		note	a2,3/2
+		volume	3
+		note	a2,3/2
+		volume	-3
+	esec
+	note	a2,3/2
+	voice	hihato
+	volume	5
+	note	a2,3/2
+	mux	rst0
+
+n1ts1
+	bxpose	-12,0
+	volume	5
+	mux	n1ts5n
+
+n1ts2
+	mux	ch2ariff
+	mux	rst0
+
+n1ts3
+	mux	ch3ariff
+	mux	rst0
+
+n1ts4
+	mux	ch4ariff
+	mux	rst0
+
+n1ts5
+ 	voice	LEADGT
+	bxpose	-12,0
+n1ts5n	note	a3,3
+	note	b3,3/2
+	note	a3,3/2
+	note	c3,3/2
+	note	b3,3/2
+	note	g3,3/2
+	note	a3,9/2
+	note	b3,3/2
+	note	a3,3/2
+	note	e4,3/2
+	note	c3,3/2
+	note	g4,3/2
+	note	a4,9/2
+	cresc	0,5,20
+	gliss	a4,a1,24
+	ring	20
+	cresc	5,60,15
+	ring	15
+	mux	rst0
+
+n1ts6
+	rest	1/10
+	mux	n1ts7n
+
+n1ts7
+n1ts7n	note	a1,3/2
+	note	e2,3/2
+	note	g2,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	a2,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	b2,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	ds3,3/2
+	note	a1,3/2
+	note	e2,3/2
+	note	e3,3/2
+	note	a2,24
+	mux	rst0
+	
+n1ts8
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	kick,3
+
+	drums	kick,3/2
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3/4
+	drums	snare,3/4
+	drums	snare,3/2
+	mux	rst8
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	trans to sil for narc2											  *
+*                                                                        *
+**************************************************************************
+
+
+
+
+n2ts0	voice	hihatc
+	bsec	16
+		note	a2,3/2
+	esec
+	pmload	RLOUT,0
+	mux	rst0
+n2ts1
+n2ts2
+	mux	rst0
+n2ts3
+n2ts4
+n2ts5
+n2ts6
+n2ts7
+	note	e2,15
+	rest	3/2
+	note	e2,3/2
+	rest	3/2
+	note	e2,3/2
+	note	d2,3/2
+	note	b1,3/2
+	note	a1,3/2
+	note	g1,3/2
+	note	d1,3/2
+	note	e1,39/2
+	cresc	0,40,40
+	ring	40
+	mux	rst0
+
+n2ts8
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3/2
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3
+
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+
+	mux	rst8
+	
+
+**************************************************************************
+*                                                                        *
+* 	trans to silence for narc3 theme								  *
+*                                                                        *
+**************************************************************************
+
+
+n3ts0
+	rest	3/60
+	pmload	kfrac,20
+n3ts1
+	bsec	8
+		voice	hihato
+		note	a2,3/4
+		voice	hihatc
+		volume	7
+		bsec	3
+			note	a2,3/4
+		esec
+	esec
+	pmload	RLOUT,0
+	mux	rst0
+
+n3ts2
+	mux	n3ts7
+n3ts3	
+	mux	n3ts7
+n3ts4	mux	n3ts7
+n3ts5
+n3ts6
+	pmload	RLOUT,0
+	mux	rst0
+n3ts7
+	bxpose	-12,0
+	note	e2,3/2
+	note	fs2,3/2
+	note	g2,3/2
+	note	e2,3/2
+	note	b2,3/2
+	rest	3
+	note	as2,3/2
+	rest	9/2
+	note	b2,3/2	
+	rest	3/2
+	note	b2,3/2
+	note	d2,3/2
+	note	e2,3/2
+	ring	40
+	cresc	0,50,50
+	ring	50
+	mux	rst0
+	
+n3ts8
+	drums	kick,3
+	drums	snare,3
+	drums	kick,3
+	drums	snare,3/2
+	drums	kick,9/2
+	drums	snare,3/2
+	drums	kick,3
+	drums	kick,3/2
+	drums	snare,3/2
+	drums	snare,3/2
+	mux	rst8
+
+
+
+
+
+
+
+
+**************************************************************************
+*                                                                        *
+* 	trans to second verse of stick music							  *
+*                                                                        *
+**************************************************************************
+
+
+n3tv20	
+	mux	n30
+n3tv21
+	mux	n31
+n3tv22
+ 	voice	jazzgut2
+	volume	3
+	secset	n37m0,0
+	mux		n37m1
+
+n3tv23
+ 	voice	slead6
+	volume	3
+	bxset	12,0
+	secset	n35m0,0
+	mux		n35m1
+
+n3tv24
+   	voice	tlead6a
+	volume	2
+	secset	n34m0,0
+	mux		n34m1
+n3tv25
+	voice	tlead6a
+	volume	5
+	secset	n35m0,0
+	mux		n35m1
+n3tv26
+	voice	jazzgut2
+	pmload	ams,1
+	pmload	aenc2,1
+	bxset	12,0
+	volume	1
+	secset	n35m0,0
+	mux		n35m1
+
+n3tv27
+	voice	tubass
+	bxpose	-12,0
+	volume	2
+	secset	n37m0,0
+	mux		n37m1
+n3tv28
+	secset	n38m0,0
+	mux		n38m1
+
+
+**************************************************************************
+*                                                                        *
+* 	trans to middle of narc3 stick music (solo)						  *
+*                                                                        *
+**************************************************************************
+
+
+n3tsolo0	
+	mux	n30
+n3tsolo1
+	mux	n31
+n3tsolo2
+ 	voice	jazzgut2
+	volume	3
+	secset	n37m0,0
+	mux		n37m2
+
+n3tsolo3
+ 	voice	slead6
+	volume	3
+	bxset	12,0
+	secset	n35m0,0
+	mux		n35m2
+
+n3tsolo4
+   	voice	tlead6a
+	volume	2
+	secset	n34m0,0
+	mux		n34m2
+n3tsolo5
+	voice	tlead6a
+	volume	5
+	secset	n35m0,0
+	mux		n35m2
+n3tsolo6
+	voice	jazzgut2
+	pmload	ams,1
+	pmload	aenc2,1
+	bxset	12,0
+	volume	1
+	secset	n35m0,0
+	mux		n35m2
+
+n3tsolo7
+	voice	tubass
+	bxpose	-12,0
+	volume	2
+	secset	n37m0,0
+	mux		n37m2
+n3tsolo8
+	secset	n38m0,0
+	mux		n38m2
+
+* 	include		rest.mel
+
+
+rst0
+rst1
+	bsec	0
+		rest	2
+	esec
+
+rst8
+rst9
+	bsec	0
+		drest	2
+	esec
+
+
+
+
+
+
+
+     
+

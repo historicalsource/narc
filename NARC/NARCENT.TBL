@@ -1,0 +1,14 @@
+	.DATA
+hand:
+	.word	124,37,0,0
+	.long	>3135F20,hand40
+fing:
+	.word	37,50,0,0
+	.long	>313EE80,hand40
+b_hand:
+	.word	124,37,0,0
+	.long	>3135F20,black1
+b_fing:
+	.word	37,50,0,0
+	.long	>313EE80,black1
+	.TEXT

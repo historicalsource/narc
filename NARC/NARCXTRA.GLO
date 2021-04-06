@@ -1,0 +1,3 @@
+	.globl	brnbug,redbug,grnbug,blkbug
+	.GLOBL	blulof,grelof,fnklof,pnklof
+
